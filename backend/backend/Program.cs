@@ -1,5 +1,7 @@
 using backend.Core.DbContext;
 using backend.Core.Entities;
+using backend.Core.Interfaces;
+using backend.Core.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -22,13 +24,20 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     var connectionString = builder.Configuration.GetConnectionString("local");
     options.UseSqlServer(connectionString);
-
-    //Add identity
-    builder.Services
-    .AddIdentity<ApplicationUser, IdentityRole>()
-    .AddEntityFrameworkStores<ApplicationDbContext>()
-    .AddDefaultTokenProviders();
 });
+
+
+//Dependency injection
+builder.Services.AddScoped<ILogService, LogService>();
+
+
+////Add identity
+builder.Services
+.AddIdentity<ApplicationUser, IdentityRole>()
+.AddEntityFrameworkStores<ApplicationDbContext>()
+.AddDefaultTokenProviders();
+
+
 
 //Config identity
 builder.Services.Configure<IdentityOptions>(options =>
