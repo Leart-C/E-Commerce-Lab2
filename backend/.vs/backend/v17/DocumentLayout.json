@@ -1,12 +1,37 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\techcom\\desktop\\e-commerce-lab2\\backend\\backend\\core\\entities\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\entities\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "backend\\Core\\Entities\\ApplicationUser.cs",
+              "ToolTip": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\ApplicationUser.cs",
+              "RelativeToolTip": "backend\\Core\\Entities\\ApplicationUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T14:58:29.664Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
