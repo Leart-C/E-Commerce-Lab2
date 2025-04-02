@@ -192,8 +192,22 @@ namespace backend.Core.Services
             var userInfo = GenerateUserInfoObject(user, roles);
             await _logService.SaveNewLog(user.UserName, "New Log");
 
+            // Gjenerojmë një Refresh Token dhe e ruajmë
+            var refreshToken = GenerateRefreshToken();
+            user.RefreshTokens.Add(new RefreshToken
+            {
+                UserId = user.Id,
+                Token = refreshToken,
+                ExpiryDate = DateTime.UtcNow.AddDays(7),
+                IsRevoked = false
+            });
+
+            await _userManager.UpdateAsync(user);
+            await _logService.SaveNewLog(user.UserName, "User logged in.");
+
             return new LoginServiceResponseDto() {
                 NewToken = newToken,
+                RefreshToken = refreshToken,
                 UserInfo = userInfo
             };
 
@@ -329,6 +343,43 @@ namespace backend.Core.Services
                 Roles = Roles
             };
         }
+
+        public async Task<string?> RefreshAccessTokenAsync(string refreshToken)
+        {
+            // Gjejmë userin nga RefreshToken
+            var user = await _userManager.Users
+                .Include(u => u.RefreshTokens)
+                .FirstOrDefaultAsync(u => u.RefreshTokens.Any(rt => rt.Token == refreshToken && !rt.IsRevoked));
+
+            if (user == null)
+                return null;
+
+            var existingToken = user.RefreshTokens.First(rt => rt.Token == refreshToken);
+
+            // Kontrollojmë nëse është i skaduar
+            if (existingToken.ExpiryDate < DateTime.UtcNow)
+            {
+                existingToken.IsRevoked = true;
+                return null;
+            }
+
+            // Gjenerojmë një access token të ri
+            var newAccessToken = await GenerateJWTTokenAsync(user);
+
+            return newAccessToken;
+        }
+
+
+        private string GenerateRefreshToken()
+        {
+            var randomNumber = new byte[32];
+            using (var rng = new System.Security.Cryptography.RNGCryptoServiceProvider())
+            {
+                rng.GetBytes(randomNumber);
+            }
+            return Convert.ToBase64String(randomNumber);
+        }
+
 
 
     }

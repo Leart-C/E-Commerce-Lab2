@@ -124,6 +124,21 @@ namespace backend.Controllers
             }
         }
 
-        
+        // Route -> Refresh Token
+        [HttpPost("refresh-token")]
+        public async Task<IActionResult> RefreshToken([FromHeader] string refreshToken)
+        {
+            var newAccessToken = await _authService.RefreshAccessTokenAsync(refreshToken);
+
+            if (newAccessToken == null)
+            {
+                return Unauthorized("Invalid or expired refresh token.");
+            }
+
+            return Ok(new { AccessToken = newAccessToken });
+        }
+
+
+
     }
 }

@@ -14,5 +14,7 @@ namespace backend.Core.Interfaces
         Task<IEnumerable<UserInfoResult>>GetUsersListAsync();
         Task<UserInfoResult> GetUserDetailsByUserNameAsync(string userName);
         Task<IEnumerable<string>> GetUsernamesListAsync();
+        Task<string?> RefreshAccessTokenAsync(string refreshToken);
+
     }
 }
