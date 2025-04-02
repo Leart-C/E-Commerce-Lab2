@@ -4,6 +4,8 @@ using backend.Core.Dtos.Generals;
 using backend.Core.Entities;
 using backend.Core.Interfaces;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -26,30 +28,74 @@ namespace backend.Core.Services
             _configuration = configuration;
         }
 
-        public Task<UserInfoResult> GetUserDetailsByUserName(string userName)
+        public async Task<UserInfoResult?> GetUserDetailsByUserNameAsync(string userName)
         {
-            throw new NotImplementedException();
+            var user = await _userManager.FindByNameAsync(userName);
+            if (user is null)
+                return null;
+
+            var roles = await _userManager.GetRolesAsync(user);
+            var userInfo = GenerateUserInfoObject(user, roles);
+            return userInfo;
         }
 
-        public Task<IEnumerable<string>> GetUsernamesListAsync()
+        public async Task<IEnumerable<string>> GetUsernamesListAsync()
         {
-            throw new NotImplementedException();
+            var userNames = await _userManager.Users
+                .Select(q => q.UserName)
+                .ToListAsync();
+
+            return userNames;
         }
 
-        public Task<IEnumerable<UserInfoResult>> GetUsersListAsync()
+        public async Task<IEnumerable<UserInfoResult>> GetUsersListAsync()
         {
-            throw new NotImplementedException();
+            var users = await _userManager.Users.ToListAsync();
+
+            List<UserInfoResult> userInfoResults = new List<UserInfoResult>();
+
+            foreach (var user in users)
+            {
+                var roles = await _userManager.GetRolesAsync(user);
+                var userInfo = GenerateUserInfoObject(user, roles);
+                userInfoResults.Add(userInfo);
+            }
+
+            return userInfoResults;
         }
 
-    
 
-        public Task<LoginServiceResponseDto> MeAsync(MeDto meDto)
+
+        public async Task<LoginServiceResponseDto?> MeAsync(MeDto meDto)
         {
-            throw new NotImplementedException();
-        }
-       
+            ClaimsPrincipal handler = new JwtSecurityTokenHandler().ValidateToken(meDto.Token, new TokenValidationParameters()
+            {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidIssuer = _configuration["JWT:ValidIssuer"],
+                ValidAudience = _configuration["JWT:ValidAudience"],
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JWT:Secret"]))
+            }, out SecurityToken securityToken);
 
-        //Leart
+            string decodedUserName = handler.Claims.First(q => q.Type == ClaimTypes.Name).Value;
+            if (decodedUserName is null)
+                return null;
+
+            var user = await _userManager.FindByNameAsync(decodedUserName);
+            if (user is null)
+                return null;
+
+            var newToken = await GenerateJWTTokenAsync(user);
+            var roles = await _userManager.GetRolesAsync(user);
+            var userInfo = GenerateUserInfoObject(user, roles);
+            await _logService.SaveNewLog(user.UserName, "New Token Generated");
+
+            return new LoginServiceResponseDto()
+            {
+                NewToken = newToken,
+                UserInfo = userInfo
+            };
+        }
 
         public async Task<GeneralServiceResponseDto> RegisterAsync(RegisterDto registerDto)
         {
