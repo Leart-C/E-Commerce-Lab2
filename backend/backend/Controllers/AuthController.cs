@@ -106,5 +106,24 @@ namespace backend.Controllers
 
             return Ok(usersList);
         }
+
+        //Route ->Get a User by UserName
+
+        [HttpGet]
+        [Route("users/{userName}")]
+        public async Task<ActionResult<UserInfoResult>> GetUserDetailsByUserName([FromRoute] string userName)
+        {
+            var user = await _authService.GetUserDetailsByUserNameAsync(userName);
+            if(user is not null)
+            {
+                return Ok(user);
+            }
+            else
+            {
+                return NotFound("UserName not found");
+            }
+        }
+
+        
     }
 }
