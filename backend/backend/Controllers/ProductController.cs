@@ -5,6 +5,8 @@ using backend.data;
 using backend.Core.Entities;
 using backend.Core.Dtos.Product;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace backend.Controllers
 {
@@ -14,10 +16,13 @@ namespace backend.Controllers
     {
         private readonly IMongoCollection<Product>? _product;
         private readonly IMapper _mapper;
+        private readonly MongoDbService _mongoDbService;
+
         public ProductController(MongoDbService mongoDbService, IMapper mapper)
         {
             _product = mongoDbService.Database?.GetCollection<Product>("product");
             _mapper = mapper;
+            _mongoDbService = mongoDbService;
         }
 
         [HttpGet]
@@ -34,11 +39,15 @@ namespace backend.Controllers
             return product is not null ? Ok(product) : NotFound();
         }
 
-     
+
         [HttpPost]
         public async Task<IActionResult> CreateProduct([FromBody] ProductCreateDto dto)
         {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
             var product = _mapper.Map<Product>(dto);
+            product.UserId = userId; // vendos automatikisht nga JWT
+
             await _product.InsertOneAsync(product);
             return CreatedAtAction(nameof(GetById), new { id = product.Id }, product);
         }

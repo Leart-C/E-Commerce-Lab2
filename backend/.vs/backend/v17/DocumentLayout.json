@@ -7,20 +7,28 @@
       "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\techcom\\desktop\\e-commerce-lab2\\backend\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\techcom\\desktop\\e-commerce-lab2\\backend\\backend\\core\\mapper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\mapper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\techcom\\desktop\\e-commerce-lab2\\backend\\backend\\core\\dtos\\product\\productcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\dtos\\product\\productcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\techcom\\desktop\\e-commerce-lab2\\backend\\backend\\core\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\techcom\\desktop\\e-commerce-lab2\\backend\\backend\\data\\mongodbservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\data\\mongodbservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\techcom\\desktop\\e-commerce-lab2\\backend\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\techcom\\desktop\\e-commerce-lab2\\backend\\backend\\core\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\techcom\\desktop\\e-commerce-lab2\\backend\\backend\\core\\mapper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\mapper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\techcom\\desktop\\e-commerce-lab2\\backend\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -37,10 +45,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\techcom\\desktop\\e-commerce-lab2\\backend\\backend\\backend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\backend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\techcom\\desktop\\e-commerce-lab2\\backend\\backend\\core\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\techcom\\desktop\\e-commerce-lab2\\backend\\backend\\migrations\\20250402163415_refresh-token.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -66,26 +70,26 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MappingProfile.cs",
-              "DocumentMoniker": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Mapper\\MappingProfile.cs",
-              "RelativeDocumentMoniker": "backend\\Core\\Mapper\\MappingProfile.cs",
-              "ToolTip": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Mapper\\MappingProfile.cs",
-              "RelativeToolTip": "backend\\Core\\Mapper\\MappingProfile.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAzAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "MongoDbService.cs",
+              "DocumentMoniker": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Data\\MongoDbService.cs",
+              "RelativeDocumentMoniker": "backend\\Data\\MongoDbService.cs",
+              "ToolTip": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Data\\MongoDbService.cs",
+              "RelativeToolTip": "backend\\Data\\MongoDbService.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAiwBkAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-06T20:48:50.463Z",
+              "WhenOpened": "2025-04-06T21:13:50.218Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "ProductCreateDto.cs",
               "DocumentMoniker": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Dtos\\Product\\ProductCreateDto.cs",
               "RelativeDocumentMoniker": "backend\\Core\\Dtos\\Product\\ProductCreateDto.cs",
               "ToolTip": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Dtos\\Product\\ProductCreateDto.cs",
               "RelativeToolTip": "backend\\Core\\Dtos\\Product\\ProductCreateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-06T20:48:25.911Z",
               "EditorCaption": ""
@@ -98,27 +102,27 @@
               "RelativeDocumentMoniker": "backend\\Controllers\\ProductController.cs",
               "ToolTip": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Controllers\\ProductController.cs",
               "RelativeToolTip": "backend\\Controllers\\ProductController.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAowCQAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAcwDAAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-06T01:34:55.851Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Product.cs",
               "DocumentMoniker": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\Product.cs",
               "RelativeDocumentMoniker": "backend\\Core\\Entities\\Product.cs",
               "ToolTip": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\Product.cs",
               "RelativeToolTip": "backend\\Core\\Entities\\Product.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-06T01:28:35.981Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Program.cs",
               "RelativeDocumentMoniker": "backend\\Program.cs",
@@ -131,7 +135,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\appsettings.json",
               "RelativeDocumentMoniker": "backend\\appsettings.json",
@@ -139,12 +143,11 @@
               "RelativeToolTip": "backend\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-04-06T01:16:42.184Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-06T01:16:42.184Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "RefreshToken.cs",
               "DocumentMoniker": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\RefreshToken.cs",
               "RelativeDocumentMoniker": "backend\\Core\\Entities\\RefreshToken.cs",
@@ -152,12 +155,36 @@
               "RelativeToolTip": "backend\\Core\\Entities\\RefreshToken.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T16:08:48.863Z",
+              "WhenOpened": "2025-04-02T16:08:48.863Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "backend\\Core\\Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Services\\AuthService.cs",
+              "RelativeToolTip": "backend\\Core\\Services\\AuthService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T06:47:48.407Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 6,
+              "Title": "MappingProfile.cs",
+              "DocumentMoniker": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Mapper\\MappingProfile.cs",
+              "RelativeDocumentMoniker": "backend\\Core\\Mapper\\MappingProfile.cs",
+              "ToolTip": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Mapper\\MappingProfile.cs",
+              "RelativeToolTip": "backend\\Core\\Mapper\\MappingProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-06T20:48:50.463Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "backend.csproj",
               "DocumentMoniker": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\backend.csproj",
               "RelativeDocumentMoniker": "backend\\backend.csproj",
@@ -165,12 +192,11 @@
               "RelativeToolTip": "backend\\backend.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-04-06T00:53:55.57Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-06T00:53:55.57Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "TestController.cs",
               "DocumentMoniker": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Controllers\\TestController.cs",
               "RelativeDocumentMoniker": "backend\\Controllers\\TestController.cs",
@@ -178,12 +204,11 @@
               "RelativeToolTip": "backend\\Controllers\\TestController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T14:18:20.051Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-02T14:18:20.051Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "20250402163415_refresh-token.cs",
               "DocumentMoniker": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Migrations\\20250402163415_refresh-token.cs",
               "RelativeDocumentMoniker": "backend\\Migrations\\20250402163415_refresh-token.cs",
@@ -191,12 +216,11 @@
               "RelativeToolTip": "backend\\Migrations\\20250402163415_refresh-token.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T16:34:15.483Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-02T16:34:15.483Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "IAuthService.cs",
               "DocumentMoniker": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Interfaces\\IAuthService.cs",
               "RelativeDocumentMoniker": "backend\\Core\\Interfaces\\IAuthService.cs",
@@ -204,25 +228,11 @@
               "RelativeToolTip": "backend\\Core\\Interfaces\\IAuthService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T07:24:48.328Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-02T07:24:48.328Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Services\\AuthService.cs",
-              "RelativeDocumentMoniker": "backend\\Core\\Services\\AuthService.cs",
-              "ToolTip": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Services\\AuthService.cs",
-              "RelativeToolTip": "backend\\Core\\Services\\AuthService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T06:47:48.407Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "LoginServiceResponseDto.cs",
               "DocumentMoniker": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Dtos\\Auth\\LoginServiceResponseDto.cs",
               "RelativeDocumentMoniker": "backend\\Core\\Dtos\\Auth\\LoginServiceResponseDto.cs",
@@ -230,8 +240,7 @@
               "RelativeToolTip": "backend\\Core\\Dtos\\Auth\\LoginServiceResponseDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T16:19:02.345Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-02T16:19:02.345Z"
             }
           ]
         }
