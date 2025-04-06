@@ -16,5 +16,8 @@ namespace backend.Core.Entities
         public string? Description { get; set; }
         [BsonElement("price"), BsonRepresentation(BsonType.Decimal128)]
         public Decimal? Price { get; set; }
+
+   
+
     }
 }

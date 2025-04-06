@@ -217,15 +217,15 @@
   },
   {
     "ContainingType": "backend.Controllers.ProductController",
-    "Method": "Create",
+    "Method": "CreateProduct",
     "RelativePath": "api/Product",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "product",
-        "Type": "backend.Core.Entities.Product",
+        "Name": "dto",
+        "Type": "backend.Core.Dtos.Product.ProductCreateDto",
         "IsRequired": true
       }
     ],

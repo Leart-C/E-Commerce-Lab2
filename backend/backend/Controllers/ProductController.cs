@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
 using backend.data;
 using backend.Core.Entities;
+using backend.Core.Dtos.Product;
+using AutoMapper;
 
 namespace backend.Controllers
 {
@@ -11,8 +13,11 @@ namespace backend.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IMongoCollection<Product>? _product;
-        public ProductController(MongoDbService mongoDbService) {
+        private readonly IMapper _mapper;
+        public ProductController(MongoDbService mongoDbService, IMapper mapper)
+        {
             _product = mongoDbService.Database?.GetCollection<Product>("product");
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -29,11 +34,13 @@ namespace backend.Controllers
             return product is not null ? Ok(product) : NotFound();
         }
 
+     
         [HttpPost]
-        public async Task<ActionResult> Create(Product product) 
+        public async Task<IActionResult> CreateProduct([FromBody] ProductCreateDto dto)
         {
-        await _product.InsertOneAsync(product);
-        return CreatedAtAction(nameof(GetById), new {id = product.Id}, product);
+            var product = _mapper.Map<Product>(dto);
+            await _product.InsertOneAsync(product);
+            return CreatedAtAction(nameof(GetById), new { id = product.Id }, product);
         }
 
         [HttpPut]
@@ -41,7 +48,7 @@ namespace backend.Controllers
         {
             var filter = Builders<Product>.Filter.Eq(x => x.Id, product.Id);
             await _product.ReplaceOneAsync(filter, product);
-            return Ok();
+            return Ok("Product Updated Successfully");
         }
 
         [HttpDelete("{id}")]
@@ -49,7 +56,7 @@ namespace backend.Controllers
         {
         var filter = Builders<Product>.Filter.Eq(x => x.Id, id);
             await _product.DeleteOneAsync(filter);
-            return Ok();
+            return Ok("Product Deleted Successfully");
         }
     }
 }

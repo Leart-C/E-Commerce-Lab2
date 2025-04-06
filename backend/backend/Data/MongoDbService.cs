@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using backend.Core.Entities;
+using MongoDB.Driver;
 
 namespace backend.data
 {
@@ -6,6 +7,8 @@ namespace backend.data
     {
         private readonly IConfiguration _configuration;
         private readonly IMongoDatabase? _database;
+ 
+
 
         public MongoDbService(IConfiguration configuration)
         {
@@ -15,10 +18,14 @@ namespace backend.data
             var mongoUrl = MongoUrl.Create(connectionString);
             var mongoClient = new MongoClient(mongoUrl);
 
-            _database = mongoClient.GetDatabase(mongoUrl.DatabaseName); 
+            _database = mongoClient.GetDatabase(mongoUrl.DatabaseName);
+        
         }
 
         public IMongoDatabase? Database => _database;
+
+      
+
 
     }
 }

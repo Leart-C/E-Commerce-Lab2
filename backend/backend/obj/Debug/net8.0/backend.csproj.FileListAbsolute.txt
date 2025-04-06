@@ -466,3 +466,10 @@ C:\Users\DELL\source\repos\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\Mong
 C:\Users\DELL\source\repos\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\SharpCompress.dll
 C:\Users\DELL\source\repos\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\Snappier.dll
 C:\Users\DELL\source\repos\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\ZstdSharp.dll
+C:\Users\TECHCOM\Desktop\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\DnsClient.dll
+C:\Users\TECHCOM\Desktop\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\MongoDB.Bson.dll
+C:\Users\TECHCOM\Desktop\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\MongoDB.Driver.dll
+C:\Users\TECHCOM\Desktop\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\SharpCompress.dll
+C:\Users\TECHCOM\Desktop\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\Snappier.dll
+C:\Users\TECHCOM\Desktop\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\ZstdSharp.dll
+C:\Users\TECHCOM\Desktop\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\AutoMapper.dll
