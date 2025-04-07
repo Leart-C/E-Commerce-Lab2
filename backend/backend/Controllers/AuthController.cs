@@ -50,6 +50,25 @@ namespace backend.Controllers
             return Ok(loginResult);
         }
 
+        [HttpPost("logout")]
+        [Authorize]
+        public async Task<IActionResult> Logout([FromHeader(Name = "refresh-token")] string refreshToken)
+        {
+            if (string.IsNullOrEmpty(refreshToken))
+            {
+                return BadRequest("Refresh token is required");
+            }
+
+            var result = await _authService.LogOutAsync(refreshToken);
+
+            if (!result.IsSucceed)
+            {
+                return StatusCode(result.StatusCode, result.Message);
+            }
+
+            return Ok(result.Message);
+        }
+
         //Route-> Update User Role
 
         //An OWNER can change everything

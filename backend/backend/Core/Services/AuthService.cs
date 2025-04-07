@@ -105,7 +105,7 @@ namespace backend.Core.Services
                 {
                     IsSucceed = true,
                     StatusCode = 409,
-                    Message = "UserName already exists"
+                    Message = "Username already exists"
                 };
 
             //krijo nje user te ri
@@ -144,7 +144,7 @@ namespace backend.Core.Services
             {
                 IsSucceed = true,
                 StatusCode = 201,
-                Message = "User created succeddfully"
+                Message = "User created successfully"
             };
         }
 
@@ -211,6 +211,59 @@ namespace backend.Core.Services
                 UserInfo = userInfo
             };
 
+        }
+        
+        public async Task<GeneralServiceResponseDto> LogOutAsync(string refreshToken)
+        {
+            // Gjej token-in dhe user-in
+            var user = await _userManager.Users
+                .Include(u => u.RefreshTokens)
+                .FirstOrDefaultAsync(u => u.RefreshTokens.Any(t => t.Token == refreshToken));
+
+            if (user == null)
+            {
+                return new GeneralServiceResponseDto()
+                {
+                    IsSucceed = false,
+                    StatusCode = 404,
+                    Message = "Invalid token"
+                };
+            }
+
+            var token = user.RefreshTokens.First(t => t.Token == refreshToken);
+
+            // Kontrollo nese revoked
+            if (token.IsRevoked)
+            {
+                return new GeneralServiceResponseDto()
+                {
+                    IsSucceed = false,
+                    StatusCode = 400,
+                    Message = "Token already revoked"
+                };
+            }
+
+            // Revoke the token
+            token.IsRevoked = true;
+            var result = await _userManager.UpdateAsync(user);
+
+            if (!result.Succeeded)
+            {
+                return new GeneralServiceResponseDto()
+                {
+                    IsSucceed = false,
+                    StatusCode = 500,
+                    Message = "Failed to revoke token"
+                };
+            }
+
+            await _logService.SaveNewLog(user.UserName, "User logged out");
+            return new GeneralServiceResponseDto()
+            {
+                IsSucceed = true,
+                StatusCode = 200,
+                Message = "Successfully logged out"
+            };
         }
         public async Task<GeneralServiceResponseDto> UpdateRoleAsync(ClaimsPrincipal User, UpdateRoleDto updateRoleDto)
         {
@@ -379,8 +432,5 @@ namespace backend.Core.Services
             }
             return Convert.ToBase64String(randomNumber);
         }
-
-
-
     }
 }
