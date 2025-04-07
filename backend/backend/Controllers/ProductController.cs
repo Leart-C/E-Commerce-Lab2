@@ -39,7 +39,7 @@ namespace backend.Controllers
             return product is not null ? Ok(product) : NotFound();
         }
 
-
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> CreateProduct([FromBody] ProductCreateDto dto)
         {
