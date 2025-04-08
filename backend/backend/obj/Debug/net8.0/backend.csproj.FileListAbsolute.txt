@@ -634,3 +634,10 @@ C:\UBT\CSE\Projekte\E-commerce lab2\E-Commerce-Lab2\backend\backend\obj\Debug\ne
 C:\UBT\CSE\Projekte\E-commerce lab2\E-Commerce-Lab2\backend\backend\obj\Debug\net8.0\backend.pdb
 C:\UBT\CSE\Projekte\E-commerce lab2\E-Commerce-Lab2\backend\backend\obj\Debug\net8.0\backend.genruntimeconfig.cache
 C:\UBT\CSE\Projekte\E-commerce lab2\E-Commerce-Lab2\backend\backend\obj\Debug\net8.0\ref\backend.dll
+C:\Users\Twin\Desktop\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\Twin\Desktop\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\DnsClient.dll
+C:\Users\Twin\Desktop\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\MongoDB.Bson.dll
+C:\Users\Twin\Desktop\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\MongoDB.Driver.dll
+C:\Users\Twin\Desktop\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\SharpCompress.dll
+C:\Users\Twin\Desktop\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\Snappier.dll
+C:\Users\Twin\Desktop\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\ZstdSharp.dll

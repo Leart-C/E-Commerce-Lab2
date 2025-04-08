@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using backend.Core.Dtos.Product;
+using backend.Core.Dtos.ProductReview;
 using backend.Core.Entities;
 
 namespace backend.Core.Mapper
@@ -9,6 +10,7 @@ namespace backend.Core.Mapper
         public MappingProfile()
         {
             CreateMap<ProductCreateDto, Product>();
+            CreateMap<ProductReviewCreateDto, ProductReview>();
         }
     }
 }

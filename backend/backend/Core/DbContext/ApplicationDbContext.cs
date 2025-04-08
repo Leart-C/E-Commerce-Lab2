@@ -2,56 +2,31 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Emit;
 
 namespace backend.Core.DbContext
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-        {
-        }
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+
         public DbSet<Log> Logs { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
 
-            //Nderrimi i emrave defualt te identity ne emri i tabelave qe duam ne 
+            // Override default Identity table names
+            builder.Entity<ApplicationUser>().ToTable("User");
+            builder.Entity<IdentityUserClaim<string>>().ToTable("UserClaims");
+            builder.Entity<IdentityUserLogin<string>>().ToTable("UserLogins");
+            builder.Entity<IdentityUserToken<string>>().ToTable("UserTokens");
+            builder.Entity<IdentityRole>().ToTable("Roles");
+            builder.Entity<IdentityRoleClaim<string>>().ToTable("RoleClaims");
+            builder.Entity<IdentityUserRole<string>>().ToTable("UserRoles");
 
-            builder.Entity<ApplicationUser>(e =>
-            {
-                e.ToTable("User");
-            });
-
-            builder.Entity<IdentityUserClaim<string>>(e =>
-            {
-                e.ToTable("UserClaims");
-            });
-
-            builder.Entity<IdentityUserLogin<string>>(e =>
-            {
-                e.ToTable("UserLogins");
-            });
-
-            builder.Entity<IdentityUserToken<string>>(e =>
-            {
-                e.ToTable("UserTokens");
-            });
-
-            builder.Entity<IdentityRole>(e =>
-            {
-                e.ToTable("Roles");
-            });
-
-            builder.Entity<IdentityRoleClaim<string>>(e =>
-            {
-                e.ToTable("RoleClaims");
-            });
-
-            builder.Entity<IdentityUserRole<string>>(e =>
-            {
-                e.ToTable("UserRoles");
-            });
         }
+
     }
 }
