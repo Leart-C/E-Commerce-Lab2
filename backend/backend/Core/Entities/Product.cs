@@ -19,6 +19,9 @@ namespace backend.Core.Entities
 
         public string UserId { get; set; }
 
+        [BsonElement("category_id"), BsonRepresentation(BsonType.ObjectId)]
+        public string CategoryId { get; set; }
+
 
     }
 }

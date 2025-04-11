@@ -1,26 +1,46 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\",
+  "WorkspaceRootPath": "C:\\Users\\erond\\OneDrive\\Desktop\\E-Commerce-Lab2\\backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\twin\\desktop\\e-commerce-lab2\\backend\\backend\\core\\entities\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\entities\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\erond\\onedrive\\desktop\\e-commerce-lab2\\backend\\backend\\core\\entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\twin\\desktop\\e-commerce-lab2\\backend\\backend\\controllers\\productreviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\controllers\\productreviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\twin\\desktop\\e-commerce-lab2\\backend\\backend\\core\\mapper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\mapper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\twin\\desktop\\e-commerce-lab2\\backend\\backend\\core\\dtos\\productreview\\productreviewcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\erond\\onedrive\\desktop\\e-commerce-lab2\\backend\\backend\\core\\dtos\\productreview\\productreviewcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\dtos\\productreview\\productreviewcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\twin\\desktop\\e-commerce-lab2\\backend\\backend\\core\\entities\\productreview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\erond\\onedrive\\desktop\\e-commerce-lab2\\backend\\backend\\core\\entities\\productreview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\entities\\productreview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\erond\\onedrive\\desktop\\e-commerce-lab2\\backend\\backend\\controllers\\productreviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\controllers\\productreviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\erond\\onedrive\\desktop\\e-commerce-lab2\\backend\\backend\\core\\dtos\\category\\categorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\dtos\\category\\categorydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\erond\\onedrive\\desktop\\e-commerce-lab2\\backend\\backend\\core\\dtos\\product\\productcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\dtos\\product\\productcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\erond\\onedrive\\desktop\\e-commerce-lab2\\backend\\backend\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\erond\\onedrive\\desktop\\e-commerce-lab2\\backend\\backend\\core\\mapper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\mapper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\erond\\onedrive\\desktop\\e-commerce-lab2\\backend\\backend\\core\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\erond\\onedrive\\desktop\\e-commerce-lab2\\backend\\backend\\core\\entities\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\entities\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,71 +50,136 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
+              "Title": "ProductCreateDto.cs",
+              "DocumentMoniker": "C:\\Users\\erond\\OneDrive\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Dtos\\Product\\ProductCreateDto.cs",
+              "RelativeDocumentMoniker": "backend\\Core\\Dtos\\Product\\ProductCreateDto.cs",
+              "ToolTip": "C:\\Users\\erond\\OneDrive\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Dtos\\Product\\ProductCreateDto.cs",
+              "RelativeToolTip": "backend\\Core\\Dtos\\Product\\ProductCreateDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-11T13:44:35.774Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CategoryDto.cs",
+              "DocumentMoniker": "C:\\Users\\erond\\OneDrive\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Dtos\\Category\\CategoryDto.cs",
+              "RelativeDocumentMoniker": "backend\\Core\\Dtos\\Category\\CategoryDto.cs",
+              "ToolTip": "C:\\Users\\erond\\OneDrive\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Dtos\\Category\\CategoryDto.cs",
+              "RelativeToolTip": "backend\\Core\\Dtos\\Category\\CategoryDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-11T13:24:51.973Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "ProductReviewController.cs",
-              "DocumentMoniker": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Controllers\\ProductReviewController.cs",
+              "DocumentMoniker": "C:\\Users\\erond\\OneDrive\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Controllers\\ProductReviewController.cs",
               "RelativeDocumentMoniker": "backend\\Controllers\\ProductReviewController.cs",
-              "ToolTip": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Controllers\\ProductReviewController.cs",
+              "ToolTip": "C:\\Users\\erond\\OneDrive\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Controllers\\ProductReviewController.cs",
               "RelativeToolTip": "backend\\Controllers\\ProductReviewController.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAgwE0AAAABAAAAAAAAAA==",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-08T15:13:56.442Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ApplicationUser.cs",
-              "DocumentMoniker": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\ApplicationUser.cs",
-              "RelativeDocumentMoniker": "backend\\Core\\Entities\\ApplicationUser.cs",
-              "ToolTip": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\ApplicationUser.cs",
-              "RelativeToolTip": "backend\\Core\\Entities\\ApplicationUser.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAABcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-08T15:13:18.89Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "MappingProfile.cs",
-              "DocumentMoniker": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Mapper\\MappingProfile.cs",
+              "DocumentMoniker": "C:\\Users\\erond\\OneDrive\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Mapper\\MappingProfile.cs",
               "RelativeDocumentMoniker": "backend\\Core\\Mapper\\MappingProfile.cs",
-              "ToolTip": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Mapper\\MappingProfile.cs",
+              "ToolTip": "C:\\Users\\erond\\OneDrive\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Mapper\\MappingProfile.cs",
               "RelativeToolTip": "backend\\Core\\Mapper\\MappingProfile.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA/AAAAAAAAAA==",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAUwBIAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-08T15:12:26.74Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
+              "Title": "ProductReview.cs",
+              "DocumentMoniker": "C:\\Users\\erond\\OneDrive\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\ProductReview.cs",
+              "RelativeDocumentMoniker": "backend\\Core\\Entities\\ProductReview.cs",
+              "ToolTip": "C:\\Users\\erond\\OneDrive\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\ProductReview.cs",
+              "RelativeToolTip": "backend\\Core\\Entities\\ProductReview.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAxwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T15:10:33.889Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "ProductReviewCreateDto.cs",
-              "DocumentMoniker": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Dtos\\ProductReview\\ProductReviewCreateDto.cs",
+              "DocumentMoniker": "C:\\Users\\erond\\OneDrive\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Dtos\\ProductReview\\ProductReviewCreateDto.cs",
               "RelativeDocumentMoniker": "backend\\Core\\Dtos\\ProductReview\\ProductReviewCreateDto.cs",
-              "ToolTip": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Dtos\\ProductReview\\ProductReviewCreateDto.cs",
+              "ToolTip": "C:\\Users\\erond\\OneDrive\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Dtos\\ProductReview\\ProductReviewCreateDto.cs",
               "RelativeToolTip": "backend\\Core\\Dtos\\ProductReview\\ProductReviewCreateDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAnAAAAAAAAAA==",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-08T15:11:54.737Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ProductReview.cs",
-              "DocumentMoniker": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\ProductReview.cs",
-              "RelativeDocumentMoniker": "backend\\Core\\Entities\\ProductReview.cs",
-              "ToolTip": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\ProductReview.cs",
-              "RelativeToolTip": "backend\\Core\\Entities\\ProductReview.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAA/AAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\erond\\OneDrive\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\Category.cs",
+              "RelativeDocumentMoniker": "backend\\Core\\Entities\\Category.cs",
+              "ToolTip": "C:\\Users\\erond\\OneDrive\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\Category.cs",
+              "RelativeToolTip": "backend\\Core\\Entities\\Category.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-08T15:10:33.889Z",
+              "WhenOpened": "2025-04-11T13:18:40.52Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Users\\erond\\OneDrive\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "backend\\Core\\Entities\\ApplicationUser.cs",
+              "ToolTip": "C:\\Users\\erond\\OneDrive\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\ApplicationUser.cs",
+              "RelativeToolTip": "backend\\Core\\Entities\\ApplicationUser.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T15:13:18.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\erond\\OneDrive\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\Product.cs",
+              "RelativeDocumentMoniker": "backend\\Core\\Entities\\Product.cs",
+              "ToolTip": "C:\\Users\\erond\\OneDrive\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\Product.cs",
+              "RelativeToolTip": "backend\\Core\\Entities\\Product.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-11T13:19:32.537Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "C:\\Users\\erond\\OneDrive\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Controllers\\CategoryController.cs",
+              "RelativeDocumentMoniker": "backend\\Controllers\\CategoryController.cs",
+              "ToolTip": "C:\\Users\\erond\\OneDrive\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Controllers\\CategoryController.cs",
+              "RelativeToolTip": "backend\\Controllers\\CategoryController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-11T13:30:10.824Z",
               "EditorCaption": ""
             }
           ]

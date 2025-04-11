@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using backend.Core.Dtos.Category.backend.Core.Dto;
 using backend.Core.Dtos.Product;
 using backend.Core.Dtos.ProductReview;
 using backend.Core.Entities;
@@ -11,6 +12,8 @@ namespace backend.Core.Mapper
         {
             CreateMap<ProductCreateDto, Product>();
             CreateMap<ProductReviewCreateDto, ProductReview>();
+            CreateMap<CategoryDto, Category>().ReverseMap();
+
         }
     }
 }
