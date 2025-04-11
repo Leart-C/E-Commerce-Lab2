@@ -14,5 +14,7 @@ namespace backend.Core.Entities
         [NotMapped]
         public IList<string> Roles { get; set; }
         public List<ProductReview> ProductReviews { get; set; } // Lidhje manuale me MongoDB
+        public ICollection<ShippingAddress> ShippingAddresses { get; set; }
+        public ICollection<Order> Orders { get; set; }
     }
 }

@@ -11,6 +11,8 @@ namespace backend.Core.DbContext
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
         public DbSet<Log> Logs { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<ShippingAddress> ShippingAddresses { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -25,6 +27,32 @@ namespace backend.Core.DbContext
             builder.Entity<IdentityRole>().ToTable("Roles");
             builder.Entity<IdentityRoleClaim<string>>().ToTable("RoleClaims");
             builder.Entity<IdentityUserRole<string>>().ToTable("UserRoles");
+
+            builder.Entity<Order>()
+    .HasOne(o => o.ShippingAddress)
+    .WithOne(sa => sa.Order)
+    .HasForeignKey<Order>(o => o.ShippingAddressId)
+    .OnDelete(DeleteBehavior.Restrict); // Change from Cascade to Restrict
+
+            // 1 User → shumë Orders
+            builder.Entity<ApplicationUser>()
+                .HasMany(u => u.Orders)
+                .WithOne(o => o.User)
+                .HasForeignKey(o => o.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // 1 User → shumë ShippingAddresses
+            builder.Entity<ApplicationUser>()
+                .HasMany(u => u.ShippingAddresses)
+                .WithOne(sa => sa.User)
+                .HasForeignKey(sa => sa.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            {
+                builder.Entity<Order>()
+                    .Property(o => o.TotalPrice)
+                    .HasPrecision(18, 2);
+            }
 
         }
 
