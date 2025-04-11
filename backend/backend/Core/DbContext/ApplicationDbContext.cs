@@ -13,6 +13,8 @@ namespace backend.Core.DbContext
         public DbSet<Log> Logs { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<ShippingAddress> ShippingAddresses { get; set; }
+        public DbSet<Payment> Payments { get; set; }
+        public DbSet<PaymentMethod> PaymentMethods { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -28,11 +30,25 @@ namespace backend.Core.DbContext
             builder.Entity<IdentityRoleClaim<string>>().ToTable("RoleClaims");
             builder.Entity<IdentityUserRole<string>>().ToTable("UserRoles");
 
+
+        //1 PaymentMethod -> N:Payment
+            builder.Entity<PaymentMethod>()
+                .HasMany(pm => pm.Payments)
+                .WithOne(p => p.PaymentMethod)
+                .HasForeignKey(p => p.PaymentMethodId);
+
+            //1 Order -> N:Payment
             builder.Entity<Order>()
-    .HasOne(o => o.ShippingAddress)
-    .WithOne(sa => sa.Order)
-    .HasForeignKey<Order>(o => o.ShippingAddressId)
-    .OnDelete(DeleteBehavior.Restrict); // Change from Cascade to Restrict
+                    .HasMany(o => o.Payments)
+                    .WithOne(p => p.Order)
+                    .HasForeignKey(p => p.OrderId);
+
+
+            builder.Entity<Order>()
+            .HasOne(o => o.ShippingAddress)
+            .WithOne(sa => sa.Order)
+            .HasForeignKey<Order>(o => o.ShippingAddressId)
+            .OnDelete(DeleteBehavior.Restrict); // Change from Cascade to Restrict
 
             // 1 User → shumë Orders
             builder.Entity<ApplicationUser>()

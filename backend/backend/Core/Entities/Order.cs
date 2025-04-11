@@ -20,5 +20,7 @@ public class Order
     public DateTime? UpdatedAt { get; set; }
     public bool OrderStatus { get; set; }
 
-    //public ICollection<OrderItem> OrderItems { get; set; }
+    public ICollection<Payment> Payments { get; set; }
+
+
 }

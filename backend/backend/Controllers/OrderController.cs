@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using backend.Core.DbContext;
 using backend.Core.Dtos.Order;
+using backend.Core.Dtos.PaymentMethod;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -46,18 +47,16 @@ public class OrderController : ControllerBase
         return CreatedAtAction(nameof(GetOrder), new { id = order.Id }, _mapper.Map<OrderDto>(order));
     }
 
-    [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateOrder(int id, OrderDto dto)
+    [HttpPut]
+    public async Task<IActionResult> UpdateOrder([FromBody] OrderDto dto)
     {
-        //if (id != dto.Id) return BadRequest();
-
-        var order = await _context.Orders.FindAsync(id);
+        var order = await _context.Orders.FindAsync(dto.Id);
         if (order == null) return NotFound();
 
         _mapper.Map(dto, order);
         await _context.SaveChangesAsync();
 
-        return NoContent();
+        return Ok("Order Updated Successfully");
     }
 
     [HttpDelete("{id}")]
