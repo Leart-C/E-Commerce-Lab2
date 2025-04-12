@@ -1,14 +1,54 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\",
+  "WorkspaceRootPath": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\techcom\\desktop\\e-commerce-lab2\\backend\\backend\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Migrations\\20250412145014_TransactionRefund.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:backend\\Migrations\\20250412145014_TransactionRefund.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\techcom\\desktop\\e-commerce-lab2\\backend\\backend\\controllers\\paymentmethodcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\ubt\\cse\\projekte\\e-commerce lab2\\e-commerce-lab2\\e-commerce-lab2\\backend\\backend\\controllers\\refundcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\controllers\\refundcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\ubt\\cse\\projekte\\e-commerce lab2\\e-commerce-lab2\\e-commerce-lab2\\backend\\backend\\controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\ubt\\cse\\projekte\\e-commerce lab2\\e-commerce-lab2\\e-commerce-lab2\\backend\\backend\\core\\entities\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\entities\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\ubt\\cse\\projekte\\e-commerce lab2\\e-commerce-lab2\\e-commerce-lab2\\backend\\backend\\core\\mapper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\mapper\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\ubt\\cse\\projekte\\e-commerce lab2\\e-commerce-lab2\\e-commerce-lab2\\backend\\backend\\core\\dtos\\transaction\\transactiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\dtos\\transaction\\transactiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\ubt\\cse\\projekte\\e-commerce lab2\\e-commerce-lab2\\e-commerce-lab2\\backend\\backend\\core\\dbcontext\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\dbcontext\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\ubt\\cse\\projekte\\e-commerce lab2\\e-commerce-lab2\\e-commerce-lab2\\backend\\backend\\controllers\\paymentmethodcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\controllers\\paymentmethodcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\ubt\\cse\\projekte\\e-commerce lab2\\e-commerce-lab2\\e-commerce-lab2\\backend\\backend\\core\\dtos\\refund\\refunddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\dtos\\refund\\refunddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\ubt\\cse\\projekte\\e-commerce lab2\\e-commerce-lab2\\e-commerce-lab2\\backend\\backend\\core\\entities\\refund.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\entities\\refund.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\ubt\\cse\\projekte\\e-commerce lab2\\e-commerce-lab2\\e-commerce-lab2\\backend\\backend\\core\\entities\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\entities\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\ubt\\cse\\projekte\\e-commerce lab2\\e-commerce-lab2\\e-commerce-lab2\\backend\\backend\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,25 +63,155 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "20250412145014_TransactionRefund.cs",
+              "DocumentMoniker": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Migrations\\20250412145014_TransactionRefund.cs",
+              "RelativeDocumentMoniker": "backend\\Migrations\\20250412145014_TransactionRefund.cs",
+              "ToolTip": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Migrations\\20250412145014_TransactionRefund.cs",
+              "RelativeToolTip": "backend\\Migrations\\20250412145014_TransactionRefund.cs",
+              "ViewState": "AgIAACIAAAAAZmZmZmYSwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T14:50:15.143Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RefundController.cs",
+              "DocumentMoniker": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Controllers\\RefundController.cs",
+              "RelativeDocumentMoniker": "backend\\Controllers\\RefundController.cs",
+              "ToolTip": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Controllers\\RefundController.cs",
+              "RelativeToolTip": "backend\\Controllers\\RefundController.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAwwEcAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T14:41:34.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Payment.cs",
+              "DocumentMoniker": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\Payment.cs",
+              "RelativeDocumentMoniker": "backend\\Core\\Entities\\Payment.cs",
+              "ToolTip": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\Payment.cs",
+              "RelativeToolTip": "backend\\Core\\Entities\\Payment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T14:31:53.079Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Core\\DbContext\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "backend\\Core\\DbContext\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Core\\DbContext\\ApplicationDbContext.cs",
+              "RelativeToolTip": "backend\\Core\\DbContext\\ApplicationDbContext.cs",
+              "ViewState": "AgIAABcAAAAA+P////8OwBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T14:23:02.061Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MappingProfile.cs",
+              "DocumentMoniker": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Core\\Mapper\\MappingProfile.cs",
+              "RelativeDocumentMoniker": "backend\\Core\\Mapper\\MappingProfile.cs",
+              "ToolTip": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Core\\Mapper\\MappingProfile.cs",
+              "RelativeToolTip": "backend\\Core\\Mapper\\MappingProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T14:20:48.909Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TransactionController.cs",
+              "DocumentMoniker": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Controllers\\TransactionController.cs",
+              "RelativeDocumentMoniker": "backend\\Controllers\\TransactionController.cs",
+              "ToolTip": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Controllers\\TransactionController.cs",
+              "RelativeToolTip": "backend\\Controllers\\TransactionController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T14:19:12.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RefundDto.cs",
+              "DocumentMoniker": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Core\\Dtos\\Refund\\RefundDto.cs",
+              "RelativeDocumentMoniker": "backend\\Core\\Dtos\\Refund\\RefundDto.cs",
+              "ToolTip": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Core\\Dtos\\Refund\\RefundDto.cs",
+              "RelativeToolTip": "backend\\Core\\Dtos\\Refund\\RefundDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T14:18:23.978Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TransactionDto.cs",
+              "DocumentMoniker": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Core\\Dtos\\Transaction\\TransactionDto.cs",
+              "RelativeDocumentMoniker": "backend\\Core\\Dtos\\Transaction\\TransactionDto.cs",
+              "ToolTip": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Core\\Dtos\\Transaction\\TransactionDto.cs",
+              "RelativeToolTip": "backend\\Core\\Dtos\\Transaction\\TransactionDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T14:15:27.83Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Refund.cs",
+              "DocumentMoniker": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\Refund.cs",
+              "RelativeDocumentMoniker": "backend\\Core\\Entities\\Refund.cs",
+              "ToolTip": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\Refund.cs",
+              "RelativeToolTip": "backend\\Core\\Entities\\Refund.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T14:12:16.899Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Transaction.cs",
+              "DocumentMoniker": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\Transaction.cs",
+              "RelativeDocumentMoniker": "backend\\Core\\Entities\\Transaction.cs",
+              "ToolTip": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\Transaction.cs",
+              "RelativeToolTip": "backend\\Core\\Entities\\Transaction.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T14:09:37.686Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "OrderController.cs",
-              "DocumentMoniker": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Controllers\\OrderController.cs",
+              "DocumentMoniker": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Controllers\\OrderController.cs",
               "RelativeDocumentMoniker": "backend\\Controllers\\OrderController.cs",
-              "ToolTip": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Controllers\\OrderController.cs",
+              "ToolTip": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Controllers\\OrderController.cs",
               "RelativeToolTip": "backend\\Controllers\\OrderController.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAIwDoAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAIwDYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-11T17:40:53.38Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "PaymentMethodController.cs",
-              "DocumentMoniker": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Controllers\\PaymentMethodController.cs",
+              "DocumentMoniker": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Controllers\\PaymentMethodController.cs",
               "RelativeDocumentMoniker": "backend\\Controllers\\PaymentMethodController.cs",
-              "ToolTip": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Controllers\\PaymentMethodController.cs",
+              "ToolTip": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Controllers\\PaymentMethodController.cs",
               "RelativeToolTip": "backend\\Controllers\\PaymentMethodController.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAwwD4AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAADEAAAAAAAAAAAAAAEkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-11T17:11:33.855Z",
               "EditorCaption": ""

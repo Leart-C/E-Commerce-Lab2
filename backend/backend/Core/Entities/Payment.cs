@@ -14,5 +14,9 @@ namespace backend.Core.Entities
         //lidhja
         public PaymentMethod PaymentMethod { get; set; }
         public Order Order { get; set; }
+
+        public ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
+        public ICollection<Refund> Refunds { get; set; } = new List<Refund>();
+
     }
 }

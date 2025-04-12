@@ -15,6 +15,8 @@ namespace backend.Core.DbContext
         public DbSet<ShippingAddress> ShippingAddresses { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<PaymentMethod> PaymentMethods { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<Refund> Refunds { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)
