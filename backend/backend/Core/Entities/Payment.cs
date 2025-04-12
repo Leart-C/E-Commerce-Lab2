@@ -17,6 +17,8 @@ namespace backend.Core.Entities
 
         public ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
         public ICollection<Refund> Refunds { get; set; } = new List<Refund>();
+        public Invoice Invoice { get; set; }
+
 
     }
 }
