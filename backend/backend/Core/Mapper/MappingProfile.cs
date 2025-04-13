@@ -2,6 +2,7 @@
 using backend.Core.Dtos.Category.backend.Core.Dto;
 using backend.Core.Dtos.Invoice;
 using backend.Core.Dtos.Order;
+using backend.Core.Dtos.OrderItem;
 using backend.Core.Dtos.Payment;
 using backend.Core.Dtos.PaymentMethod;
 using backend.Core.Dtos.Product;
@@ -27,6 +28,7 @@ namespace backend.Core.Mapper
             CreateMap<Transaction, TransactionDto>().ReverseMap();
             CreateMap<Refund, RefundDto>().ReverseMap();
             CreateMap<Invoice, InvoiceDto>().ReverseMap();
+            CreateMap<OrderItem, OrderItemDto>().ReverseMap();
         }
     }
 }
