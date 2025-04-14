@@ -21,6 +21,14 @@ namespace backend.Core.Entities
 
         [BsonElement("category_id"), BsonRepresentation(BsonType.ObjectId)]
         public string CategoryId { get; set; }
+        public ProductUserInfo UserInfo { get; set; } // 🔥 pjesa e denormalizuar
+
+        public class ProductUserInfo
+        {
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+            public string Email { get; set; }
+        }
 
 
     }

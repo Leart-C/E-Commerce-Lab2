@@ -45,13 +45,11 @@ namespace backend.Controllers
             return Ok(_mapper.Map<CategoryDto>(category));
         }
 
-        // ✅ Merr të gjitha kategoritë
+     
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CategoryDto>>> GetAll()
+        public async Task<IEnumerable<Category>> GetAll()
         {
-            var all = await _categories.Find(_ => true).ToListAsync();
-            var dtos = _mapper.Map<IEnumerable<CategoryDto>>(all);
-            return Ok(dtos);
+            return await _categories.Find(FilterDefinition<Category>.Empty).ToListAsync();
         }
 
         // ✅ Përditëso një kategori

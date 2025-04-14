@@ -7,6 +7,10 @@ using backend.Core.Dtos.Product;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using backend.Core.DbContext;
+using static backend.Core.Entities.Product;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace backend.Controllers
 {
@@ -17,12 +21,16 @@ namespace backend.Controllers
         private readonly IMongoCollection<Product>? _product;
         private readonly IMapper _mapper;
         private readonly MongoDbService _mongoDbService;
+        private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public ProductController(MongoDbService mongoDbService, IMapper mapper)
+        public ProductController(MongoDbService mongoDbService, IMapper mapper, ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _product = mongoDbService.Database?.GetCollection<Product>("product");
             _mapper = mapper;
             _mongoDbService = mongoDbService;
+            _context = context;
+            _userManager = userManager;
         }
 
         [HttpGet]
@@ -48,6 +56,15 @@ namespace backend.Controllers
             var product = _mapper.Map<Product>(dto);
             product.UserId = userId; // vendos automatikisht nga JWT
 
+            var user = await _userManager.FindByIdAsync(userId);
+            // DENORMALIZIM 🔥
+            product.UserInfo = new ProductUserInfo
+            {
+                FirstName= user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email
+            };
+
             await _product.InsertOneAsync(product);
             return CreatedAtAction(nameof(GetById), new { id = product.Id }, product);
         }
@@ -55,6 +72,19 @@ namespace backend.Controllers
         [HttpPut]
         public async Task<ActionResult> Update(Product product)
         {
+            // Gjej user nga SQL për të marrë info reale
+            var user = await _context.Users.FindAsync(product.UserId);
+
+            if (user == null)
+                return BadRequest("User not found");
+
+            // Rifresko UserInfo me të dhënat nga SQL
+            product.UserInfo = new ProductUserInfo
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email
+            };
             var filter = Builders<Product>.Filter.Eq(x => x.Id, product.Id);
             await _product.ReplaceOneAsync(filter, product);
             return Ok("Product Updated Successfully");
