@@ -1,0 +1,74 @@
+/* Sigurohet që trupi dhe html të mbushin tërë ekranin dhe të kenë margjinë 0 */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: "Roboto", sans-serif; /* Font modern dhe i pastër */
+}
+
+/* Centralizimi i përmbajtjes kryesore */
+.edit-parking-reservation-manager {
+  display: flex;
+  justify-content: center; /* Centralizon horizontalisht */
+  align-items: center; /* Centralizon vertikalisht */
+  height: 100vh; /* E mbush tërë lartësinë e ekranit */
+  background-color: #f3f4f6; /* Ngjyrë sfondi e butë dhe relaksuese */
+  padding: 2rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Pjesa që mban përmbajtjen e formës */
+.edit-parking-reservation-manager-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Hijë e lehtë për efekt estetik */
+  width: 100%;
+  max-width: 600px; /* Kufizimi i gjerësisë së formës */
+  box-sizing: border-box;
+}
+
+/* Titulli i formës */
+.edit-parking-reservation-manager-content h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+/* Stili i formës */
+.edit-parking-reservation-manager-content .form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Hapësirë midis inputeve */
+}
+
+/* Inputet e formës */
+.edit-parking-reservation-manager-content .form .MuiTextField-root {
+  width: 100%;
+}
+
+/* Kontejneri për butonat */
+.edit-parking-reservation-manager-content .button-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem; /* Hapësirë midis butonave */
+  margin-top: 1.5rem;
+}
+
+/* Butoni për ruajtjen */
+.edit-parking-reservation-manager-content
+  .button-container
+  .MuiButton-outlinedPrimary {
+  flex: 1; /* Barazon madhësinë e butonave */
+}
+
+/* Butoni për kthimin */
+.edit-parking-reservation-manager-content
+  .button-container
+  .MuiButton-outlinedSecondary {
+  flex: 1; /* Barazon madhësinë e butonave */
+}
