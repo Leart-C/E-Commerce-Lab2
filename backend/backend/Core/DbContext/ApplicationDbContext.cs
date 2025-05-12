@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection.Emit;
+using static backend.Core.Entities.ProductReview;
 
 namespace backend.Core.DbContext
 {
@@ -34,7 +35,10 @@ namespace backend.Core.DbContext
             builder.Entity<IdentityUserRole<string>>().ToTable("UserRoles");
 
 
-        //1 PaymentMethod -> N:Payment
+            builder.Ignore<ProductReview>();
+
+
+            //1 PaymentMethod -> N:Payment
             builder.Entity<PaymentMethod>()
                 .HasMany(pm => pm.Payments)
                 .WithOne(p => p.PaymentMethod)

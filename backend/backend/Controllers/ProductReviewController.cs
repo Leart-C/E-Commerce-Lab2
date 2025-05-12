@@ -6,6 +6,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
 using backend.data;
+using Microsoft.AspNetCore.Identity;
 
 namespace backend.Controllers
 {
@@ -16,12 +17,14 @@ namespace backend.Controllers
         private readonly IMongoCollection<ProductReview>? _productReview;
         private readonly IMapper _mapper;
         private readonly MongoDbService _mongoDbService;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public ProductReviewController(MongoDbService mongoDbService, IMapper mapper)
+        public ProductReviewController(MongoDbService mongoDbService, IMapper mapper, UserManager<ApplicationUser> userManager)
         {
             _productReview = mongoDbService.Database?.GetCollection<ProductReview>("productReview");
             _mapper = mapper;
             _mongoDbService = mongoDbService;
+            _userManager = userManager;
         }
 
         // Krijimi i një review për një produkt
@@ -29,12 +32,22 @@ namespace backend.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateReview([FromBody] ProductReviewCreateDto dto)
         {
-            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;  // Përdoruesi i lidhur nga JWT
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             var productReview = _mapper.Map<ProductReview>(dto);
-            productReview.UserId = userId; // Vendos id-në e përdoruesit
-            productReview.CreatedAt = DateTime.Now; // Vendos datën e krijimit
+            productReview.UserId = userId;
+            productReview.CreatedAt = DateTime.Now;
 
-            // Krijo një review të ri për produktin në MongoDB
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) return BadRequest("User not found");
+
+            // DENORMALIZIM 🔥
+            productReview.UserInfo = new ProductReview.ReviewUserInfo
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email
+            };
+
             await _productReview.InsertOneAsync(productReview);
             return CreatedAtAction(nameof(GetById), new { id = productReview.Id }, productReview);
         }
@@ -73,6 +86,52 @@ namespace backend.Controllers
             if (review is null)
                 return NotFound();
             return Ok(review);
+        }
+        [Authorize]
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateReview(string id, [FromBody] ProductReviewCreateDto dto)
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            var existingReview = await _productReview.Find(r => r.Id == id).FirstOrDefaultAsync();
+            if (existingReview == null) return NotFound("Review not found");
+            if (existingReview.UserId != userId) return Forbid("You can only update your own reviews");
+
+            existingReview.ReviewText = dto.ReviewText;
+            existingReview.Rating = dto.Rating;
+
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) return BadRequest("User not found");
+
+            // Rifresko UserInfo 🔁
+            existingReview.UserInfo = new ProductReview.ReviewUserInfo
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email
+            };
+
+            var filter = Builders<ProductReview>.Filter.Eq(r => r.Id, id);
+            await _productReview.ReplaceOneAsync(filter, existingReview);
+            return Ok("Review updated successfully");
+        }
+        [Authorize]
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteReview(string id)
+        {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            var review = await _productReview.Find(r => r.Id == id).FirstOrDefaultAsync();
+            if (review == null) return NotFound("Review not found");
+
+            if (review.UserId != userId)
+                return Forbid("You are not authorized to delete this review");
+
+            var result = await _productReview.DeleteOneAsync(r => r.Id == id);
+            if (result.DeletedCount == 0)
+                return StatusCode(500, "Failed to delete review");
+
+            return Ok("Review deleted successfully");
         }
     }
 }

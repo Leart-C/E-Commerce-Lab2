@@ -1,22 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\",
+  "WorkspaceRootPath": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\techcom\\desktop\\e-commerce-lab2\\backend\\backend\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\twin\\desktop\\e-commerce-lab2\\backend\\backend\\core\\dbcontext\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\dbcontext\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\techcom\\desktop\\e-commerce-lab2\\backend\\backend\\core\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\twin\\desktop\\e-commerce-lab2\\backend\\backend\\controllers\\productreviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\controllers\\productreviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\techcom\\desktop\\e-commerce-lab2\\backend\\backend\\core\\dtos\\orderitem\\orderitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\dtos\\orderitem\\orderitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\techcom\\desktop\\e-commerce-lab2\\backend\\backend\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\twin\\desktop\\e-commerce-lab2\\backend\\backend\\core\\entities\\productreview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\entities\\productreview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,52 +34,42 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "OrderItemDto.cs",
-              "DocumentMoniker": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Dtos\\OrderItem\\OrderItemDto.cs",
-              "RelativeDocumentMoniker": "backend\\Core\\Dtos\\OrderItem\\OrderItemDto.cs",
-              "ToolTip": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Dtos\\OrderItem\\OrderItemDto.cs",
-              "RelativeToolTip": "backend\\Core\\Dtos\\OrderItem\\OrderItemDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T12:43:03.578Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CategoryController.cs",
-              "DocumentMoniker": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Controllers\\CategoryController.cs",
-              "RelativeDocumentMoniker": "backend\\Controllers\\CategoryController.cs",
-              "ToolTip": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Controllers\\CategoryController.cs",
-              "RelativeToolTip": "backend\\Controllers\\CategoryController.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAowDAAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-14T13:11:10.176Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ProductController.cs",
-              "DocumentMoniker": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Controllers\\ProductController.cs",
-              "RelativeDocumentMoniker": "backend\\Controllers\\ProductController.cs",
-              "ToolTip": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Controllers\\ProductController.cs",
-              "RelativeToolTip": "backend\\Controllers\\ProductController.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAqwFIAAAANAAAAAAAAAA==",
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\DbContext\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "backend\\Core\\DbContext\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\DbContext\\ApplicationDbContext.cs",
+              "RelativeToolTip": "backend\\Core\\DbContext\\ApplicationDbContext.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAiwB4AAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-14T12:52:35.21Z",
+              "WhenOpened": "2025-05-12T21:29:28.461Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Product.cs",
-              "DocumentMoniker": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\Product.cs",
-              "RelativeDocumentMoniker": "backend\\Core\\Entities\\Product.cs",
-              "ToolTip": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\Product.cs",
-              "RelativeToolTip": "backend\\Core\\Entities\\Product.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAuwCMAAAAAAAAAAAAAAA==",
+              "Title": "ProductReviewController.cs",
+              "DocumentMoniker": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Controllers\\ProductReviewController.cs",
+              "RelativeDocumentMoniker": "backend\\Controllers\\ProductReviewController.cs",
+              "ToolTip": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Controllers\\ProductReviewController.cs",
+              "RelativeToolTip": "backend\\Controllers\\ProductReviewController.cs",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAkwIgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-14T12:50:53.722Z"
+              "WhenOpened": "2025-05-12T21:20:10.409Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProductReview.cs",
+              "DocumentMoniker": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\ProductReview.cs",
+              "RelativeDocumentMoniker": "backend\\Core\\Entities\\ProductReview.cs",
+              "ToolTip": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\ProductReview.cs",
+              "RelativeToolTip": "backend\\Core\\Entities\\ProductReview.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAiwCMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-12T21:19:06.85Z",
+              "EditorCaption": ""
             }
           ]
         }

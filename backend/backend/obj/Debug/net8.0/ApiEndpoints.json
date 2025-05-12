@@ -949,6 +949,43 @@
   },
   {
     "ContainingType": "backend.Controllers.ProductReviewController",
+    "Method": "UpdateReview",
+    "RelativePath": "api/ProductReview/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "backend.Core.Dtos.ProductReview.ProductReviewCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "backend.Controllers.ProductReviewController",
+    "Method": "DeleteReview",
+    "RelativePath": "api/ProductReview/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "backend.Controllers.ProductReviewController",
     "Method": "GetByProductId",
     "RelativePath": "api/ProductReview/product/{productId}",
     "HttpMethod": "GET",

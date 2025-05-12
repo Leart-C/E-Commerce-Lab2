@@ -24,5 +24,12 @@ namespace backend.Core.Entities
         // Datë e krijimit e rishikimit
         [BsonElement("createdAt")]
         public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public ReviewUserInfo UserInfo { get; set; }
+        public class ReviewUserInfo
+        {
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+            public string Email { get; set; }
+        }
     }
 }
