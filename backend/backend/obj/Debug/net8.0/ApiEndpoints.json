@@ -769,7 +769,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "backend.Core.Dtos.Payment.PaymentDto",
+        "Type": "backend.Core.Dtos.PaymentMethod.PaymentMethodDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
