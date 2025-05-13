@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\",
+  "WorkspaceRootPath": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\techcom\\desktop\\e-commerce-lab2\\backend\\backend\\core\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\twin\\desktop\\e-commerce-lab2\\backend\\backend\\core\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -28,9 +28,9 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Services\\AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Services\\AuthService.cs",
               "RelativeDocumentMoniker": "backend\\Core\\Services\\AuthService.cs",
-              "ToolTip": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Services\\AuthService.cs",
               "RelativeToolTip": "backend\\Core\\Services\\AuthService.cs",
               "ViewState": "AgIAAK8AAAAAAAAAAAAAALAAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

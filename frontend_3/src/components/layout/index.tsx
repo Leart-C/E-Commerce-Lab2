@@ -19,7 +19,6 @@ import Menu from "@mui/material/Menu";
 import { Outlet, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth.hook";
 import { AppSidebarList } from "./AppSidebar";
-import PaymentCrud from "../../pages/PaymentCrud";
 
 const drawerWidth = 240;
 
@@ -242,6 +241,7 @@ export default function AppSidebar() {
 
       <Main open={open}>
         <DrawerHeader />
+
         <Outlet />
       </Main>
     </Box>

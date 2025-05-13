@@ -54,24 +54,19 @@ const sidebarLinks = [
     icon: <FaUserLarge />,
   },
   {
-    label: "Payments",
-    href: PATH_DASHBOARD.payments,
-    icon: <MdOutlinePayment />,
+    label: "Payment",
+    href: PATH_DASHBOARD.payment,
+    icon: <FaUserLarge />,
   },
   {
-    label: "Payment Methods",
-    href: PATH_DASHBOARD.paymentMethods,
-    icon: <MdOutlinePayments />,
+    label: "Payment Method",
+    href: PATH_DASHBOARD.paymentMethod,
+    icon: <FaUserLarge />,
   },
   {
-    label: "Invoices",
+    label: "Invoice",
     href: PATH_DASHBOARD.invoice,
-    icon: <FaFileInvoiceDollar />,
-  },
-  {
-    label: "PaymentCrud",
-    href: PATH_DASHBOARD.paymentCrud,
-    icon: <FaFileInvoiceDollar />,
+    icon: <FaUserLarge />,
   },
 ];
 

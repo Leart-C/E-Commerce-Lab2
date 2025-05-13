@@ -26,34 +26,10 @@ import NotFoundPage from "../pages/public/NotFoundPage";
 import RegisterPage from "../pages/public/RegisterPage";
 import UnauthorizedPage from "../pages/public/UnauthorizedPage";
 import { Suspense } from "react";
-import Payments from "../pages/payment/Payments.page";
-import EditPayment from "../pages/payment/EditPayment.page";
-import AddPayment from "../pages/payment/AddPayment.page";
-import PaymentMethods from "../pages/paymentMethod/PaymentMethod.page";
-import EditPaymentMethod from "../pages/paymentMethod/EditPaymentMethod.page";
-import AddPaymentMethod from "../pages/paymentMethod/AddPaymentMethod";
-import Invoices from "../pages/invoice/Invoice.page";
-import EditInvoice from "../pages/invoice/EditInvoice.page";
-import AddInvoice from "../pages/invoice/AddInvoice.page";
-import Reservations from "../pages/reservation/Reservation.page";
-import EditReservation from "../pages/reservation/EditReservation.page";
-import AddReservation from "../pages/reservation/AddReservation.page";
-import ParkingSpots from "../pages/parkingSpot/ParkingSpot.page";
-import EditParkingSpot from "../pages/parkingSpot/EditParkingSpot.page";
-import AddParkingSpot from "../pages/parkingSpot/AddParkingSpot.page";
-import ParkingReservationManager from "../pages/parkingReservationManager/ParkingReservationManger.page";
-import EditParkingReservationManager from "../pages/parkingReservationManager/EditParkingReservationManager.page";
-import AddParkingReservationManager from "../pages/parkingReservationManager/AddParkingReservationManager.page";
-import ParkingSpaces from "../pages/parkingSpace/ParkingSpace.page";
-import AddParkingSpace from "../pages/parkingSpace/AddParkingSpace.page";
-import EditParkingSpace from "../pages/parkingSpace/EditParkingSpace.page";
-import AvailabilityMonitor from "../pages/availabilityMonitor/AvailabilityMonitor.page";
-import AddAvailabilityMonitor from "../pages/availabilityMonitor/AddAvailabilityMonitor.page";
-import EditAvailabilityMonitor from "../pages/availabilityMonitor/EditAvailabilityMonitor.page";
-import ParkingSpaceManager from "../pages/parkingSpaceManager/ParkingSpaceManager.page";
-import AddParkingSpaceManager from "../pages/parkingSpaceManager/AddParkingSpaceManager.page";
-import EditParkingSpaceManager from "../pages/parkingSpaceManager/EditParkingSpaceManager.page";
-import PaymentCrud from "../pages/PaymentCrud";
+import PaymentMethod from "../pages/paymentMethod/PaymentMethod";
+import Invoice from "../pages/invoice/Invoice";
+import Payment from "../pages/payment/Payment";
+
 
 const GlobalRouter = () => {
   return (
@@ -106,34 +82,16 @@ const GlobalRouter = () => {
           path="*"
           element={<Navigate to={PATH_PUBLIC.notFound} replace />}
         />
-
         <Route element={<AuthGuard roles={allAccessRoles} />}>
-          <Route path={PATH_DASHBOARD.payments}>
+          <Route path={PATH_DASHBOARD.paymentMethod}>
             <Route
               index
               element={
                 <Suspense fallback={<div>Loading...</div>}>
-                  <Payments />
+                  <PaymentMethod />
                 </Suspense>
               }
             />
-            <Route path="edit/:id" element={<EditPayment />} />
-            <Route path="add" element={<AddPayment />} />
-          </Route>
-        </Route>
-
-        <Route element={<AuthGuard roles={allAccessRoles} />}>
-          <Route path={PATH_DASHBOARD.paymentMethods}>
-            <Route
-              index
-              element={
-                <Suspense fallback={<div>Loading...</div>}>
-                  <PaymentMethods />
-                </Suspense>
-              }
-            />
-            <Route path="edit/:id" element={<EditPaymentMethod />} />
-            <Route path="add" element={<AddPaymentMethod />} />
           </Route>
         </Route>
         <Route element={<AuthGuard roles={allAccessRoles} />}>
@@ -142,108 +100,19 @@ const GlobalRouter = () => {
               index
               element={
                 <Suspense fallback={<div>Loading...</div>}>
-                  <Invoices />
+                  <Invoice />
                 </Suspense>
               }
             />
-            <Route path="edit/:id" element={<EditInvoice />} />
-            <Route path="add" element={<AddInvoice />} />
           </Route>
         </Route>
         <Route element={<AuthGuard roles={allAccessRoles} />}>
-          <Route path={PATH_DASHBOARD.reservations}>
+          <Route path={PATH_DASHBOARD.payment}>
             <Route
               index
               element={
                 <Suspense fallback={<div>Loading...</div>}>
-                  <Reservations />
-                </Suspense>
-              }
-            />
-            <Route path="edit/:id" element={<EditReservation />} />
-            <Route path="add" element={<AddReservation />} />
-          </Route>
-        </Route>
-        <Route element={<AuthGuard roles={allAccessRoles} />}>
-          <Route path={PATH_DASHBOARD.parkingSpot}>
-            <Route
-              index
-              element={
-                <Suspense fallback={<div>Loading...</div>}>
-                  <ParkingSpots />
-                </Suspense>
-              }
-            />
-            <Route path="edit/:id" element={<EditParkingSpot />} />
-            <Route path="add" element={<AddParkingSpot />} />
-          </Route>
-        </Route>
-        <Route element={<AuthGuard roles={allAccessRoles} />}>
-          <Route path={PATH_DASHBOARD.parkingReservationManagers}>
-            <Route
-              index
-              element={
-                <Suspense fallback={<div>Loading...</div>}>
-                  <ParkingReservationManager />
-                </Suspense>
-              }
-            />
-            <Route
-              path="edit/:id"
-              element={<EditParkingReservationManager />}
-            />
-            <Route path="add" element={<AddParkingReservationManager />} />
-          </Route>
-        </Route>
-        <Route element={<AuthGuard roles={allAccessRoles} />}>
-          <Route path={PATH_DASHBOARD.parkingSpace}>
-            <Route
-              index
-              element={
-                <Suspense fallback={<div>Loading...</div>}>
-                  <ParkingSpaces />
-                </Suspense>
-              }
-            />
-            <Route path="edit/:id" element={<EditParkingSpace />} />
-            <Route path="add" element={<AddParkingSpace />} />
-          </Route>
-        </Route>
-        <Route element={<AuthGuard roles={allAccessRoles} />}>
-          <Route path={PATH_DASHBOARD.availabilityMonitor}>
-            <Route
-              index
-              element={
-                <Suspense fallback={<div>Loading...</div>}>
-                  <AvailabilityMonitor />
-                </Suspense>
-              }
-            />
-            <Route path="edit/:id" element={<EditAvailabilityMonitor />} />
-            <Route path="add" element={<AddAvailabilityMonitor />} />
-          </Route>
-        </Route>
-        <Route element={<AuthGuard roles={allAccessRoles} />}>
-          <Route path={PATH_DASHBOARD.parkingSpaceManager}>
-            <Route
-              index
-              element={
-                <Suspense fallback={<div>Loading...</div>}>
-                  <ParkingSpaceManager />
-                </Suspense>
-              }
-            />
-            <Route path="edit/:id" element={<EditParkingSpaceManager />} />
-            <Route path="add" element={<AddParkingSpaceManager />} />
-          </Route>
-        </Route>
-        <Route element={<AuthGuard roles={allAccessRoles} />}>
-          <Route path={PATH_DASHBOARD.paymentCrud}>
-            <Route
-              index
-              element={
-                <Suspense fallback={<div>Loading...</div>}>
-                  <PaymentCrud />
+                  <Payment />
                 </Suspense>
               }
             />
