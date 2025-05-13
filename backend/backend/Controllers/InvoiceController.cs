@@ -46,10 +46,10 @@ namespace backend.Controllers
             return CreatedAtAction(nameof(GetInvoice), new { id = invoice.Id }, _mapper.Map<InvoiceDto>(invoice));
         }
 
-        [HttpPut]
-        public async Task<IActionResult> UpdateInvoice([FromBody] InvoiceDto dto)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateInvoice(int id, [FromBody] InvoiceDto dto)
         {
-            var invoice = await _context.Invoices.FindAsync(dto.Id);
+            var invoice = await _context.Invoices.FindAsync(id);
             if (invoice == null) return NotFound();
 
             _mapper.Map(dto, invoice);

@@ -308,22 +308,6 @@
   },
   {
     "ContainingType": "backend.Controllers.InvoiceController",
-    "Method": "UpdateInvoice",
-    "RelativePath": "api/Invoice",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "dto",
-        "Type": "backend.Core.Dtos.Invoice.InvoiceDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "backend.Controllers.InvoiceController",
     "Method": "GetInvoice",
     "RelativePath": "api/Invoice/{id}",
     "HttpMethod": "GET",
@@ -347,6 +331,27 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "backend.Controllers.InvoiceController",
+    "Method": "UpdateInvoice",
+    "RelativePath": "api/Invoice/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "backend.Core.Dtos.Invoice.InvoiceDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "backend.Controllers.InvoiceController",
