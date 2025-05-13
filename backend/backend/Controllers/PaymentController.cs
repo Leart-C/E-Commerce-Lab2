@@ -37,7 +37,7 @@ public class PaymentController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult> CreatePayment(PaymentDto dto)
+    public async Task<ActionResult> CreatePayment([FromBody]PaymentDto dto)
     {
         var payment = _mapper.Map<Payment>(dto);
         payment.CreatedAt = DateTime.UtcNow;

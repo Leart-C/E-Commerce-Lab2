@@ -755,22 +755,6 @@
   },
   {
     "ContainingType": "backend.Controllers.PaymentMethodController",
-    "Method": "UpdatePaymentMethod",
-    "RelativePath": "api/PaymentMethod",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "dto",
-        "Type": "backend.Core.Dtos.PaymentMethod.PaymentMethodDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "backend.Controllers.PaymentMethodController",
     "Method": "GetPaymentMethod",
     "RelativePath": "api/PaymentMethod/{id}",
     "HttpMethod": "GET",
@@ -794,6 +778,27 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "backend.Controllers.PaymentMethodController",
+    "Method": "UpdatePaymentMethod",
+    "RelativePath": "api/PaymentMethod/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "backend.Core.Dtos.PaymentMethod.PaymentMethodDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "backend.Controllers.PaymentMethodController",

@@ -30,7 +30,7 @@ namespace backend.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<PaymentDto>> GetPaymentMethod(int id)
+        public async Task<ActionResult<PaymentMethodDto>> GetPaymentMethod(int id)
         {
             var paymentMethod = await _context.PaymentMethods.FindAsync(id);
             if (paymentMethod == null) return NotFound();
@@ -39,7 +39,7 @@ namespace backend.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> CreatePaymentMethod(PaymentMethodDto dto)
+        public async Task<ActionResult> CreatePaymentMethod([FromBody]PaymentMethodDto dto)
         {
             var paymentMethod = _mapper.Map<PaymentMethod>(dto);
            
@@ -50,10 +50,10 @@ namespace backend.Controllers
             return CreatedAtAction(nameof(GetPaymentMethod), new { id = paymentMethod.Id }, _mapper.Map<PaymentMethodDto>(paymentMethod));
         }
 
-        [HttpPut]
-        public async Task<IActionResult> UpdatePaymentMethod([FromBody] PaymentMethodDto dto)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdatePaymentMethod(int id, [FromBody] PaymentMethodDto dto)
         {
-            var paymentMethod = await _context.PaymentMethods.FindAsync(dto.Id);
+            var paymentMethod = await _context.PaymentMethods.FindAsync(id);
             if (paymentMethod == null) return NotFound();
 
             _mapper.Map(dto, paymentMethod);

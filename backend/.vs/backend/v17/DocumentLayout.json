@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\twin\\desktop\\e-commerce-lab2\\backend\\backend\\core\\dbcontext\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\dbcontext\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\twin\\desktop\\e-commerce-lab2\\backend\\backend\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\controllers\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\twin\\desktop\\e-commerce-lab2\\backend\\backend\\controllers\\paymentmethodcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\controllers\\paymentmethodcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\twin\\desktop\\e-commerce-lab2\\backend\\backend\\controllers\\productreviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\controllers\\productreviewcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\twin\\desktop\\e-commerce-lab2\\backend\\backend\\core\\dbcontext\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\dbcontext\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\twin\\desktop\\e-commerce-lab2\\backend\\backend\\core\\entities\\productreview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,19 +43,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "PaymentController.cs",
+              "DocumentMoniker": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Controllers\\PaymentController.cs",
+              "RelativeDocumentMoniker": "backend\\Controllers\\PaymentController.cs",
+              "ToolTip": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Controllers\\PaymentController.cs",
+              "RelativeToolTip": "backend\\Controllers\\PaymentController.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAgwCcAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T08:57:12.071Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PaymentMethodController.cs",
+              "DocumentMoniker": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Controllers\\PaymentMethodController.cs",
+              "RelativeDocumentMoniker": "backend\\Controllers\\PaymentMethodController.cs",
+              "ToolTip": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Controllers\\PaymentMethodController.cs",
+              "RelativeToolTip": "backend\\Controllers\\PaymentMethodController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAYwCkAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T08:49:09.674Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\DbContext\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "backend\\Core\\DbContext\\ApplicationDbContext.cs",
               "ToolTip": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\DbContext\\ApplicationDbContext.cs",
               "RelativeToolTip": "backend\\Core\\DbContext\\ApplicationDbContext.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAiwB4AAABOAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-12T21:29:28.461Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ProductReviewController.cs",
               "DocumentMoniker": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Controllers\\ProductReviewController.cs",
               "RelativeDocumentMoniker": "backend\\Controllers\\ProductReviewController.cs",
@@ -60,7 +94,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "ProductReview.cs",
               "DocumentMoniker": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\ProductReview.cs",
               "RelativeDocumentMoniker": "backend\\Core\\Entities\\ProductReview.cs",
@@ -68,8 +102,7 @@
               "RelativeToolTip": "backend\\Core\\Entities\\ProductReview.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAiwCMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-12T21:19:06.85Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-12T21:19:06.85Z"
             }
           ]
         }
