@@ -1,15 +1,21 @@
-import { ReactNode, createContext, useReducer, useCallback, useEffect } from 'react';
+import {
+  ReactNode,
+  createContext,
+  useReducer,
+  useCallback,
+  useEffect,
+} from "react";
 import {
   IAuthContext,
   IAuthContextAction,
   IAuthContextActionTypes,
   IAuthContextState,
   ILoginResponseDto,
-} from '../types/auth.types';
-import { getSession, setSession } from './auth.utils';
-import axiosInstance from '../utils/axiosInstance';
-import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+} from "../types/auth.types";
+import { getSession, setSession } from "./auth.utils";
+import axiosInstance from "../utils/axiosInstance";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import {
   LOGIN_URL,
   ME_URL,
@@ -17,7 +23,7 @@ import {
   PATH_AFTER_LOGOUT,
   PATH_AFTER_REGISTER,
   REGISTER_URL,
-} from '../utils/globalConfig';
+} from "../utils/globalConfig";
 
 const authReducer = (state: IAuthContextState, action: IAuthContextAction) => {
   if (action.type === IAuthContextActionTypes.LOGIN) {
@@ -55,28 +61,27 @@ const AuthContextProvider = ({ children }: IProps) => {
   const [state, dispatch] = useReducer(authReducer, initialAuthState);
   const navigate = useNavigate();
 
-
   const initializeAuthContext = useCallback(async () => {
     try {
       const token = getSession();
       if (token) {
-        const response = await axiosInstance.post<ILoginResponseDto>(ME_URL, {
-          token,
-        });
-        const { newToken, userInfo } = response.data;
-        setSession(newToken);
-        dispatch({
-          type: IAuthContextActionTypes.LOGIN,
-          payload: userInfo,
-        });
+        const userJson = localStorage.getItem("user");
+        if (userJson) {
+          const userInfo = JSON.parse(userJson);
+          setSession(token);
+          dispatch({
+            type: IAuthContextActionTypes.LOGIN,
+            payload: userInfo,
+          });
+        }
       } else {
         setSession(null);
         dispatch({
           type: IAuthContextActionTypes.LOGOUT,
         });
       }
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    } catch(error) {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (error) {
       setSession(null);
       dispatch({
         type: IAuthContextActionTypes.LOGOUT,
@@ -85,14 +90,21 @@ const AuthContextProvider = ({ children }: IProps) => {
   }, []);
 
   useEffect(() => {
-    console.log('AuthContext Initialization start');
+    console.log("AuthContext Initialization start");
     initializeAuthContext()
-      .then(() => console.log('initializeAuthContext was successfull'))
+      .then(() => console.log("initializeAuthContext was successfull"))
       .catch((error) => console.log(error));
   }, []);
-  
+
   const register = useCallback(
-    async (firstName: string, lastName: string, userName: string, email: string, password: string, address: string) => {
+    async (
+      firstName: string,
+      lastName: string,
+      userName: string,
+      email: string,
+      password: string,
+      address: string
+    ) => {
       const response = await axiosInstance.post(REGISTER_URL, {
         firstName,
         lastName,
@@ -101,38 +113,40 @@ const AuthContextProvider = ({ children }: IProps) => {
         password,
         address,
       });
-      console.log('Register Result:', response);
-      toast.success('Register Was Successfull. Please Login.');
+      console.log("Register Result:", response);
+      toast.success("Register Was Successfull. Please Login.");
       navigate(PATH_AFTER_REGISTER);
     },
     []
   );
-  
+
   const login = useCallback(async (userName: string, password: string) => {
     const response = await axiosInstance.post<ILoginResponseDto>(LOGIN_URL, {
       userName,
       password,
     });
-    toast.success('Login Was Successful');
+    toast.success("Login Was Successful");
     // In response, we receive jwt token and user data
     const { newToken, userInfo } = response.data;
     setSession(newToken);
+    localStorage.setItem("user", JSON.stringify(userInfo));
     dispatch({
       type: IAuthContextActionTypes.LOGIN,
       payload: userInfo,
     });
     navigate(PATH_AFTER_LOGIN);
   }, []);
-  
+
   // Logout Method
   const logout = useCallback(() => {
     setSession(null);
+    localStorage.removeItem("user");
     dispatch({
       type: IAuthContextActionTypes.LOGOUT,
     });
     navigate(PATH_AFTER_LOGOUT);
   }, []);
-  
+
   // We create an object for values of context provider
   // This will keep our codes more readable
   const valuesObject = {
@@ -143,9 +157,10 @@ const AuthContextProvider = ({ children }: IProps) => {
     login,
     logout,
   };
-  
-  return <AuthContext.Provider value={valuesObject}>{children}</AuthContext.Provider>;
+
+  return (
+    <AuthContext.Provider value={valuesObject}>{children}</AuthContext.Provider>
+  );
 };
 
 export default AuthContextProvider;
-

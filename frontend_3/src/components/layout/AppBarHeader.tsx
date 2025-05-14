@@ -48,7 +48,7 @@ export default function AppBarHeader() {
               sx={{ cursor: "pointer", display: "inline" }}
               onClick={() => navigate("/")}
             >
-              Project Name
+              E-Commerce
             </Typography>
           </Box>
         </Toolbar>

@@ -16,74 +16,111 @@ import { List } from "@mui/material";
 import { PATH_DASHBOARD } from "../../routes/paths";
 import { PiUserCircleDuotone } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth.hook";
+import {
+  allAccessRoles,
+  managerAccessRoles,
+  adminAccessRoles,
+  ownerAccessRoles,
+} from "../../auth/auth.utils";
+import { RolesEnum } from "../../types/auth.types";
 
-const sidebarLinks = [
-  {
-    label: "User Management",
-    href: PATH_DASHBOARD.usersManagement,
-    icon: <GrUserManager />,
-  },
-  {
-    label: "All Logs",
-    href: PATH_DASHBOARD.systemLogs,
-    icon: <FaList />,
-  },
-  {
-    label: "My Logs",
-    href: PATH_DASHBOARD.myLogs,
-    icon: <FaListCheck />,
-  },
-  {
-    label: "Owner Page",
-    href: PATH_DASHBOARD.owner,
-    icon: <FaUserTie />,
-  },
-  {
-    label: "Admin Page",
-    href: PATH_DASHBOARD.admin,
-    icon: <FaUserShield />,
-  },
-  {
-    label: "Manager Page",
-    href: PATH_DASHBOARD.manager,
-    icon: <FaUserGear />,
-  },
-  {
-    label: "User Page",
-    href: PATH_DASHBOARD.user,
-    icon: <FaUserLarge />,
-  },
-  {
-    label: "Payment",
-    href: PATH_DASHBOARD.payment,
-    icon: <FaUserLarge />,
-  },
-  {
-    label: "Payment Method",
-    href: PATH_DASHBOARD.paymentMethod,
-    icon: <FaUserLarge />,
-  },
-  {
-    label: "Invoice",
-    href: PATH_DASHBOARD.invoice,
-    icon: <FaUserLarge />,
-  },
-];
+// const combinedRoles = [
+//   ...adminAccessRoles,
+//   ...ownerAccessRoles,
+//   ...managerAccessRoles,
+// ];
 
 export function AppSidebarList() {
+  const { isAuthenticated, user } = useAuth();
   const navigate = useNavigate();
+
+  const getSidebarLinks = () => {
+    if (
+      isAuthenticated &&
+      user?.roles?.some((role) =>
+        [
+          ...ownerAccessRoles,
+          ...adminAccessRoles,
+          ...managerAccessRoles,
+        ].includes(role)
+      )
+    ) {
+      return [
+        {
+          label: "User Management",
+          href: PATH_DASHBOARD.usersManagement,
+          icon: <GrUserManager />,
+        },
+        {
+          label: "All Logs",
+          href: PATH_DASHBOARD.systemLogs,
+          icon: <FaList />,
+        },
+        {
+          label: "My Logs",
+          href: PATH_DASHBOARD.myLogs,
+          icon: <FaListCheck />,
+        },
+        {
+          label: "Owner Page",
+          href: PATH_DASHBOARD.owner,
+          icon: <FaUserTie />,
+        },
+        {
+          label: "Admin Page",
+          href: PATH_DASHBOARD.admin,
+          icon: <FaUserShield />,
+        },
+        {
+          label: "Manager Page",
+          href: PATH_DASHBOARD.manager,
+          icon: <FaUserGear />,
+        },
+        {
+          label: "User Page",
+          href: PATH_DASHBOARD.user,
+          icon: <FaUserLarge />,
+        },
+      ];
+    } else if (
+      isAuthenticated &&
+      user?.roles?.some((role) => allAccessRoles.includes(role))
+    ) {
+      return [
+        {
+          label: "Payment",
+          href: PATH_DASHBOARD.payment,
+          icon: <MdOutlinePayment />,
+        },
+        {
+          label: "Payment Method",
+          href: PATH_DASHBOARD.paymentMethod,
+          icon: <MdOutlinePayments />,
+        },
+        {
+          label: "Invoice",
+          href: PATH_DASHBOARD.invoice,
+          icon: <FaFileInvoiceDollar />,
+        },
+      ];
+    } else {
+      return [];
+    }
+  };
+
+  const sidebarLinks = getSidebarLinks();
+
   return (
-    <>
-      <List>
-        {sidebarLinks.map((item) => (
-          <ListItem key={item.label} disablePadding>
-            <ListItemButton onClick={() => navigate(item.href)}>
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.label} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </>
+    <List>
+      {sidebarLinks.map((item) => (
+        <ListItem key={item.label} disablePadding>
+          <ListItemButton onClick={() => navigate(item.href)}>
+            <ListItemIcon>{item.icon}</ListItemIcon>
+            <ListItemText primary={item.label} />
+          </ListItemButton>
+        </ListItem>
+      ))}
+    </List>
   );
 }
