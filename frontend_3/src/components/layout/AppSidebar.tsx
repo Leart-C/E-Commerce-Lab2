@@ -14,7 +14,6 @@ import { FaFileInvoiceDollar } from "react-icons/fa";
 import { GrUserManager } from "react-icons/gr";
 import { List } from "@mui/material";
 import { PATH_DASHBOARD } from "../../routes/paths";
-import { PiUserCircleDuotone } from "react-icons/pi";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth.hook";
 import {
@@ -23,13 +22,6 @@ import {
   adminAccessRoles,
   ownerAccessRoles,
 } from "../../auth/auth.utils";
-import { RolesEnum } from "../../types/auth.types";
-
-// const combinedRoles = [
-//   ...adminAccessRoles,
-//   ...ownerAccessRoles,
-//   ...managerAccessRoles,
-// ];
 
 export function AppSidebarList() {
   const { isAuthenticated, user } = useAuth();
@@ -89,6 +81,11 @@ export function AppSidebarList() {
     ) {
       return [
         {
+          label: "My Logs",
+          href: PATH_DASHBOARD.myLogs,
+          icon: <FaListCheck />,
+        },
+        {
           label: "Payment",
           href: PATH_DASHBOARD.payment,
           icon: <MdOutlinePayment />,
@@ -102,6 +99,11 @@ export function AppSidebarList() {
           label: "Invoice",
           href: PATH_DASHBOARD.invoice,
           icon: <FaFileInvoiceDollar />,
+        },
+        {
+          label: "User Page",
+          href: PATH_DASHBOARD.user,
+          icon: <FaUserLarge />,
         },
       ];
     } else {
