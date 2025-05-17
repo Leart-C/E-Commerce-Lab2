@@ -51,7 +51,7 @@ namespace backend.Controllers
             return CreatedAtAction(nameof(GetTransactionMethod), new { id = transactionMethod.Id }, _mapper.Map<TransactionDto>(transactionMethod));
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public async Task<IActionResult> UpdateTransactionMethod([FromBody] TransactionDto dto)
         {
             var trasnactionMethod = await _context.Transactions.FindAsync(dto.Id);

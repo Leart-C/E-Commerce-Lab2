@@ -1337,22 +1337,6 @@
   },
   {
     "ContainingType": "backend.Controllers.TransactionController",
-    "Method": "UpdateTransactionMethod",
-    "RelativePath": "api/Transaction",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "dto",
-        "Type": "backend.Core.Dtos.Transaction.TransactionDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "backend.Controllers.TransactionController",
     "Method": "GetTransactionByIdMethod",
     "RelativePath": "api/Transaction/{id}",
     "HttpMethod": "GET",
@@ -1376,6 +1360,27 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "backend.Controllers.TransactionController",
+    "Method": "UpdateTransactionMethod",
+    "RelativePath": "api/Transaction/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "backend.Core.Dtos.Transaction.TransactionDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "backend.Controllers.TransactionController",

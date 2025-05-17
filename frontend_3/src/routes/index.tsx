@@ -31,6 +31,7 @@ import Invoice from "../pages/invoice/Invoice";
 import Payment from "../pages/payment/Payment";
 import Category from "../pages/category/Category";
 import Refund from "../pages/refund/Refund";
+import Transaction from "../pages/transaction/Transaction";
 
 
 
@@ -133,6 +134,7 @@ const GlobalRouter = () => {
             />
           </Route>
         </Route>
+
         <Route element={<AuthGuard roles={allAccessRoles} />}>
           <Route path={PATH_DASHBOARD.refund}>
             <Route
@@ -140,6 +142,19 @@ const GlobalRouter = () => {
               element={
                 <Suspense fallback={<div>Loading...</div>}>
                   <Refund />
+                </Suspense>
+              }
+            />
+          </Route>
+        </Route>
+
+        <Route element={<AuthGuard roles={allAccessRoles} />}>
+          <Route path={PATH_DASHBOARD.transaction}>
+            <Route
+              index
+              element={
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Transaction />
                 </Suspense>
               }
             />

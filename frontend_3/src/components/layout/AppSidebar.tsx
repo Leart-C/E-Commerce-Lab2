@@ -98,7 +98,12 @@ export function AppSidebarList() {
           label: "Refund",
           href: PATH_DASHBOARD.refund,
           icon: <FaUserLarge />,
-        }
+        },
+        {
+          label: "Transaction",
+          href: PATH_DASHBOARD.transaction,
+          icon: <FaUserLarge />,
+        },
       ];
     } else if (
       isAuthenticated &&
@@ -139,7 +144,12 @@ export function AppSidebarList() {
           label: "Refund",
           href: PATH_DASHBOARD.refund,
           icon: <FaUserLarge />,
-        }
+        },
+        {
+          label: "Transaction",
+          href: PATH_DASHBOARD.transaction,
+          icon: <FaUserLarge />,
+        },
       ];
     } else {
       return [];
