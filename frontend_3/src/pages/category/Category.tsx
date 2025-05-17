@@ -6,7 +6,7 @@ import {
   TableContainer, TableHead, TableRow, Paper, Stack
 } from '@mui/material';
 
-interface CategoryDto {
+export interface CategoryDto {
   id?: string;
   categoryName: string;
   description: string;

@@ -2,9 +2,9 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import { FaList } from "react-icons/fa6";
+import { FaBox, FaClipboard, FaList } from "react-icons/fa6";
 import { FaListCheck } from "react-icons/fa6";
-import { FaUserTie } from "react-icons/fa";
+import { FaTags, FaUserTie } from "react-icons/fa";
 import { FaUserGear } from "react-icons/fa6";
 import { FaUserShield } from "react-icons/fa6";
 import { FaUserLarge } from "react-icons/fa6";
@@ -92,7 +92,7 @@ export function AppSidebarList() {
         {
           label: "Category",
           href: PATH_DASHBOARD.category,
-          icon: <FaUserLarge />,
+          icon: <FaTags />,
         },
         {
           label: "Refund",
@@ -108,6 +108,16 @@ export function AppSidebarList() {
           label: "ShippingAddress",
           href: PATH_DASHBOARD.shippingAddress,
           icon: <FaUserLarge />,
+        },
+        {
+          label: "Order",
+          href: PATH_DASHBOARD.order,
+          icon: <FaClipboard />,
+        },
+        {
+          label: "Product",
+          href: PATH_DASHBOARD.product,
+          icon: <FaBox />,
         }
       ];
     } else if (
@@ -140,11 +150,7 @@ export function AppSidebarList() {
           href: PATH_DASHBOARD.user,
           icon: <FaUserLarge />,
         },
-        {
-          label: "Category",
-          href: PATH_DASHBOARD.category,
-          icon: <FaUserLarge />,
-        },
+        
         {
           label: "Refund",
           href: PATH_DASHBOARD.refund,
@@ -160,6 +166,17 @@ export function AppSidebarList() {
           href: PATH_DASHBOARD.shippingAddress,
           icon: <FaUserLarge />,
         },
+        {
+          label: "Order",
+          href: PATH_DASHBOARD.order,
+          icon: <FaClipboard />,
+        },
+        {
+          label: "Product",
+          href: PATH_DASHBOARD.product,
+          icon: <FaBox />,
+        }
+        
       ];
     } else {
       return [];

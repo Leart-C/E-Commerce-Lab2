@@ -47,7 +47,7 @@ public class OrderController : ControllerBase
         return CreatedAtAction(nameof(GetOrder), new { id = order.Id }, _mapper.Map<OrderDto>(order));
     }
 
-    [HttpPut]
+    [HttpPut ("{id}")]
     public async Task<IActionResult> UpdateOrder([FromBody] OrderDto dto)
     {
         var order = await _context.Orders.FindAsync(dto.Id);

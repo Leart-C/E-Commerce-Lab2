@@ -447,22 +447,6 @@
   },
   {
     "ContainingType": "OrderController",
-    "Method": "UpdateOrder",
-    "RelativePath": "api/Order",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "dto",
-        "Type": "backend.Core.Dtos.Order.OrderDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "OrderController",
     "Method": "GetOrder",
     "RelativePath": "api/Order/{id}",
     "HttpMethod": "GET",
@@ -486,6 +470,27 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "OrderController",
+    "Method": "UpdateOrder",
+    "RelativePath": "api/Order/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "backend.Core.Dtos.Order.OrderDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "OrderController",
