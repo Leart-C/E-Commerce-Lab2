@@ -93,6 +93,11 @@ export function AppSidebarList() {
           label: "Category",
           href: PATH_DASHBOARD.category,
           icon: <FaUserLarge />,
+        },
+        {
+          label: "Refund",
+          href: PATH_DASHBOARD.refund,
+          icon: <FaUserLarge />,
         }
       ];
     } else if (
@@ -128,6 +133,11 @@ export function AppSidebarList() {
         {
           label: "Category",
           href: PATH_DASHBOARD.category,
+          icon: <FaUserLarge />,
+        },
+        {
+          label: "Refund",
+          href: PATH_DASHBOARD.refund,
           icon: <FaUserLarge />,
         }
       ];
