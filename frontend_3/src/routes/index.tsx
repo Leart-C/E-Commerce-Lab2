@@ -29,6 +29,7 @@ import { Suspense } from "react";
 import PaymentMethod from "../pages/paymentMethod/PaymentMethod";
 import Invoice from "../pages/invoice/Invoice";
 import Payment from "../pages/payment/Payment";
+import Category from "../pages/category/Category";
 
 
 const GlobalRouter = () => {
@@ -113,6 +114,18 @@ const GlobalRouter = () => {
               element={
                 <Suspense fallback={<div>Loading...</div>}>
                   <Payment />
+                </Suspense>
+              }
+            />
+          </Route>
+        </Route>
+          <Route element={<AuthGuard roles={allAccessRoles} />}>
+          <Route path={PATH_DASHBOARD.category}>
+            <Route
+              index
+              element={
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Category />
                 </Suspense>
               }
             />

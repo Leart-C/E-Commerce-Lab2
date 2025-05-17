@@ -74,6 +74,26 @@ export function AppSidebarList() {
           href: PATH_DASHBOARD.user,
           icon: <FaUserLarge />,
         },
+         {
+          label: "Payment",
+          href: PATH_DASHBOARD.payment,
+          icon: <MdOutlinePayment />,
+        },
+        {
+          label: "Payment Method",
+          href: PATH_DASHBOARD.paymentMethod,
+          icon: <MdOutlinePayments />,
+        },
+        {
+          label: "Invoice",
+          href: PATH_DASHBOARD.invoice,
+          icon: <FaFileInvoiceDollar />,
+        },
+        {
+          label: "Category",
+          href: PATH_DASHBOARD.category,
+          icon: <FaUserLarge />,
+        }
       ];
     } else if (
       isAuthenticated &&
@@ -105,6 +125,11 @@ export function AppSidebarList() {
           href: PATH_DASHBOARD.user,
           icon: <FaUserLarge />,
         },
+        {
+          label: "Category",
+          href: PATH_DASHBOARD.category,
+          icon: <FaUserLarge />,
+        }
       ];
     } else {
       return [];

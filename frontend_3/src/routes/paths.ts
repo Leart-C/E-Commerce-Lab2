@@ -22,4 +22,5 @@ export const PATH_DASHBOARD = {
   payment:"/dashboard/payment",
   paymentMethod:"/dashboard/paymentMethod",
   invoice:"/dashboard/invoice",
+  category: "/dashboard/category",
 };
