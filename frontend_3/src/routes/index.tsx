@@ -32,6 +32,7 @@ import Payment from "../pages/payment/Payment";
 import Category from "../pages/category/Category";
 import Refund from "../pages/refund/Refund";
 import Transaction from "../pages/transaction/Transaction";
+import ShippingAddress from "../pages/shippingAddress/ShippingAddress";
 
 
 
@@ -160,6 +161,20 @@ const GlobalRouter = () => {
             />
           </Route>
         </Route>
+
+                <Route element={<AuthGuard roles={allAccessRoles} />}>
+          <Route path={PATH_DASHBOARD.shippingAddress}>
+            <Route
+              index
+              element={
+                <Suspense fallback={<div>Loading...</div>}>
+                  <ShippingAddress />
+                </Suspense>
+              }
+            />
+          </Route>
+        </Route>
+
       </Route>
     </Routes>
   );

@@ -104,6 +104,11 @@ export function AppSidebarList() {
           href: PATH_DASHBOARD.transaction,
           icon: <FaUserLarge />,
         },
+        {
+          label: "ShippingAddress",
+          href: PATH_DASHBOARD.shippingAddress,
+          icon: <FaUserLarge />,
+        }
       ];
     } else if (
       isAuthenticated &&
@@ -148,6 +153,11 @@ export function AppSidebarList() {
         {
           label: "Transaction",
           href: PATH_DASHBOARD.transaction,
+          icon: <FaUserLarge />,
+        },
+         {
+          label: "ShippingAddress",
+          href: PATH_DASHBOARD.shippingAddress,
           icon: <FaUserLarge />,
         },
       ];
