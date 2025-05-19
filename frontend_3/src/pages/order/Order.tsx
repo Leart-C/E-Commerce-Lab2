@@ -1,78 +1,130 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+// Order.tsx
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import {
-  Dialog, DialogActions, DialogContent, DialogTitle,
-  Button, TextField, Table, TableBody, TableCell,
-  TableContainer, TableHead, TableRow, Paper, Stack
-} from '@mui/material';
-import { UserDto } from '../dashboard/UserPage';
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Button,
+  TextField,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Stack,
+  Alert,
+} from "@mui/material";
+
+interface OrderListDto {
+  id: number;
+  username: string;
+  shippingAddressId: number;
+  status: string;
+  totalPrice: number;
+}
 
 interface OrderDto {
-  id: number;
-  userId: string;
+  id?: number;
   shippingAddressId: number;
   status: string;
   totalPrice: number;
 }
 
 const Order: React.FC = () => {
-  const [orders, setOrders] = useState<OrderDto[]>([]);
+  const [orders, setOrders] = useState<OrderListDto[]>([]);
   const [formData, setFormData] = useState<Partial<OrderDto>>({});
-  const [users, setUsers] = useState<UserDto[]>([]);
   const [editingId, setEditingId] = useState<number | null>(null);
   const [openModal, setOpenModal] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const apiUrl = 'https://localhost:7039/api/Order'; // Sigurohu që ky endpoint ekziston në backend
+  const apiUrl = "https://localhost:7039/api/Order";
 
   useEffect(() => {
     fetchOrders();
-    fetchUsers();
   }, []);
 
   const fetchOrders = async () => {
     try {
       const response = await axios.get(apiUrl);
       setOrders(response.data);
-    } catch (error) {
-      console.error('Gabim gjatë marrjes së porosive:', error);
+    } catch (error: any) {
+      if (error.response?.status === 401) {
+        setErrorMessage("User nuk është autentifikuar. Ju lutem hyni përsëri.");
+      } else {
+        console.error("Gabim gjatë marrjes së porosive:", error);
+      }
     }
   };
-  const fetchUsers = async () => {
-  try {
-    const response = await axios.get<UserDto[]>('https://localhost:7039/api/user'); 
-    setUsers(response.data);
-  } catch (error) {
-    console.error('Gabim gjatë marrjes së përdoruesve:', error);
-  }
-};
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: name === 'totalPrice' || name === 'shippingAddressId' ? Number(value) : value,
+      [name]:
+        name === "totalPrice" || name === "shippingAddressId"
+          ? Number(value)
+          : value,
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("Form u dërgua"); // Test
+    const token = localStorage.getItem("accessToken");
+
+    if (!token) {
+      setErrorMessage(
+        "Ju duhet të jeni i loguar për të krijuar/ndryshuar porosi."
+      );
+      return;
+    }
+
     try {
+      const requestData = {
+        shippingAddressId: formData.shippingAddressId!,
+        status: formData.status!,
+        totalPrice: formData.totalPrice!,
+      };
+
       if (editingId !== null) {
-        await axios.put(`${apiUrl}/${editingId}`, formData);
+        await axios.put(
+          `${apiUrl}/${editingId}`,
+          { id: editingId, ...requestData },
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
       } else {
-        await axios.post(apiUrl, formData);
+        await axios.post(apiUrl, requestData, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
       }
+
       setFormData({});
       setEditingId(null);
       setOpenModal(false);
+      setErrorMessage(null);
       fetchOrders();
-    } catch (error) {
-      console.error('Gabim gjatë ruajtjes së porosisë:', error);
+    } catch (error: any) {
+      if (error.response?.status === 401) {
+        setErrorMessage("User nuk është autentifikuar. Ju lutem hyni përsëri.");
+      } else {
+        console.error("Gabim gjatë ruajtjes së porosisë:", error);
+      }
     }
   };
 
-  const handleEdit = (order: OrderDto) => {
-    setFormData(order);
+  const handleEdit = (order: OrderListDto) => {
+    setFormData({
+      id: order.id,
+      shippingAddressId: order.shippingAddressId,
+      status: order.status,
+      totalPrice: order.totalPrice,
+    });
     setEditingId(order.id);
     setOpenModal(true);
   };
@@ -84,21 +136,49 @@ const Order: React.FC = () => {
   };
 
   const handleDelete = async (id: number) => {
-    if (window.confirm('A jeni i sigurt që dëshironi të fshini këtë porosi?')) {
+    const token = localStorage.getItem("accessToken");
+
+    if (!token) {
+      setErrorMessage("Ju duhet të jeni i loguar për të fshirë porosi.");
+      return;
+    }
+
+    if (window.confirm("A jeni i sigurt që dëshironi të fshini këtë porosi?")) {
       try {
-        await axios.delete(`${apiUrl}/${id}`);
+        await axios.delete(`${apiUrl}/${id}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
         fetchOrders();
-      } catch (error) {
-        console.error('Gabim gjatë fshirjes së porosisë:', error);
+      } catch (error: any) {
+        if (error.response?.status === 401) {
+          setErrorMessage(
+            "User nuk është autentifikuar. Ju lutem hyni përsëri."
+          );
+        } else {
+          console.error("Gabim gjatë fshirjes së porosisë:", error);
+        }
       }
     }
   };
 
   return (
-    <div style={{ padding: '30px' }}>
-      <h2 style={{ fontSize: '1.8rem', marginBottom: '20px' }}>Menaxhimi i Porosive</h2>
+    <div style={{ padding: "30px" }}>
+      <h2 style={{ fontSize: "1.8rem", marginBottom: "20px" }}>
+        Menaxhimi i Porosive
+      </h2>
 
-      <Button variant="contained" color="primary" onClick={handleAdd} sx={{ mb: 2 }}>
+      {errorMessage && (
+        <Alert severity="error" sx={{ mb: 2 }}>
+          {errorMessage}
+        </Alert>
+      )}
+
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={handleAdd}
+        sx={{ mb: 2 }}
+      >
         Shto Porosi
       </Button>
 
@@ -106,39 +186,46 @@ const Order: React.FC = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell><strong>ID</strong></TableCell>
-              <TableCell><strong>Username</strong></TableCell>
-              <TableCell><strong>Shipping Address ID</strong></TableCell>
-              <TableCell><strong>Status</strong></TableCell>
-              <TableCell><strong>Totali</strong></TableCell>
-              <TableCell><strong>Veprime</strong></TableCell>
+              <TableCell>
+                <strong>Username</strong>
+              </TableCell>
+              <TableCell>
+                <strong>Shipping Address ID</strong>
+              </TableCell>
+              <TableCell>
+                <strong>Status</strong>
+              </TableCell>
+              <TableCell>
+                <strong>Totali</strong>
+              </TableCell>
+              <TableCell>
+                <strong>Veprime</strong>
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {orders.map(order => (
+            {orders.map((order) => (
               <TableRow key={order.id}>
-                <TableCell>{order.id}</TableCell>
-               <TableCell>
-{
-    (() => {
-        const user = users.find(user => user.id === order.userId);
-        if (user) {
-            return user.username ?? 'Username Not Found'; // Add a fallback if username is missing
-        } else {
-            console.log(`Order ID: ${order.id}, User ID not found: ${order.userId}`); // Debug: Log if user ID isn't found
-            return 'Anonim';
-        }
-    })()
-}
-</TableCell>
-
+                <TableCell>{order.username || "Anonim"}</TableCell>
                 <TableCell>{order.shippingAddressId}</TableCell>
                 <TableCell>{order.status}</TableCell>
                 <TableCell>{order.totalPrice}</TableCell>
                 <TableCell>
                   <Stack direction="row" spacing={1}>
-                    <Button onClick={() => handleEdit(order)} variant="outlined" color="primary">Edito</Button>
-                    <Button onClick={() => handleDelete(order.id)} variant="outlined" color="error">Fshi</Button>
+                    <Button
+                      onClick={() => handleEdit(order)}
+                      variant="outlined"
+                      color="primary"
+                    >
+                      Edito
+                    </Button>
+                    <Button
+                      onClick={() => handleDelete(order.id)}
+                      variant="outlined"
+                      color="error"
+                    >
+                      Fshi
+                    </Button>
                   </Stack>
                 </TableCell>
               </TableRow>
@@ -147,25 +234,28 @@ const Order: React.FC = () => {
         </Table>
       </TableContainer>
 
-      {/* Modal for Add/Edit */}
-      <Dialog open={openModal} onClose={() => setOpenModal(false)} maxWidth="sm" fullWidth>
-        <DialogTitle>{editingId ? 'Edito Porosinë' : 'Shto Porosi'}</DialogTitle>
+      {/* Modal */}
+      <Dialog
+        open={openModal}
+        onClose={() => setOpenModal(false)}
+        maxWidth="sm"
+        fullWidth
+      >
+        <DialogTitle>
+          {editingId ? "Edito Porosinë" : "Shto Porosi"}
+        </DialogTitle>
         <DialogContent>
-          <form onSubmit={handleSubmit}>
-            <TextField
-              label="User ID"
-              name="userId"
-              value={formData.userId || ''}
-              onChange={handleChange}
-              fullWidth
-              required
-              margin="normal"
-            />
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSubmit(e);
+            }}
+          >
             <TextField
               label="Shipping Address ID"
               name="shippingAddressId"
               type="number"
-              value={formData.shippingAddressId || ''}
+              value={formData.shippingAddressId || ""}
               onChange={handleChange}
               fullWidth
               required
@@ -174,7 +264,7 @@ const Order: React.FC = () => {
             <TextField
               label="Status"
               name="status"
-              value={formData.status || ''}
+              value={formData.status || ""}
               onChange={handleChange}
               fullWidth
               required
@@ -184,17 +274,19 @@ const Order: React.FC = () => {
               label="Total Price"
               name="totalPrice"
               type="number"
-              value={formData.totalPrice || ''}
+              value={formData.totalPrice || ""}
               onChange={handleChange}
               fullWidth
               required
               margin="normal"
-              inputProps={{ step: '0.01' }}
+              inputProps={{ step: "0.01" }}
             />
             <DialogActions sx={{ mt: 2 }}>
-              <Button onClick={() => setOpenModal(false)} color="secondary">Anulo</Button>
+              <Button onClick={() => setOpenModal(false)} color="secondary">
+                Anulo
+              </Button>
               <Button type="submit" variant="contained" color="primary">
-                {editingId ? 'Përditëso' : 'Shto'}
+                {editingId ? "Përditëso" : "Shto"}
               </Button>
             </DialogActions>
           </form>

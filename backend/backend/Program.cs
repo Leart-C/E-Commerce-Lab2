@@ -121,6 +121,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
+app.UseHttpsRedirection();
 app.UseCors(options =>
 {
     options
@@ -129,7 +131,7 @@ app.UseCors(options =>
     .AllowAnyOrigin();
 });
 
-app.UseHttpsRedirection();
+
 app.UseAuthentication();
 app.UseAuthorization();
 

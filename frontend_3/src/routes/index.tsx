@@ -35,8 +35,8 @@ import Transaction from "../pages/transaction/Transaction";
 import ShippingAddress from "../pages/shippingAddress/ShippingAddress";
 import Order from "../pages/order/Order";
 import Product from "../pages/product/Product";
-
-
+import ProductReview from "../pages/productReview/ProductReview";
+import ProductReviewList from "../pages/productReview/ProductReviewList";
 
 const GlobalRouter = () => {
   return (
@@ -126,7 +126,7 @@ const GlobalRouter = () => {
           </Route>
         </Route>
 
-          <Route element={<AuthGuard roles={allAccessRoles} />}>
+        <Route element={<AuthGuard roles={allAccessRoles} />}>
           <Route path={PATH_DASHBOARD.category}>
             <Route
               index
@@ -178,7 +178,7 @@ const GlobalRouter = () => {
           </Route>
         </Route>
 
-         <Route element={<AuthGuard roles={allAccessRoles} />}>
+        <Route element={<AuthGuard roles={allAccessRoles} />}>
           <Route path={PATH_DASHBOARD.order}>
             <Route
               index
@@ -204,6 +204,26 @@ const GlobalRouter = () => {
           </Route>
         </Route>
 
+        <Route element={<AuthGuard roles={allAccessRoles} />}>
+          <Route path={PATH_DASHBOARD.productReview}>
+            <Route
+              index
+              element={
+                <Suspense fallback={<div>Loading...</div>}>
+                  <ProductReview />
+                </Suspense>
+              }
+            />
+            <Route
+              path=":productId"
+              element={
+                <Suspense fallback={<div>Loading...</div>}>
+                  <ProductReviewList />
+                </Suspense>
+              }
+            />
+          </Route>
+        </Route>
       </Route>
     </Routes>
   );

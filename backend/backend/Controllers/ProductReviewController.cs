@@ -28,6 +28,8 @@ namespace backend.Controllers
         }
 
         // Krijimi i një review për një produkt
+
+
         [Authorize]
         [HttpPost]
         public async Task<IActionResult> CreateReview([FromBody] ProductReviewCreateDto dto)
@@ -115,7 +117,7 @@ namespace backend.Controllers
             await _productReview.ReplaceOneAsync(filter, existingReview);
             return Ok("Review updated successfully");
         }
-        [Authorize]
+     
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteReview(string id)
         {

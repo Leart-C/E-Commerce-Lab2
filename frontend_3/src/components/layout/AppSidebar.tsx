@@ -74,7 +74,7 @@ export function AppSidebarList() {
           href: PATH_DASHBOARD.user,
           icon: <FaUserLarge />,
         },
-         {
+        {
           label: "Payment",
           href: PATH_DASHBOARD.payment,
           icon: <MdOutlinePayment />,
@@ -118,7 +118,12 @@ export function AppSidebarList() {
           label: "Product",
           href: PATH_DASHBOARD.product,
           icon: <FaBox />,
-        }
+        },
+        {
+          label: "Product Review",
+          href: PATH_DASHBOARD.productReview,
+          icon: <FaBox />,
+        },
       ];
     } else if (
       isAuthenticated &&
@@ -150,7 +155,7 @@ export function AppSidebarList() {
           href: PATH_DASHBOARD.user,
           icon: <FaUserLarge />,
         },
-        
+
         {
           label: "Refund",
           href: PATH_DASHBOARD.refund,
@@ -161,7 +166,7 @@ export function AppSidebarList() {
           href: PATH_DASHBOARD.transaction,
           icon: <FaUserLarge />,
         },
-         {
+        {
           label: "ShippingAddress",
           href: PATH_DASHBOARD.shippingAddress,
           icon: <FaUserLarge />,
@@ -175,8 +180,22 @@ export function AppSidebarList() {
           label: "Product",
           href: PATH_DASHBOARD.product,
           icon: <FaBox />,
-        }
-        
+        },
+        {
+          label: "Category",
+          href: PATH_DASHBOARD.category,
+          icon: <FaTags />,
+        },
+        {
+          label: "Product Review",
+          href: PATH_DASHBOARD.productReview,
+          icon: <FaBox />,
+        },
+        // {
+        //   label: "Product Review List",
+        //   href: PATH_DASHBOARD.productReviewByProductId,
+        //   icon: <FaBox />,
+        // },
       ];
     } else {
       return [];
