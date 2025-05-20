@@ -37,6 +37,7 @@ import Order from "../pages/order/Order";
 import Product from "../pages/product/Product";
 import ProductReview from "../pages/productReview/ProductReview";
 import ProductReviewList from "../pages/productReview/ProductReviewList";
+import OrderItem from "../pages/orderItem/OrderItem";
 
 const GlobalRouter = () => {
   return (
@@ -219,6 +220,19 @@ const GlobalRouter = () => {
               element={
                 <Suspense fallback={<div>Loading...</div>}>
                   <ProductReviewList />
+                </Suspense>
+              }
+            />
+          </Route>
+        </Route>
+
+        <Route element={<AuthGuard roles={allAccessRoles} />}>
+          <Route path={PATH_DASHBOARD.orderItem}>
+            <Route
+              index
+              element={
+                <Suspense fallback={<div>Loading...</div>}>
+                  <OrderItem />
                 </Suspense>
               }
             />

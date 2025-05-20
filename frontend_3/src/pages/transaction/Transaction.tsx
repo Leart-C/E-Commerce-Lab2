@@ -1,10 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
 import {
-  Dialog, DialogActions, DialogContent, DialogTitle,
-  Button, TextField, Table, TableBody, TableCell,
-  TableContainer, TableHead, TableRow, Paper, Stack
-} from '@mui/material';
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Button,
+  TextField,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Stack,
+} from "@mui/material";
 
 interface TransactionDto {
   id: number;
@@ -19,7 +31,7 @@ const Transaction: React.FC = () => {
   const [editingId, setEditingId] = useState<number | null>(null);
   const [openModal, setOpenModal] = useState(false);
 
-  const apiUrl = 'https://localhost:7039/api/Transaction';
+  const apiUrl = "https://localhost:7039/api/Transaction";
 
   useEffect(() => {
     fetchTransactions();
@@ -30,32 +42,51 @@ const Transaction: React.FC = () => {
       const response = await axios.get(apiUrl);
       setTransactions(response.data);
     } catch (error) {
-      console.error('Gabim gjatë marrjes së transaksioneve:', error);
+      Swal.fire("Gabim!", "Nuk u mundësua marrja e transaksioneve.", "error");
     }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: name === "paymentId" ? Number(value) : value,
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
+      if (
+        !formData.paymentId ||
+        !formData.transactionDate ||
+        !formData.status
+      ) {
+        Swal.fire(
+          "Kujdes!",
+          "Të gjitha fushat janë të detyrueshme.",
+          "warning"
+        );
+        return;
+      }
+
       if (editingId !== null) {
-        await axios.put(`${apiUrl}/${editingId}`, formData);
+        await axios.put(`${apiUrl}/${editingId}`, {
+          ...formData,
+          id: editingId,
+        });
+        Swal.fire("Sukses!", "Transaksioni u përditësua me sukses.", "success");
       } else {
         await axios.post(apiUrl, formData);
+        Swal.fire("Sukses!", "Transaksioni u shtua me sukses.", "success");
       }
+
       setFormData({});
       setEditingId(null);
       setOpenModal(false);
       fetchTransactions();
     } catch (error) {
-      console.error('Gabim gjatë ruajtjes së transaksionit:', error);
+      Swal.fire("Gabim!", "Ndodhi një gabim gjatë ruajtjes.", "error");
     }
   };
 
@@ -72,21 +103,38 @@ const Transaction: React.FC = () => {
   };
 
   const handleDelete = async (id: number) => {
-    if (window.confirm('A jeni i sigurt që dëshironi të fshini këtë transaksion?')) {
+    const result = await Swal.fire({
+      title: "A jeni i sigurt?",
+      text: "Ky veprim nuk mund të zhbëhet!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Po, fshije!",
+      cancelButtonText: "Anulo",
+    });
+
+    if (result.isConfirmed) {
       try {
         await axios.delete(`${apiUrl}/${id}`);
+        Swal.fire("Fshirë!", "Transaksioni u fshi me sukses.", "success");
         fetchTransactions();
       } catch (error) {
-        console.error('Gabim gjatë fshirjes së transaksionit:', error);
+        Swal.fire("Gabim!", "Nuk u arrit të fshihet transaksioni.", "error");
       }
     }
   };
 
   return (
-    <div style={{ padding: '30px' }}>
-      <h2 style={{ fontSize: '1.8rem', marginBottom: '20px' }}>Menaxhimi i Transaksioneve</h2>
+    <div style={{ padding: "30px" }}>
+      <h2 style={{ fontSize: "1.8rem", marginBottom: "20px" }}>
+        Menaxhimi i Transaksioneve
+      </h2>
 
-      <Button variant="contained" color="primary" onClick={handleAdd} sx={{ mb: 2 }}>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={handleAdd}
+        sx={{ mb: 2 }}
+      >
         Shto Transaksion
       </Button>
 
@@ -94,24 +142,48 @@ const Transaction: React.FC = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell><strong>ID</strong></TableCell>
-              <TableCell><strong>PaymentId</strong></TableCell>
-              <TableCell><strong>Data</strong></TableCell>
-              <TableCell><strong>Statusi</strong></TableCell>
-              <TableCell><strong>Veprime</strong></TableCell>
+              <TableCell>
+                <strong>ID</strong>
+              </TableCell>
+              <TableCell>
+                <strong>PaymentId</strong>
+              </TableCell>
+              <TableCell>
+                <strong>Data</strong>
+              </TableCell>
+              <TableCell>
+                <strong>Statusi</strong>
+              </TableCell>
+              <TableCell>
+                <strong>Veprime</strong>
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {transactions.map(tx => (
+            {transactions.map((tx) => (
               <TableRow key={tx.id}>
                 <TableCell>{tx.id}</TableCell>
                 <TableCell>{tx.paymentId}</TableCell>
-                <TableCell>{new Date(tx.transactionDate).toLocaleString()}</TableCell>
+                <TableCell>
+                  {new Date(tx.transactionDate).toLocaleString()}
+                </TableCell>
                 <TableCell>{tx.status}</TableCell>
                 <TableCell>
                   <Stack direction="row" spacing={1}>
-                    <Button onClick={() => handleEdit(tx)} variant="outlined" color="primary">Edito</Button>
-                    <Button onClick={() => handleDelete(tx.id)} variant="outlined" color="error">Fshi</Button>
+                    <Button
+                      onClick={() => handleEdit(tx)}
+                      variant="outlined"
+                      color="primary"
+                    >
+                      Edito
+                    </Button>
+                    <Button
+                      onClick={() => handleDelete(tx.id)}
+                      variant="outlined"
+                      color="error"
+                    >
+                      Fshi
+                    </Button>
                   </Stack>
                 </TableCell>
               </TableRow>
@@ -121,15 +193,22 @@ const Transaction: React.FC = () => {
       </TableContainer>
 
       {/* Modal për Add/Edit */}
-      <Dialog open={openModal} onClose={() => setOpenModal(false)} maxWidth="xs" fullWidth>
-        <DialogTitle>{editingId ? 'Edito Transaksionin' : 'Shto Transaksion'}</DialogTitle>
+      <Dialog
+        open={openModal}
+        onClose={() => setOpenModal(false)}
+        maxWidth="xs"
+        fullWidth
+      >
+        <DialogTitle>
+          {editingId ? "Edito Transaksionin" : "Shto Transaksion"}
+        </DialogTitle>
         <DialogContent>
           <form onSubmit={handleSubmit}>
             <TextField
               label="Payment ID"
               name="paymentId"
               type="number"
-              value={formData.paymentId || ''}
+              value={formData.paymentId || ""}
               onChange={handleChange}
               fullWidth
               required
@@ -139,7 +218,11 @@ const Transaction: React.FC = () => {
               label="Data e Transaksionit"
               name="transactionDate"
               type="datetime-local"
-              value={formData.transactionDate ? formData.transactionDate.slice(0, 16) : ''}
+              value={
+                formData.transactionDate
+                  ? formData.transactionDate.slice(0, 16)
+                  : ""
+              }
               onChange={handleChange}
               fullWidth
               required
@@ -149,16 +232,18 @@ const Transaction: React.FC = () => {
             <TextField
               label="Statusi"
               name="status"
-              value={formData.status || ''}
+              value={formData.status || ""}
               onChange={handleChange}
               fullWidth
               required
               margin="normal"
             />
             <DialogActions sx={{ mt: 2 }}>
-              <Button onClick={() => setOpenModal(false)} color="secondary">Anulo</Button>
+              <Button onClick={() => setOpenModal(false)} color="secondary">
+                Anulo
+              </Button>
               <Button type="submit" variant="contained" color="primary">
-                {editingId ? 'Përditëso' : 'Shto'}
+                {editingId ? "Përditëso" : "Shto"}
               </Button>
             </DialogActions>
           </form>

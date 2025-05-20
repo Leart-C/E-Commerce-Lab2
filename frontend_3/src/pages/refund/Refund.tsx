@@ -1,10 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
 import {
-  Dialog, DialogActions, DialogContent, DialogTitle,
-  Button, TextField, Table, TableBody, TableCell,
-  TableContainer, TableHead, TableRow, Paper, Stack
-} from '@mui/material';
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Button,
+  TextField,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Stack,
+} from "@mui/material";
 
 interface RefundDto {
   id: number;
@@ -19,7 +31,7 @@ const Refund: React.FC = () => {
   const [editingId, setEditingId] = useState<number | null>(null);
   const [openModal, setOpenModal] = useState(false);
 
-  const apiUrl = 'https://localhost:7039/api/Refund';
+  const apiUrl = "https://localhost:7039/api/Refund";
 
   useEffect(() => {
     fetchRefunds();
@@ -30,32 +42,60 @@ const Refund: React.FC = () => {
       const response = await axios.get(apiUrl);
       setRefunds(response.data);
     } catch (error) {
-      console.error('Error fetching refunds:', error);
+      Swal.fire("Gabim!", "Nuk mund të merren të dhënat.", "error");
     }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: name === 'amount' || name === 'paymentId' ? Number(value) : value,
+      [name]: name === "amount" || name === "paymentId" ? Number(value) : value,
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      if (editingId !== null) {
-        await axios.put(`${apiUrl}/${editingId}`, formData);
-      } else {
-        await axios.post(apiUrl, formData);
+      const payload = {
+        id: editingId!,
+        paymentId: formData.paymentId,
+        amount: formData.amount,
+        status: formData.status,
+      };
+
+      if (!payload.paymentId || !payload.amount || !payload.status) {
+        Swal.fire({
+          icon: "warning",
+          title: "Vlerë mungon",
+          text: "Të gjitha fushat janë të detyrueshme.",
+        });
+        return;
       }
+
+      if (editingId !== null) {
+        await axios.put(`${apiUrl}/${editingId}`, payload);
+        Swal.fire(
+          "U përditësua!",
+          "Rimbursimi u ndryshua me sukses.",
+          "success"
+        );
+      } else {
+        await axios.post(apiUrl, payload);
+        Swal.fire("U shtua!", "Rimbursimi u shtua me sukses.", "success");
+      }
+
       setFormData({});
       setEditingId(null);
       setOpenModal(false);
       fetchRefunds();
     } catch (error) {
-      console.error('Error saving refund:', error);
+      console.error("Gabim në ruajtje:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Gabim!",
+        text: "Ndodhi një gabim gjatë ruajtjes.",
+      });
     }
   };
 
@@ -72,37 +112,64 @@ const Refund: React.FC = () => {
   };
 
   const handleDelete = async (id: number) => {
-    if (window.confirm('Are you sure you want to delete this refund?')) {
+    const result = await Swal.fire({
+      title: "A jeni i sigurt?",
+      text: "Ky veprim nuk mund të zhbëhet!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Po, fshije!",
+      cancelButtonText: "Anulo",
+    });
+
+    if (result.isConfirmed) {
       try {
         await axios.delete(`${apiUrl}/${id}`);
+        Swal.fire("Fshirë!", "Rimbursimi u fshi me sukses.", "success");
         fetchRefunds();
       } catch (error) {
-        console.error('Error deleting refund:', error);
+        Swal.fire("Gabim!", "Nuk u arrit të fshihet rimbursimi.", "error");
       }
     }
   };
 
   return (
-    <div style={{ padding: '30px' }}>
-      <h2 style={{ fontSize: '1.8rem', marginBottom: '20px' }}>Manage Refunds</h2>
+    <div style={{ padding: "30px" }}>
+      <h2 style={{ fontSize: "1.8rem", marginBottom: "20px" }}>
+        Menaxho Rimbursimet
+      </h2>
 
-      <Button variant="contained" color="primary" onClick={handleAdd} sx={{ mb: 2 }}>
-        Add Refund
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={handleAdd}
+        sx={{ mb: 2 }}
+      >
+        Shto Rimbursim
       </Button>
 
       <TableContainer component={Paper}>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell><strong>ID</strong></TableCell>
-              <TableCell><strong>Payment ID</strong></TableCell>
-              <TableCell><strong>Amount</strong></TableCell>
-              <TableCell><strong>Status</strong></TableCell>
-              <TableCell><strong>Actions</strong></TableCell>
+              <TableCell>
+                <strong>ID</strong>
+              </TableCell>
+              <TableCell>
+                <strong>Payment ID</strong>
+              </TableCell>
+              <TableCell>
+                <strong>Shuma</strong>
+              </TableCell>
+              <TableCell>
+                <strong>Status</strong>
+              </TableCell>
+              <TableCell>
+                <strong>Veprime</strong>
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {refunds.map(refund => (
+            {refunds.map((refund) => (
               <TableRow key={refund.id}>
                 <TableCell>{refund.id}</TableCell>
                 <TableCell>{refund.paymentId}</TableCell>
@@ -110,8 +177,20 @@ const Refund: React.FC = () => {
                 <TableCell>{refund.status}</TableCell>
                 <TableCell>
                   <Stack direction="row" spacing={1}>
-                    <Button onClick={() => handleEdit(refund)} variant="outlined" color="primary">Edit</Button>
-                    <Button onClick={() => handleDelete(refund.id)} variant="outlined" color="error">Delete</Button>
+                    <Button
+                      onClick={() => handleEdit(refund)}
+                      variant="outlined"
+                      color="primary"
+                    >
+                      Edito
+                    </Button>
+                    <Button
+                      onClick={() => handleDelete(refund.id)}
+                      variant="outlined"
+                      color="error"
+                    >
+                      Fshi
+                    </Button>
                   </Stack>
                 </TableCell>
               </TableRow>
@@ -120,25 +199,32 @@ const Refund: React.FC = () => {
         </Table>
       </TableContainer>
 
-      <Dialog open={openModal} onClose={() => setOpenModal(false)} maxWidth="xs" fullWidth>
-        <DialogTitle>{editingId ? 'Edit Refund' : 'Add Refund'}</DialogTitle>
+      <Dialog
+        open={openModal}
+        onClose={() => setOpenModal(false)}
+        maxWidth="xs"
+        fullWidth
+      >
+        <DialogTitle>
+          {editingId ? "Përditëso Rimbursim" : "Shto Rimbursim"}
+        </DialogTitle>
         <DialogContent>
           <form onSubmit={handleSubmit}>
             <TextField
               label="Payment ID"
               name="paymentId"
               type="number"
-              value={formData.paymentId || ''}
+              value={formData.paymentId || ""}
               onChange={handleChange}
               fullWidth
               required
               margin="normal"
             />
             <TextField
-              label="Amount"
+              label="Shuma"
               name="amount"
               type="number"
-              value={formData.amount || ''}
+              value={formData.amount || ""}
               onChange={handleChange}
               fullWidth
               required
@@ -147,16 +233,18 @@ const Refund: React.FC = () => {
             <TextField
               label="Status"
               name="status"
-              value={formData.status || ''}
+              value={formData.status || ""}
               onChange={handleChange}
               fullWidth
               required
               margin="normal"
             />
             <DialogActions sx={{ mt: 2 }}>
-              <Button onClick={() => setOpenModal(false)} color="secondary">Cancel</Button>
+              <Button onClick={() => setOpenModal(false)} color="secondary">
+                Anulo
+              </Button>
               <Button type="submit" variant="contained" color="primary">
-                {editingId ? 'Update' : 'Add'}
+                {editingId ? "Përditëso" : "Shto"}
               </Button>
             </DialogActions>
           </form>

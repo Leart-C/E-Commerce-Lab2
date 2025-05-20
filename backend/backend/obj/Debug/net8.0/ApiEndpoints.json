@@ -1089,22 +1089,6 @@
   },
   {
     "ContainingType": "backend.Controllers.RefundController",
-    "Method": "UpdateRefundMethod",
-    "RelativePath": "api/Refund",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "dto",
-        "Type": "backend.Core.Dtos.Refund.RefundDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "backend.Controllers.RefundController",
     "Method": "GetRefundByIdMethod",
     "RelativePath": "api/Refund/{id}",
     "HttpMethod": "GET",
@@ -1128,6 +1112,27 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "backend.Controllers.RefundController",
+    "Method": "UpdateRefundMethod",
+    "RelativePath": "api/Refund/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "backend.Core.Dtos.Refund.RefundDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "backend.Controllers.RefundController",

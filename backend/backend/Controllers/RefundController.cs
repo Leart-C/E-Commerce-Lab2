@@ -49,18 +49,22 @@ namespace backend.Controllers
 
             return CreatedAtAction(nameof(GetRefundMethod), new { id = refundMethod.Id }, _mapper.Map<RefundDto>(refundMethod));
         }
-
-        [HttpPut]
-        public async Task<IActionResult> UpdateRefundMethod([FromBody] RefundDto dto)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateRefundMethod(int id, [FromBody] RefundDto dto)
         {
-            var refundMethod = await _context.Refunds.FindAsync(dto.Id);
-            if (refundMethod == null) return NotFound();
+            if (id != dto.Id)
+                return BadRequest("ID mismatch between route and body.");
+
+            var refundMethod = await _context.Refunds.FindAsync(id);
+            if (refundMethod == null)
+                return NotFound("Refund not found.");
 
             _mapper.Map(dto, refundMethod);
             await _context.SaveChangesAsync();
 
             return Ok("Refund Updated Successfully");
         }
+
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRefundMethod(int id)

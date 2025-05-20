@@ -30,4 +30,5 @@ export const PATH_DASHBOARD = {
   product: "dashboard/product",
   productReview: "/dashboard/productReview",
   productReviewByProductId: "/dashboard/productReview/:productId",
+  orderItem: "/dashboard/orderItem",
 };

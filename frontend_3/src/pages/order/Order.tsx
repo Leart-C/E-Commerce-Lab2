@@ -1,6 +1,6 @@
-// Order.tsx
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 import {
   Dialog,
   DialogActions,
@@ -73,7 +73,6 @@ const Order: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form u dërgua"); // Test
     const token = localStorage.getItem("accessToken");
 
     if (!token) {
@@ -94,14 +93,14 @@ const Order: React.FC = () => {
         await axios.put(
           `${apiUrl}/${editingId}`,
           { id: editingId, ...requestData },
-          {
-            headers: { Authorization: `Bearer ${token}` },
-          }
+          { headers: { Authorization: `Bearer ${token}` } }
         );
+        Swal.fire("Sukses", "Porosia u përditësua me sukses.", "success");
       } else {
         await axios.post(apiUrl, requestData, {
           headers: { Authorization: `Bearer ${token}` },
         });
+        Swal.fire("Sukses", "Porosia u shtua me sukses.", "success");
       }
 
       setFormData({});
@@ -110,11 +109,12 @@ const Order: React.FC = () => {
       setErrorMessage(null);
       fetchOrders();
     } catch (error: any) {
-      if (error.response?.status === 401) {
-        setErrorMessage("User nuk është autentifikuar. Ju lutem hyni përsëri.");
-      } else {
-        console.error("Gabim gjatë ruajtjes së porosisë:", error);
-      }
+      console.error("Gabim gjatë ruajtjes së porosisë:", error);
+      Swal.fire(
+        "Gabim",
+        "Ndodhi një gabim gjatë ruajtjes së porosisë.",
+        "error"
+      );
     }
   };
 
@@ -143,20 +143,31 @@ const Order: React.FC = () => {
       return;
     }
 
-    if (window.confirm("A jeni i sigurt që dëshironi të fshini këtë porosi?")) {
+    const confirm = await Swal.fire({
+      title: "A jeni i sigurt?",
+      text: "Kjo porosi do të fshihet përgjithmonë!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Po, fshije!",
+      cancelButtonText: "Anulo",
+    });
+
+    if (confirm.isConfirmed) {
       try {
         await axios.delete(`${apiUrl}/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
+        Swal.fire("Fshirë!", "Porosia u fshi me sukses.", "success");
         fetchOrders();
       } catch (error: any) {
-        if (error.response?.status === 401) {
-          setErrorMessage(
-            "User nuk është autentifikuar. Ju lutem hyni përsëri."
-          );
-        } else {
-          console.error("Gabim gjatë fshirjes së porosisë:", error);
-        }
+        console.error("Gabim gjatë fshirjes së porosisë:", error);
+        Swal.fire(
+          "Gabim",
+          "Ndodhi një gabim gjatë fshirjes së porosisë.",
+          "error"
+        );
       }
     }
   };
@@ -187,6 +198,9 @@ const Order: React.FC = () => {
           <TableHead>
             <TableRow>
               <TableCell>
+                <strong>ID</strong>
+              </TableCell>
+              <TableCell>
                 <strong>Username</strong>
               </TableCell>
               <TableCell>
@@ -206,6 +220,7 @@ const Order: React.FC = () => {
           <TableBody>
             {orders.map((order) => (
               <TableRow key={order.id}>
+                <TableCell>{order.id}</TableCell>
                 <TableCell>{order.username || "Anonim"}</TableCell>
                 <TableCell>{order.shippingAddressId}</TableCell>
                 <TableCell>{order.status}</TableCell>
@@ -245,12 +260,7 @@ const Order: React.FC = () => {
           {editingId ? "Edito Porosinë" : "Shto Porosi"}
         </DialogTitle>
         <DialogContent>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              handleSubmit(e);
-            }}
-          >
+          <form onSubmit={handleSubmit}>
             <TextField
               label="Shipping Address ID"
               name="shippingAddressId"

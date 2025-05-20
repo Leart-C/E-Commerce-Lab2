@@ -1,10 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Swal from "sweetalert2";
 import {
-  Dialog, DialogActions, DialogContent, DialogTitle,
-  Button, TextField, Table, TableBody, TableCell,
-  TableContainer, TableHead, TableRow, Paper, Stack
-} from '@mui/material';
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Button,
+  TextField,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Stack,
+} from "@mui/material";
 
 interface ShippingAddressDto {
   id: number;
@@ -22,7 +34,7 @@ const ShippingAddress: React.FC = () => {
   const [editingId, setEditingId] = useState<number | null>(null);
   const [openModal, setOpenModal] = useState(false);
 
-  const apiUrl = 'https://localhost:7039/api/ShippingAddress';
+  const apiUrl = "https://localhost:7039/api/ShippingAddress";
 
   useEffect(() => {
     fetchAddresses();
@@ -33,13 +45,13 @@ const ShippingAddress: React.FC = () => {
       const response = await axios.get(apiUrl);
       setAddresses(response.data);
     } catch (error) {
-      console.error('Gabim gjatë marrjes së adresave të transportit:', error);
+      console.error("Gabim gjatë marrjes së adresave të transportit:", error);
     }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
@@ -50,15 +62,22 @@ const ShippingAddress: React.FC = () => {
     try {
       if (editingId !== null) {
         await axios.put(`${apiUrl}/${editingId}`, formData);
+        Swal.fire("Sukses", "Adresa u përditësua me sukses!", "success");
       } else {
         await axios.post(apiUrl, formData);
+        Swal.fire("Sukses", "Adresa u shtua me sukses!", "success");
       }
       setFormData({});
       setEditingId(null);
       setOpenModal(false);
       fetchAddresses();
     } catch (error) {
-      console.error('Gabim gjatë ruajtjes së adresës:', error);
+      console.error("Gabim gjatë ruajtjes së adresës:", error);
+      Swal.fire(
+        "Gabim",
+        "Ndodhi një gabim gjatë ruajtjes së adresës.",
+        "error"
+      );
     }
   };
 
@@ -75,21 +94,41 @@ const ShippingAddress: React.FC = () => {
   };
 
   const handleDelete = async (id: number) => {
-    if (window.confirm('A jeni i sigurt që dëshironi të fshini këtë adresë?')) {
+    const confirm = await Swal.fire({
+      title: "A jeni i sigurt?",
+      text: "Kjo adresë do të fshihet përfundimisht!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Po, fshije!",
+      cancelButtonText: "Anulo",
+    });
+
+    if (confirm.isConfirmed) {
       try {
         await axios.delete(`${apiUrl}/${id}`);
+        Swal.fire("Fshirë!", "Adresa u fshi me sukses.", "success");
         fetchAddresses();
       } catch (error) {
-        console.error('Gabim gjatë fshirjes së adresës:', error);
+        console.error("Gabim gjatë fshirjes së adresës:", error);
+        Swal.fire("Gabim", "Nuk u arrit të fshihet adresa.", "error");
       }
     }
   };
 
   return (
-    <div style={{ padding: '30px' }}>
-      <h2 style={{ fontSize: '1.8rem', marginBottom: '20px' }}>Menaxhimi i Adresave të Transportit</h2>
+    <div style={{ padding: "30px" }}>
+      <h2 style={{ fontSize: "1.8rem", marginBottom: "20px" }}>
+        Menaxhimi i Adresave të Transportit
+      </h2>
 
-      <Button variant="contained" color="primary" onClick={handleAdd} sx={{ mb: 2 }}>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={handleAdd}
+        sx={{ mb: 2 }}
+      >
         Shto Adresë
       </Button>
 
@@ -97,18 +136,34 @@ const ShippingAddress: React.FC = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell><strong>ID</strong></TableCell>
-              <TableCell><strong>Rruga</strong></TableCell>
-              <TableCell><strong>Qyteti</strong></TableCell>
-              <TableCell><strong>Shteti</strong></TableCell>
-              <TableCell><strong>Kodi Postar</strong></TableCell>
-              <TableCell><strong>Shteti</strong></TableCell>
-              <TableCell><strong>User ID</strong></TableCell>
-              <TableCell><strong>Veprime</strong></TableCell>
+              <TableCell>
+                <strong>ID</strong>
+              </TableCell>
+              <TableCell>
+                <strong>Rruga</strong>
+              </TableCell>
+              <TableCell>
+                <strong>Qyteti</strong>
+              </TableCell>
+              <TableCell>
+                <strong>Shteti</strong>
+              </TableCell>
+              <TableCell>
+                <strong>Kodi Postar</strong>
+              </TableCell>
+              <TableCell>
+                <strong>Shteti</strong>
+              </TableCell>
+              <TableCell>
+                <strong>User ID</strong>
+              </TableCell>
+              <TableCell>
+                <strong>Veprime</strong>
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {addresses.map(addr => (
+            {addresses.map((addr) => (
               <TableRow key={addr.id}>
                 <TableCell>{addr.id}</TableCell>
                 <TableCell>{addr.street}</TableCell>
@@ -119,8 +174,20 @@ const ShippingAddress: React.FC = () => {
                 <TableCell>{addr.userId}</TableCell>
                 <TableCell>
                   <Stack direction="row" spacing={1}>
-                    <Button onClick={() => handleEdit(addr)} variant="outlined" color="primary">Edito</Button>
-                    <Button onClick={() => handleDelete(addr.id)} variant="outlined" color="error">Fshi</Button>
+                    <Button
+                      onClick={() => handleEdit(addr)}
+                      variant="outlined"
+                      color="primary"
+                    >
+                      Edito
+                    </Button>
+                    <Button
+                      onClick={() => handleDelete(addr.id)}
+                      variant="outlined"
+                      color="error"
+                    >
+                      Fshi
+                    </Button>
                   </Stack>
                 </TableCell>
               </TableRow>
@@ -129,21 +196,78 @@ const ShippingAddress: React.FC = () => {
         </Table>
       </TableContainer>
 
-      {/* Modal for Add/Edit */}
-      <Dialog open={openModal} onClose={() => setOpenModal(false)} maxWidth="sm" fullWidth>
-        <DialogTitle>{editingId ? 'Edito Adresën' : 'Shto Adresë'}</DialogTitle>
+      {/* Modal për Add/Edit */}
+      <Dialog
+        open={openModal}
+        onClose={() => setOpenModal(false)}
+        maxWidth="sm"
+        fullWidth
+      >
+        <DialogTitle>{editingId ? "Edito Adresën" : "Shto Adresë"}</DialogTitle>
         <DialogContent>
           <form onSubmit={handleSubmit}>
-            <TextField label="Street" name="street" value={formData.street || ''} onChange={handleChange} fullWidth required margin="normal" />
-            <TextField label="City" name="city" value={formData.city || ''} onChange={handleChange} fullWidth required margin="normal" />
-            <TextField label="State" name="state" value={formData.state || ''} onChange={handleChange} fullWidth required margin="normal" />
-            <TextField label="Postal Code" name="postalCode" value={formData.postalCode || ''} onChange={handleChange} fullWidth required margin="normal" />
-            <TextField label="Country" name="country" value={formData.country || ''} onChange={handleChange} fullWidth required margin="normal" />
-            <TextField label="User ID" name="userId" value={formData.userId || ''} onChange={handleChange} fullWidth required margin="normal" />
+            <TextField
+              label="Street"
+              name="street"
+              value={formData.street || ""}
+              onChange={handleChange}
+              fullWidth
+              required
+              margin="normal"
+            />
+            <TextField
+              label="City"
+              name="city"
+              value={formData.city || ""}
+              onChange={handleChange}
+              fullWidth
+              required
+              margin="normal"
+            />
+            <TextField
+              label="State"
+              name="state"
+              value={formData.state || ""}
+              onChange={handleChange}
+              fullWidth
+              required
+              margin="normal"
+            />
+            <TextField
+              label="Postal Code"
+              name="postalCode"
+              value={formData.postalCode || ""}
+              onChange={handleChange}
+              fullWidth
+              required
+              margin="normal"
+            />
+            <TextField
+              label="Country"
+              name="country"
+              value={formData.country || ""}
+              onChange={handleChange}
+              fullWidth
+              required
+              margin="normal"
+            />
+            <TextField
+              label="User ID"
+              name="userId"
+              value={formData.userId || ""}
+              onChange={handleChange}
+              fullWidth
+              required
+              margin="normal"
+            />
 
             <DialogActions sx={{ mt: 2 }}>
-              <Button onClick={() => setOpenModal(false)} color="secondary">Anulo</Button>
-              <Button type="submit" variant="contained" color="primary">{editingId ? 'Përditëso' : 'Shto'}</Button>
+              <Button onClick={() => setOpenModal(false)} color="secondary">
+                Anulo
+              </Button>
+              <Button type="submit" variant="contained" color="primary">
+                {editingId ? "Përditëso" : "Shto"}
+              </Button>
             </DialogActions>
           </form>
         </DialogContent>

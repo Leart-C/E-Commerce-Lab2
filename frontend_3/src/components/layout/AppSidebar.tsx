@@ -124,6 +124,11 @@ export function AppSidebarList() {
           href: PATH_DASHBOARD.productReview,
           icon: <FaBox />,
         },
+        {
+          label: "Order Item",
+          href: PATH_DASHBOARD.orderItem,
+          icon: <FaBox />,
+        },
       ];
     } else if (
       isAuthenticated &&
@@ -191,11 +196,11 @@ export function AppSidebarList() {
           href: PATH_DASHBOARD.productReview,
           icon: <FaBox />,
         },
-        // {
-        //   label: "Product Review List",
-        //   href: PATH_DASHBOARD.productReviewByProductId,
-        //   icon: <FaBox />,
-        // },
+        {
+          label: "Order Item",
+          href: PATH_DASHBOARD.orderItem,
+          icon: <FaBox />,
+        },
       ];
     } else {
       return [];
