@@ -24,6 +24,7 @@ import {
   PATH_AFTER_REGISTER,
   REGISTER_URL,
 } from "../utils/globalConfig";
+import { getAccessToken, getRefreshToken } from "./session";
 
 const authReducer = (state: IAuthContextState, action: IAuthContextAction) => {
   if (action.type === IAuthContextActionTypes.LOGIN) {
@@ -62,30 +63,32 @@ const AuthContextProvider = ({ children }: IProps) => {
   const navigate = useNavigate();
 
   const initializeAuthContext = useCallback(async () => {
-    try {
-      const token = getSession();
-      if (token) {
-        const userJson = localStorage.getItem("user");
-        if (userJson) {
-          const userInfo = JSON.parse(userJson);
-          setSession(token);
-          dispatch({
-            type: IAuthContextActionTypes.LOGIN,
-            payload: userInfo,
-          });
-        }
-      } else {
+    const accessToken = getAccessToken();
+    const refreshToken = getRefreshToken();
+
+    if (!accessToken && refreshToken) {
+      const refreshed = await refreshTokenFunction(); // thirrja për refresh
+      if (!refreshed) {
         setSession(null);
+        dispatch({ type: IAuthContextActionTypes.LOGOUT });
+        return;
+      }
+    }
+
+    const token = getAccessToken();
+    if (token) {
+      const userJson = localStorage.getItem("user");
+      if (userJson) {
+        const userInfo = JSON.parse(userJson);
+        setSession(token);
         dispatch({
-          type: IAuthContextActionTypes.LOGOUT,
+          type: IAuthContextActionTypes.LOGIN,
+          payload: userInfo,
         });
       }
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    } catch (error) {
+    } else {
       setSession(null);
-      dispatch({
-        type: IAuthContextActionTypes.LOGOUT,
-      });
+      dispatch({ type: IAuthContextActionTypes.LOGOUT });
     }
   }, []);
 
@@ -126,7 +129,7 @@ const AuthContextProvider = ({ children }: IProps) => {
       password,
     });
     toast.success("Login Was Successful");
-    // In response, we receive jwt token and user data
+
     const { newToken, userInfo } = response.data;
     setSession(newToken);
     localStorage.setItem("user", JSON.stringify(userInfo));
@@ -147,8 +150,6 @@ const AuthContextProvider = ({ children }: IProps) => {
     navigate(PATH_AFTER_LOGOUT);
   }, []);
 
-  // We create an object for values of context provider
-  // This will keep our codes more readable
   const valuesObject = {
     isAuthenticated: state.isAuthenticated,
     isAuthLoading: state.isAuthLoading,
@@ -164,3 +165,6 @@ const AuthContextProvider = ({ children }: IProps) => {
 };
 
 export default AuthContextProvider;
+function refreshTokenFunction() {
+  throw new Error("Function not implemented.");
+}
