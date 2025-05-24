@@ -10,34 +10,30 @@ const DashboardPage = () => {
       <PageAccessTemplate color="#000" icon={BsGlobeAmericas} role="Dashboard">
         <Container maxWidth="xl">
           <Box display="flex" flexDirection="column" gap={4} mt={2}>
-            {/* Titulli dhe përshkrimi */}
-            <Box>
-              <Typography variant="h4" fontWeight="bold">
-                Dashboard
-              </Typography>
-            </Box>
+            <Typography variant="h4" fontWeight="bold">
+              Dashboard
+            </Typography>
 
-            {/* Seksioni i grafikëve */}
-            <Box
-  display="flex"
-  flexWrap="wrap"
-  gap={4}
-  justifyContent="flex-start"
-  alignItems="flex-start"
->
-  <Card sx={{ flex: "1 1 500px", minWidth: 400 }}>
-    <CardContent>
-      <OrderBarChart />
-    </CardContent>
-  </Card>
-
-  <Card sx={{ flex: "1 1 500px", minWidth: 400 }}>
-    <CardContent>
-      <ProductCategoryPieChart />
-    </CardContent>
-  </Card>
-</Box>
-
+            {/* Card me dy grafikë horizontalisht */}
+            <Card sx={{ maxWidth: 1200, margin: "auto" }}>
+              <CardContent>
+                <Box
+                  display="flex"
+                  flexDirection="row"
+                  justifyContent="space-between"
+                  alignItems="flex-start"
+                  flexWrap="wrap"
+                  gap={4}
+                >
+                  <Box flex="1" minWidth={400}>
+                    <OrderBarChart />
+                  </Box>
+                  <Box flex="1" minWidth={400}>
+                    <ProductCategoryPieChart />
+                  </Box>
+                </Box>
+              </CardContent>
+            </Card>
           </Box>
         </Container>
       </PageAccessTemplate>

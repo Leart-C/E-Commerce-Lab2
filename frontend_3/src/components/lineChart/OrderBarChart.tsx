@@ -9,21 +9,23 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import axios from "axios";
-import dayjs from "dayjs";
+import { Paper, Typography } from "@mui/material";
 
 interface Order {
   id: number;
-  orderDate: string;
-  // mund të ketë edhe fusha të tjera që nuk i përdorim këtu
+  username: string;
+  shippingAddressId: number;
+  status: string;
+  totalPrice: number;
 }
 
-interface MonthlyOrder {
-  month: string;
-  totalOrders: number;
+interface StatusCount {
+  status: string;
+  count: number;
 }
 
 const OrderBarChart: React.FC = () => {
-  const [data, setData] = useState<MonthlyOrder[]>([]);
+  const [data, setData] = useState<StatusCount[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -32,17 +34,19 @@ const OrderBarChart: React.FC = () => {
       .get<Order[]>("https://localhost:7039/api/Order")
       .then((res) => {
         const orders = res.data;
-        const monthlyCounts: { [month: string]: number } = {};
+        const statusCounts: { [key: string]: number } = {};
 
         orders.forEach((order) => {
-          const month = dayjs(order.orderDate).format("MMMM");
-          monthlyCounts[month] = (monthlyCounts[month] || 0) + 1;
+          const status = order.status.toLowerCase();
+          statusCounts[status] = (statusCounts[status] || 0) + 1;
         });
 
-        const chartData = Object.entries(monthlyCounts).map(([month, totalOrders]) => ({
-          month,
-          totalOrders,
-        }));
+        const chartData = Object.entries(statusCounts).map(
+          ([status, count]) => ({
+            status,
+            count,
+          })
+        );
 
         setData(chartData);
         setLoading(false);
@@ -58,15 +62,31 @@ const OrderBarChart: React.FC = () => {
   if (error) return <p>{error}</p>;
 
   return (
-    <ResponsiveContainer width="100%" height={300}>
-      <BarChart data={data}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="month" />
-        <YAxis allowDecimals={false} />
-        <Tooltip />
-        <Bar dataKey="totalOrders" fill="#1976d2" radius={[4, 4, 0, 0]} />
-      </BarChart>
-    </ResponsiveContainer>
+    <Paper
+      elevation={3}
+      sx={{
+        backgroundColor: "#1e1e2f",
+        padding: 2,
+        color: "white",
+        height: 360,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+      }}
+    >
+      <Typography variant="h6" color="white" mb={2}>
+        Porositë sipas statusit
+      </Typography>
+      <ResponsiveContainer width="100%" height={280}>
+        <BarChart data={data}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#444" />
+          <XAxis dataKey="status" stroke="#ccc" />
+          <YAxis allowDecimals={false} stroke="#ccc" />
+          <Tooltip contentStyle={{ backgroundColor: "#333", border: "none" }} />
+          <Bar dataKey="count" fill="#1976d2" radius={[4, 4, 0, 0]} />
+        </BarChart>
+      </ResponsiveContainer>
+    </Paper>
   );
 };
 

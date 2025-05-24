@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { IconType } from "react-icons";
-import { Container, Box, Typography } from "@mui/material";
+import { Container, Box } from "@mui/material";
 
 interface IProps {
   role: string;
