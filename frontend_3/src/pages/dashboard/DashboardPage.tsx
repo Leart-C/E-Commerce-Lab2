@@ -2,6 +2,7 @@ import { Box, Typography, Container, Card, CardContent } from "@mui/material";
 import PageAccessTemplate from "../../components/dashboard/page-access/PageAccessTemplate";
 import { BsGlobeAmericas } from "react-icons/bs";
 import ProductCategoryPieChart from "../../components/pieChart/ProductCategoryPieChart";
+import OrderBarChart from "../../components/lineChart/OrderBarChart";
 
 const DashboardPage = () => {
   return (
@@ -18,23 +19,25 @@ const DashboardPage = () => {
 
             {/* Seksioni i grafikëve */}
             <Box
-              display="flex"
-              flexWrap="wrap"
-              gap={4}
-              justifyContent="flex-start"
-              alignItems="flex-start"
-            >
-              <Card sx={{ flex: "1 1 350px", minWidth: 300 }}>
-                <CardContent>
-                  <ProductCategoryPieChart />
-                </CardContent>
-              </Card>
+  display="flex"
+  flexWrap="wrap"
+  gap={4}
+  justifyContent="flex-start"
+  alignItems="flex-start"
+>
+  <Card sx={{ flex: "1 1 500px", minWidth: 400 }}>
+    <CardContent>
+      <OrderBarChart />
+    </CardContent>
+  </Card>
 
-              {/* Mund të shtosh grafikë të tjerë këtu */}
-              {/* <Card sx={{ flex: '1 1 350px', minWidth: 300 }}>
-                <CardContent><OrderBarChart /></CardContent>
-              </Card> */}
-            </Box>
+  <Card sx={{ flex: "1 1 500px", minWidth: 400 }}>
+    <CardContent>
+      <ProductCategoryPieChart />
+    </CardContent>
+  </Card>
+</Box>
+
           </Box>
         </Container>
       </PageAccessTemplate>
