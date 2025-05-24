@@ -3,6 +3,7 @@ import PageAccessTemplate from "../../components/dashboard/page-access/PageAcces
 import { BsGlobeAmericas } from "react-icons/bs";
 import ProductCategoryPieChart from "../../components/pieChart/ProductCategoryPieChart";
 import OrderBarChart from "../../components/lineChart/OrderBarChart";
+import DashboardStatGroup from "../../components/statGroup/DashboardStatGroup";
 
 const DashboardPage = () => {
   return (
@@ -26,11 +27,15 @@ const DashboardPage = () => {
                   gap={4}
                 >
                   <Box flex="1" minWidth={400}>
+                    <DashboardStatGroup />
+                  </Box>
+                  <Box flex="1" minWidth={400}>
                     <OrderBarChart />
                   </Box>
                   <Box flex="1" minWidth={400}>
                     <ProductCategoryPieChart />
                   </Box>
+                  
                 </Box>
               </CardContent>
             </Card>
