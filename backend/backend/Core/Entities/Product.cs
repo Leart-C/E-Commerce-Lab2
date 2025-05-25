@@ -17,6 +17,8 @@ namespace backend.Core.Entities
         [BsonElement("price"), BsonRepresentation(BsonType.Decimal128)]
         public Decimal? Price { get; set; }
 
+        public string? ImageUrl { get; set; }
+
         public string UserId { get; set; }
 
         [BsonElement("category_id"), BsonRepresentation(BsonType.ObjectId)]

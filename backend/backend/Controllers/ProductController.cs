@@ -60,7 +60,7 @@ namespace backend.Controllers
             // DENORMALIZIM 🔥
             product.UserInfo = new ProductUserInfo
             {
-                FirstName= user.FirstName,
+                FirstName = user.FirstName,
                 LastName = user.LastName,
                 Email = user.Email
             };
@@ -68,6 +68,27 @@ namespace backend.Controllers
             await _product.InsertOneAsync(product);
             return CreatedAtAction(nameof(GetById), new { id = product.Id }, product);
         }
+
+        [HttpPost("upload-image")]
+        public async Task<IActionResult> UploadImage(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+                return BadRequest("Fajlli është i zbrazët.");
+
+            var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
+            var filePath = Path.Combine("wwwroot/uploads", fileName);
+
+            Directory.CreateDirectory(Path.GetDirectoryName(filePath)!);
+
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            var imageUrl = $"{Request.Scheme}://{Request.Host}/uploads/{fileName}";
+            return Ok(new { imageUrl });
+        }
+
 
         [HttpPut]
         public async Task<ActionResult> Update(Product product)

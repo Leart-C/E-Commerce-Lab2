@@ -33,6 +33,7 @@ interface ProductDto {
   description: string;
   price: number;
   categoryId: string;
+  imageUrl?: string;
   userId?: string;
   userInfo?: {
     firstName: string;
@@ -46,6 +47,7 @@ interface ProductCreateDto {
   description: string;
   price: number;
   categoryId: string;
+  imageUrl?: string;
 }
 
 const Product: React.FC = () => {
@@ -58,6 +60,7 @@ const Product: React.FC = () => {
 
   const productApiUrl = "https://localhost:7039/api/Product";
   const categoryApiUrl = "https://localhost:7039/api/Category";
+  const uploadImageUrl = "https://localhost:7039/api/Product/upload-image";
 
   useEffect(() => {
     fetchProducts();
@@ -94,6 +97,25 @@ const Product: React.FC = () => {
     }));
   };
 
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const formImage = new FormData();
+    formImage.append("file", file);
+
+    try {
+      const response = await axios.post(uploadImageUrl, formImage, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+
+      const { imageUrl } = response.data;
+      setFormData((prev) => ({ ...prev, imageUrl }));
+    } catch (error) {
+      Swal.fire("Gabim gjatë ngarkimit të fotos", "", "error");
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
@@ -120,6 +142,7 @@ const Product: React.FC = () => {
           description: formData.description!,
           price: Number(formData.price!),
           categoryId: formData.categoryId!,
+          imageUrl: formData.imageUrl ?? originalProduct.imageUrl,
           userId: originalProduct.userId!,
           userInfo: originalProduct.userInfo!,
         };
@@ -150,6 +173,7 @@ const Product: React.FC = () => {
       description: product.description,
       price: product.price,
       categoryId: product.categoryId,
+      imageUrl: product.imageUrl,
     });
     setEditingId(product.id || null);
     setOpenModal(true);
@@ -217,6 +241,9 @@ const Product: React.FC = () => {
                 <strong>Kategoria</strong>
               </TableCell>
               <TableCell>
+                <strong>Foto</strong>
+              </TableCell>
+              <TableCell>
                 <strong>Veprime</strong>
               </TableCell>
             </TableRow>
@@ -231,6 +258,13 @@ const Product: React.FC = () => {
                 <TableCell>
                   {categories.find((c) => c.id === product.categoryId)
                     ?.categoryName ?? "Pa kategori"}
+                </TableCell>
+                <TableCell>
+                  {product.imageUrl ? (
+                    <img src={product.imageUrl} alt="Foto" width={60} />
+                  ) : (
+                    "—"
+                  )}
                 </TableCell>
                 <TableCell>
                   <Stack direction="row" spacing={1}>
@@ -313,12 +347,42 @@ const Product: React.FC = () => {
                 ))}
               </Select>
             </FormControl>
+
+            <Button variant="outlined" component="label" sx={{ mt: 2 }}>
+              Ngarko Foto
+              <input
+                type="file"
+                hidden
+                accept="image/*"
+                onChange={handleFileChange}
+              />
+            </Button>
+
+            {formData.imageUrl && (
+              <Paper
+                variant="outlined"
+                sx={{
+                  mt: 2,
+                  p: 1,
+                  borderRadius: 2,
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <img
+                  src={formData.imageUrl}
+                  alt="Preview"
+                  style={{ maxWidth: "100%", maxHeight: 200, borderRadius: 8 }}
+                />
+              </Paper>
+            )}
+
             <DialogActions sx={{ mt: 2 }}>
               <Button onClick={() => setOpenModal(false)} color="secondary">
                 Anulo
               </Button>
               <Button type="submit" variant="contained" color="primary">
-                {editingId ? "Përditëso" : "Shto"}
+                Ruaj
               </Button>
             </DialogActions>
           </form>

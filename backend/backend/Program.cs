@@ -11,6 +11,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using backend.data;
 using backend.Core.Mapper;
+using Microsoft.Extensions.FileProviders;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -115,6 +116,19 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
+var wwwrootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
+if (!Directory.Exists(wwwrootPath))
+{
+    Directory.CreateDirectory(wwwrootPath);
+}
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")),
+    RequestPath = ""
+});
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -136,5 +150,8 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+
+
 
 app.Run();
