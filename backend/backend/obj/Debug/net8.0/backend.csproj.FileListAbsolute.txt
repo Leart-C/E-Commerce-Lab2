@@ -960,3 +960,4 @@ C:\UBT\CSE\Projekte\E-commerce lab2\E-Commerce-Lab2\E-Commerce-Lab2\backend\back
 C:\UBT\CSE\Projekte\E-commerce lab2\E-Commerce-Lab2\E-Commerce-Lab2\backend\backend\obj\Debug\net8.0\backend.pdb
 C:\UBT\CSE\Projekte\E-commerce lab2\E-Commerce-Lab2\E-Commerce-Lab2\backend\backend\obj\Debug\net8.0\backend.genruntimeconfig.cache
 C:\UBT\CSE\Projekte\E-commerce lab2\E-Commerce-Lab2\E-Commerce-Lab2\backend\backend\obj\Debug\net8.0\ref\backend.dll
+C:\Users\TECHCOM\Desktop\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\backend.staticwebassets.runtime.json

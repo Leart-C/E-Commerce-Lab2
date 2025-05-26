@@ -9,6 +9,7 @@ using Microsoft.Identity.Client;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace backend.Core.Services
@@ -399,38 +400,47 @@ namespace backend.Core.Services
 
         public async Task<string?> RefreshAccessTokenAsync(string refreshToken)
         {
-            // Gjejmë userin nga RefreshToken
+            // Gjejmë përdoruesin që ka këtë token
             var user = await _userManager.Users
                 .Include(u => u.RefreshTokens)
-                .FirstOrDefaultAsync(u => u.RefreshTokens.Any(rt => rt.Token == refreshToken && !rt.IsRevoked));
+                .FirstOrDefaultAsync(u => u.RefreshTokens.Any(t => t.Token == refreshToken));
 
             if (user == null)
                 return null;
 
-            var existingToken = user.RefreshTokens.First(rt => rt.Token == refreshToken);
+            var tokenEntity = user.RefreshTokens.FirstOrDefault(t => t.Token == refreshToken);
 
-            // Kontrollojmë nëse është i skaduar
-            if (existingToken.ExpiryDate < DateTime.UtcNow)
-            {
-                existingToken.IsRevoked = true;
+            // Validime për tokenin
+            if (tokenEntity == null || tokenEntity.IsRevoked || tokenEntity.ExpiryDate < DateTime.UtcNow)
                 return null;
-            }
 
-            // Gjenerojmë një access token të ri
-            var newAccessToken = await GenerateJWTTokenAsync(user);
+            // Gjenerojmë JWT të ri
+            var newJwt = await GenerateJWTTokenAsync(user);
 
-            return newAccessToken;
+            // Opsionale: Mund të gjenerosh edhe një RefreshToken të ri
+            var newRefreshToken = GenerateRefreshToken();
+            tokenEntity.IsRevoked = true;
+
+            user.RefreshTokens.Add(new RefreshToken
+            {
+                Token = newRefreshToken,
+                UserId = user.Id,
+                ExpiryDate = DateTime.UtcNow.AddDays(7),
+                IsRevoked = false
+            });
+
+            await _userManager.UpdateAsync(user);
+            await _logService.SaveNewLog(user.UserName, "Access token refreshed");
+
+            return newJwt;
         }
+
 
 
         private string GenerateRefreshToken()
         {
-            var randomNumber = new byte[32];
-            using (var rng = new System.Security.Cryptography.RNGCryptoServiceProvider())
-            {
-                rng.GetBytes(randomNumber);
-            }
-            return Convert.ToBase64String(randomNumber);
+            return Convert.ToBase64String(RandomNumberGenerator.GetBytes(64));
         }
+
     }
 }

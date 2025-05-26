@@ -25,6 +25,7 @@ import {
   REGISTER_URL,
 } from "../utils/globalConfig";
 import { getAccessToken, getRefreshToken } from "./session";
+import { refreshToken as refreshTokenUtil } from "./auth.utils";
 
 const authReducer = (state: IAuthContextState, action: IAuthContextAction) => {
   if (action.type === IAuthContextActionTypes.LOGIN) {
@@ -128,10 +129,14 @@ const AuthContextProvider = ({ children }: IProps) => {
       userName,
       password,
     });
+    console.log("LOGIN RESPONSE DATA:", response.data);
+    console.log("refreshToken nga response:", response.data.refreshToken);
+
+    console.log("LOGIN RESPONSE DATA:", response.data);
     toast.success("Login Was Successful");
 
-    const { newToken, userInfo } = response.data;
-    setSession(newToken);
+    const { newToken, refreshToken, userInfo } = response.data;
+    setSession(newToken, refreshToken); // RUAN refreshToken në localStorage
     localStorage.setItem("user", JSON.stringify(userInfo));
     dispatch({
       type: IAuthContextActionTypes.LOGIN,
@@ -150,6 +155,20 @@ const AuthContextProvider = ({ children }: IProps) => {
     navigate(PATH_AFTER_LOGOUT);
   }, []);
 
+  useEffect(() => {
+    if (state.isAuthenticated) {
+      const logoutTimer = setTimeout(
+        () => {
+          toast("Session expired. Logging out.");
+          logout();
+        },
+        60 * 60 * 1000
+      ); // 15 minuta
+
+      return () => clearTimeout(logoutTimer);
+    }
+  }, [state.isAuthenticated, logout]);
+
   const valuesObject = {
     isAuthenticated: state.isAuthenticated,
     isAuthLoading: state.isAuthLoading,
@@ -164,7 +183,8 @@ const AuthContextProvider = ({ children }: IProps) => {
   );
 };
 
+const refreshTokenFunction = async (): Promise<boolean> => {
+  const refreshed = await refreshTokenUtil();
+  return refreshed;
+};
 export default AuthContextProvider;
-function refreshTokenFunction() {
-  throw new Error("Function not implemented.");
-}

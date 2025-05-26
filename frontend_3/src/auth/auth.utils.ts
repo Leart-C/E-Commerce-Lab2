@@ -1,15 +1,20 @@
 import { IAuthUser, RolesEnum } from "../types/auth.types";
 import axiosInstance from "../utils/axiosInstance";
 
-export const setSession = (accessToken: string | null) => {
-  if (accessToken) {
-    localStorage.setItem("accessToken", accessToken);
-    axiosInstance.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
+export function setSession(token: string | null, refreshToken: string | null) {
+  if (token) {
+    localStorage.setItem("accessToken", token);
   } else {
     localStorage.removeItem("accessToken");
-    delete axiosInstance.defaults.headers.common.Authorization;
   }
-};
+
+  if (refreshToken) {
+    localStorage.setItem("refreshToken", refreshToken);
+  } else {
+    localStorage.removeItem("refreshToken");
+  }
+}
+
 console.log("Stored token:", localStorage.getItem("accessToken"));
 
 export const getSession = () => {
@@ -36,6 +41,32 @@ export const allowedRolesForUpdateArray = (
   return loggedInUser?.roles.includes(RolesEnum.OWNER)
     ? [RolesEnum.ADMIN, RolesEnum.MANAGER, RolesEnum.USER]
     : [RolesEnum.MANAGER, RolesEnum.USER];
+};
+
+// auth.utils.ts
+
+export const refreshToken = async (): Promise<boolean> => {
+  try {
+    const token = getRefreshToken();
+    if (!token) return false;
+
+    const response = await axios.post(
+      "https://localhost:7039/api/Auth/refresh-token",
+      {
+        refreshToken: token,
+      }
+    );
+
+    const { accessToken, refreshToken: newRefreshToken } = response.data;
+
+    setSession(accessToken, newRefreshToken);
+
+    return true;
+  } catch (error) {
+    console.error("Failed to refresh token:", error);
+    removeSession();
+    return false;
+  }
 };
 
 export const isAuthorizedForUpdateRole = (
