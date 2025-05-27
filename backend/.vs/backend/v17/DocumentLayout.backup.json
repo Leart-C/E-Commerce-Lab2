@@ -1,9 +1,25 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\",
+  "WorkspaceRootPath": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\techcom\\desktop\\e-commerce-lab2\\backend\\backend\\core\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\ubt\\cse\\projekte\\e-commerce lab2\\e-commerce-lab2\\e-commerce-lab2\\backend\\backend\\migrations\\20250527140228_addchatmessagefix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\migrations\\20250527140228_addchatmessagefix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\ubt\\cse\\projekte\\e-commerce lab2\\e-commerce-lab2\\e-commerce-lab2\\backend\\backend\\core\\dbcontext\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\dbcontext\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\ubt\\cse\\projekte\\e-commerce lab2\\e-commerce-lab2\\e-commerce-lab2\\backend\\backend\\core\\entities\\chatmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\entities\\chatmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\ubt\\cse\\projekte\\e-commerce lab2\\e-commerce-lab2\\e-commerce-lab2\\backend\\backend\\core\\dtos\\chatmessage\\chatmessagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\dtos\\chatmessage\\chatmessagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\ubt\\cse\\projekte\\e-commerce lab2\\e-commerce-lab2\\e-commerce-lab2\\backend\\backend\\core\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -14,21 +30,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Services\\AuthService.cs",
-              "RelativeDocumentMoniker": "backend\\Core\\Services\\AuthService.cs",
-              "ToolTip": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Services\\AuthService.cs*",
-              "RelativeToolTip": "backend\\Core\\Services\\AuthService.cs*",
-              "ViewState": "AgIAAKoBAAAAAAAAAAAQwLsBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T19:01:37.382Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -36,6 +39,67 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20250527140228_AddChatMessageFix.cs",
+              "DocumentMoniker": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Migrations\\20250527140228_AddChatMessageFix.cs",
+              "RelativeDocumentMoniker": "backend\\Migrations\\20250527140228_AddChatMessageFix.cs",
+              "ToolTip": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Migrations\\20250527140228_AddChatMessageFix.cs",
+              "RelativeToolTip": "backend\\Migrations\\20250527140228_AddChatMessageFix.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAgwDUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T14:02:28.757Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Core\\DbContext\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "backend\\Core\\DbContext\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Core\\DbContext\\ApplicationDbContext.cs",
+              "RelativeToolTip": "backend\\Core\\DbContext\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAcwE0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T12:48:55.211Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ChatMessageDto.cs",
+              "DocumentMoniker": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Core\\Dtos\\ChatMessage\\ChatMessageDto.cs",
+              "RelativeDocumentMoniker": "backend\\Core\\Dtos\\ChatMessage\\ChatMessageDto.cs",
+              "ToolTip": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Core\\Dtos\\ChatMessage\\ChatMessageDto.cs",
+              "RelativeToolTip": "backend\\Core\\Dtos\\ChatMessage\\ChatMessageDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T12:42:13.545Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ChatMessage.cs",
+              "DocumentMoniker": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\ChatMessage.cs",
+              "RelativeDocumentMoniker": "backend\\Core\\Entities\\ChatMessage.cs",
+              "ToolTip": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\ChatMessage.cs",
+              "RelativeToolTip": "backend\\Core\\Entities\\ChatMessage.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAqwBgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T12:34:23.408Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Core\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "backend\\Core\\Services\\AuthService.cs",
+              "ToolTip": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Core\\Services\\AuthService.cs",
+              "RelativeToolTip": "backend\\Core\\Services\\AuthService.cs",
+              "ViewState": "AgIAAKoBAAAAAAAAAAAQwLsBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T19:01:37.382Z"
             }
           ]
         }

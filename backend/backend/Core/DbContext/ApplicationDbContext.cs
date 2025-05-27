@@ -18,7 +18,8 @@ namespace backend.Core.DbContext
         public DbSet<PaymentMethod> PaymentMethods { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<Refund> Refunds { get; set; }
-        public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<Invoice> Invoices { get; set; } 
+        public DbSet<ChatMessage> ChatMessage { get; set; } // This line
 
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -33,9 +34,12 @@ namespace backend.Core.DbContext
             builder.Entity<IdentityRole>().ToTable("Roles");
             builder.Entity<IdentityRoleClaim<string>>().ToTable("RoleClaims");
             builder.Entity<IdentityUserRole<string>>().ToTable("UserRoles");
+            builder.Entity<PaymentMethod>().ToTable("PaymentMethods", t => t.ExcludeFromMigrations());
 
 
             builder.Ignore<ProductReview>();
+
+
 
 
             //1 PaymentMethod -> N:Payment
@@ -70,6 +74,19 @@ namespace backend.Core.DbContext
                 .WithOne(sa => sa.User)
                 .HasForeignKey(sa => sa.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            #region Chat Messages delete logic
+            builder.Entity<ChatMessage>()
+                .HasOne(cm => cm.Sender)
+                .WithMany()
+                .HasForeignKey(cm => cm.SenderId)
+                .OnDelete(DeleteBehavior.NoAction);
+            builder.Entity<ChatMessage>()
+                .HasOne(cm => cm.Receiver)
+                .WithMany()
+                .HasForeignKey(cm => cm.ReceiverId)
+                .OnDelete(DeleteBehavior.Cascade);
+            #endregion
 
             {
                 builder.Entity<Order>()
