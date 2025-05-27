@@ -76,16 +76,32 @@ namespace backend.Core.DbContext
                 .OnDelete(DeleteBehavior.Cascade);
 
             #region Chat Messages delete logic
+           
+
             builder.Entity<ChatMessage>()
                 .HasOne(cm => cm.Sender)
-                .WithMany()
+                .WithMany() 
                 .HasForeignKey(cm => cm.SenderId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.NoAction); 
+
             builder.Entity<ChatMessage>()
                 .HasOne(cm => cm.Receiver)
-                .WithMany()
+                .WithMany() 
                 .HasForeignKey(cm => cm.ReceiverId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.SetNull);
+
+            #endregion
+            
+            #region decimal precision for invoice and refund
+            builder.Entity<Invoice>()
+                .Property(i => i.Amount)
+                .HasPrecision(18, 2);
+
+            builder.Entity<Refund>()
+                .Property(r => r.Amount)
+                .HasPrecision(18, 2);
             #endregion
 
             {

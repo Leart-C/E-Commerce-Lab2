@@ -12,6 +12,7 @@ using System.Text.Json.Serialization;
 using backend.data;
 using backend.Core.Mapper;
 using Microsoft.Extensions.FileProviders;
+using backend.Hubs;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -30,6 +31,9 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     var connectionString = builder.Configuration.GetConnectionString("local");
     options.UseSqlServer(connectionString);
 });
+
+//SignalR
+builder.Services.AddSignalR();
 
 
 //Dependency injection
@@ -116,6 +120,8 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
+
+
 var wwwrootPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot");
 if (!Directory.Exists(wwwrootPath))
 {
@@ -149,9 +155,9 @@ app.UseCors(options =>
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.MapHub<Chathub>("/chathub");
+
 app.MapControllers();
-
-
 
 
 app.Run();

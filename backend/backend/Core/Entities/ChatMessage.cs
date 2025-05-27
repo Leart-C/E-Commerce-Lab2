@@ -7,11 +7,12 @@ namespace backend.Core.Entities
     {
         [Key]
         public int Id {  get; set; }
-        [Required]
+        
         public string SenderId { get; set; }
         public string ReceiverId { get; set; }
         [Required]
         public string Message { get; set; }
+        public bool isRead { get; set; } = false;
         public DateTime Timestampt { get; set; } = DateTime.UtcNow;
 
         #region User navigation
