@@ -38,6 +38,7 @@ import Product from "../pages/product/Product";
 import ProductReview from "../pages/productReview/ProductReview";
 import ProductReviewList from "../pages/productReview/ProductReviewList";
 import OrderItem from "../pages/orderItem/OrderItem";
+import ChatComponent from "../components/Chat/ChatComponent";
 
 const GlobalRouter = () => {
   return (
@@ -233,6 +234,22 @@ const GlobalRouter = () => {
               element={
                 <Suspense fallback={<div>Loading...</div>}>
                   <OrderItem />
+                </Suspense>
+              }
+            />
+          </Route>
+        </Route>
+
+        <Route element={<AuthGuard roles={allAccessRoles} />}>
+          <Route path={PATH_DASHBOARD.chat}>
+            <Route
+              index
+              element={
+                <Suspense fallback={<div>Loading...</div>}>
+                  <ChatComponent
+                    receiverId={"b39579ea-324c-4d2b-af5b-816e467f078e"}
+                    receiverUsername={"fortesa"}
+                  />
                 </Suspense>
               }
             />

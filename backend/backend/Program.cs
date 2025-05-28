@@ -86,6 +86,18 @@ builder.Services
         };
     });
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+    {
+        policy
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .SetIsOriginAllowed(_ => true) 
+            .AllowCredentials(); 
+    });
+});
+
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -143,15 +155,15 @@ if (app.Environment.IsDevelopment())
 
 
 app.UseHttpsRedirection();
-app.UseCors(options =>
-{
-    options
-    .AllowAnyHeader()
-    .AllowAnyMethod()
-    .AllowAnyOrigin();
-});
+//app.UseCors(options =>
+//{
+//    options
+//    .AllowAnyHeader()
+//    .AllowAnyMethod()
+//    .AllowAnyOrigin();
+//});
 
-
+app.UseCors();
 app.UseAuthentication();
 app.UseAuthorization();
 

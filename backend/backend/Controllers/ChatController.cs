@@ -65,7 +65,7 @@ namespace backend.Controllers
                 SenderId = senderId,
                 ReceiverId = dto.ReceiverId,
                 Message = dto.Message,
-                Timestampt = DateTime.UtcNow,
+                Timestamp = DateTime.UtcNow,
                 isRead = false
             };
 
@@ -82,7 +82,7 @@ namespace backend.Controllers
                 ReceiverId = chatMessage.ReceiverId,
                 Message = chatMessage.Message,
                 IsRead = chatMessage.isRead,
-                Timestampt = chatMessage.Timestampt,
+                Timestamp = chatMessage.Timestamp,
                 SenderUsername = (await _userManager.FindByIdAsync(chatMessage.SenderId))?.UserName,
                 ReceiverUsername = (await _userManager.FindByIdAsync(chatMessage.ReceiverId))?.UserName
             };
@@ -118,7 +118,7 @@ namespace backend.Controllers
                 var lastMessage = await _context.ChatMessage
                     .Where(cm => (cm.SenderId == currentUserId && cm.ReceiverId == partnerId) ||
                                  (cm.SenderId == partnerId && cm.ReceiverId == currentUserId))
-                    .OrderByDescending(cm => cm.Timestampt)
+                    .OrderByDescending(cm => cm.Timestamp)
                     .FirstOrDefaultAsync();
 
                 if (lastMessage == null) continue;
@@ -136,7 +136,7 @@ namespace backend.Controllers
                     OtherUserId = partnerId,
                     OtherUsername = partnerUser?.UserName,
                     LastMessageSnippet = lastMessage.Message.Length > 50 ? lastMessage.Message.Substring(0, 50) + "..." : lastMessage.Message,
-                    LastMessageTimestamp = lastMessage.Timestampt,
+                    LastMessageTimestamp = lastMessage.Timestamp,
                     UnreadMessageCount = unreadCount
                 });
             }
@@ -165,7 +165,7 @@ namespace backend.Controllers
             var messagesQuery = _context.ChatMessage
                 .Where(cm => (cm.SenderId == currentUserId && cm.ReceiverId == otherUserId) ||
                              (cm.SenderId == otherUserId && cm.ReceiverId == currentUserId))
-                .OrderBy(cm => cm.Timestampt)
+                .OrderBy(cm => cm.Timestamp)
                 .Include(cm => cm.Sender)
                 .Include(cm => cm.Receiver);
 
@@ -194,7 +194,7 @@ namespace backend.Controllers
                 ReceiverId = cm.ReceiverId,
                 Message = cm.Message,
                 IsRead = cm.isRead,
-                Timestampt = cm.Timestampt,
+                Timestamp = cm.Timestamp,
                 SenderUsername = cm.Sender?.UserName ?? "[Deleted User]",
                 ReceiverUsername = cm.Receiver?.UserName ?? "[Deleted User]"
             }).ToList();
@@ -248,7 +248,7 @@ namespace backend.Controllers
                 ReceiverId = messageToEdit.ReceiverId,
                 Message = messageToEdit.Message,
                 IsRead = messageToEdit.isRead,
-                Timestampt = messageToEdit.Timestampt,
+                Timestamp = messageToEdit.Timestamp,
                 SenderUsername = messageToEdit.Sender?.UserName ?? "[Deleted User]",
                 ReceiverUsername = messageToEdit.Receiver?.UserName ?? "[Deleted User]"
             };

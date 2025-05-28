@@ -201,6 +201,11 @@ export function AppSidebarList() {
           href: PATH_DASHBOARD.orderItem,
           icon: <FaBox />,
         },
+        {
+          label: "Chat",
+          href: PATH_DASHBOARD.chat,
+          icon: <FaBox />,
+        },
       ];
     } else {
       return [];

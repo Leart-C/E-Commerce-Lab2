@@ -10,7 +10,7 @@ namespace backend.Core.Dtos.ChatMessage
         public string ReceiverId { get; set; } 
         public string Message { get; set; } 
         public bool IsRead { get; set; } 
-        public DateTime Timestampt { get; set; } 
+        public DateTime Timestamp { get; set; } 
         public string SenderUsername { get; set; }
         public string ReceiverUsername { get; set; }
     }
