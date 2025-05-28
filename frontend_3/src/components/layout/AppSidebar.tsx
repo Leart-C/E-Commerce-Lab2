@@ -2,7 +2,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import { FaBox, FaClipboard, FaList } from "react-icons/fa6";
+import { FaBox, FaClipboard, FaComment, FaList } from "react-icons/fa6";
 import { FaListCheck } from "react-icons/fa6";
 import { FaTags, FaUserTie } from "react-icons/fa";
 import { FaUserGear } from "react-icons/fa6";
@@ -70,9 +70,14 @@ export function AppSidebarList() {
           icon: <FaUserGear />,
         },
         {
-          label: "User Page",
+        label: "User Page",
           href: PATH_DASHBOARD.user,
           icon: <FaUserLarge />,
+        },
+        {
+          label: "Chat Page",
+          href: PATH_DASHBOARD.chat,
+          icon: <FaComment />,
         },
         {
           label: "Payment",
@@ -160,7 +165,11 @@ export function AppSidebarList() {
           href: PATH_DASHBOARD.user,
           icon: <FaUserLarge />,
         },
-
+        {
+          label: "Chat Page",
+          href: PATH_DASHBOARD.chat,
+          icon: <FaComment />,
+        },
         {
           label: "Refund",
           href: PATH_DASHBOARD.refund,
@@ -199,11 +208,6 @@ export function AppSidebarList() {
         {
           label: "Order Item",
           href: PATH_DASHBOARD.orderItem,
-          icon: <FaBox />,
-        },
-        {
-          label: "Chat",
-          href: PATH_DASHBOARD.chat,
           icon: <FaBox />,
         },
       ];

@@ -13,7 +13,7 @@ namespace backend.Core.Entities
         [Required]
         public string Message { get; set; }
         public bool isRead { get; set; } = false;
-        public DateTime Timestamp { get; set; } = DateTime.UtcNow;
+        public DateTime Timestampt { get; set; } = DateTime.UtcNow;
 
         #region User navigation
         [ForeignKey(nameof(SenderId))]

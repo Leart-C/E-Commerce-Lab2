@@ -1,22 +1,30 @@
-import React, { useState, useEffect } from 'react'; 
+import React, { useState, useEffect } from 'react';
 import PageAccessTemplate from '../../components/dashboard/page-access/PageAccessTemplate';
-import { FaUser } from 'react-icons/fa';
-import { getAccessToken } from '../../auth/session'; 
-import useAuth from '../../hooks/useAuth.hook'; 
+import { FaUser, FaCommentDots } from 'react-icons/fa'; 
+import { useNavigate } from 'react-router-dom';
+import { getAccessToken } from '../../auth/session';
+import useAuth from '../../hooks/useAuth.hook';
+import { PATH_DASHBOARD } from '../../routes/paths';
 
 
 export interface UserDto {
     id: string;
     userName: string;
-  
 };
 
-const UserPage = () => {
-    const [users, setUsers] = useState<UserDto[]>([]); 
-    const [loading, setLoading] = useState<boolean>(true); 
-    const [error, setError] = useState<string | null>(null); 
 
-    const { isAuthenticated, user } = useAuth(); 
+interface UserPageProps {
+    onSelectUserForChat?: (userId: string, username: string) => void;
+}
+
+
+const UserPage = ({ onSelectUserForChat }: UserPageProps) => {
+    const [users, setUsers] = useState<UserDto[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
+
+    const { isAuthenticated, user } = useAuth();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -27,8 +35,8 @@ const UserPage = () => {
                 return;
             }
 
-            setLoading(true); 
-            setError(null);    
+            setLoading(true);
+            setError(null);
 
             try {
                 const token = getAccessToken();
@@ -36,8 +44,8 @@ const UserPage = () => {
                     throw new Error("No access token found for fetching users.");
                 }
 
-                // IMPORTANT: Use your actual backend API URL for the AuthController
-                const response = await fetch('http://localhost:7039/api/Auth/users', {
+                
+                const response = await fetch('https://localhost:7039/api/Auth/users', {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
@@ -49,19 +57,28 @@ const UserPage = () => {
                 }
 
                 const data: UserDto[] = await response.json();
-                // Filter out the current user from the list, as you generally don't chat with yourself
                 const filteredUsers = data.filter(u => u.id !== user?.id);
                 setUsers(filteredUsers);
             } catch (err: any) {
                 console.error("Error fetching users:", err);
                 setError(err.message || "An unexpected error occurred.");
             } finally {
-                setLoading(false); // End loading
+                setLoading(false);
             }
         };
 
         fetchUsers();
-    }, [isAuthenticated, user?.id]); // Re-run if auth status or current user ID changes
+    }, [isAuthenticated, user?.id]);
+
+    const handleChatClick = (userId: string) => {
+        // If onSelectUserForChat prop is provided (i.e., UserPage is in ChatLayout), use it
+        if (onSelectUserForChat) {
+            onSelectUserForChat(userId, "Selected User"); // Placeholder username, ChatLayout can refine
+        } else {
+            // If onSelectUserForChat is NOT provided (i.e., UserPage is standalone), navigate directly
+            navigate(PATH_DASHBOARD.chatWithUser(userId));
+        }
+    };
 
     return (
         <div className='pageTemplate2' style={{ display: 'flex', flexDirection: 'column', padding: '20px' }}>
@@ -81,15 +98,33 @@ const UserPage = () => {
                             <li
                                 key={u.id}
                                 style={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between', 
+                                    alignItems: 'center',
                                     padding: '10px',
                                     marginBottom: '5px',
                                     borderBottom: '1px solid #f0f0f0',
-                                    cursor: 'pointer',
                                     listStyle: 'none'
                                 }}
-                                // TODO: Add onClick handler here to select a user and maybe navigate to chat
                             >
-                                <strong>{u.userName}</strong> (ID: {u.id})
+                                <span>
+                                    <strong>{u.userName}</strong> (ID: {u.id})
+                                </span>
+                                <button
+                                    onClick={() => handleChatClick(u.id)} 
+                                    style={{
+                                        background: 'none',
+                                        border: 'none',
+                                        cursor: 'pointer',
+                                        color: '#007bff', 
+                                        fontSize: '1.2em',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: '5px'
+                                    }}
+                                >
+                                    <FaCommentDots /> Chat
+                                </button>
                             </li>
                         ))}
                     </ul>

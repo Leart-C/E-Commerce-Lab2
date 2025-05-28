@@ -1,11 +1,11 @@
 ﻿using backend.Core.Dtos.ChatMessage;
-using backend.Core.Entities; 
-using backend.data; 
-using Microsoft.AspNetCore.Identity; 
+using backend.Core.Entities;
+using backend.data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Claims; 
-using Microsoft.AspNetCore.Authorization; 
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using backend.Core.DbContext;
 using AutoMapper;
 using backend.Core.Dtos.ConversationSummaryDto;
@@ -29,7 +29,7 @@ namespace backend.Controllers
             _userManager = userManager;
             _hubContext = hubContext;
         }
-    #region Endpoints
+        #region Endpoints
         #region Get the User Id
         private string GetUserId()
         {
@@ -65,7 +65,7 @@ namespace backend.Controllers
                 SenderId = senderId,
                 ReceiverId = dto.ReceiverId,
                 Message = dto.Message,
-                Timestamp = DateTime.UtcNow,
+                Timestampt = DateTime.UtcNow,
                 isRead = false
             };
 
@@ -82,13 +82,13 @@ namespace backend.Controllers
                 ReceiverId = chatMessage.ReceiverId,
                 Message = chatMessage.Message,
                 IsRead = chatMessage.isRead,
-                Timestamp = chatMessage.Timestamp,
+                Timestampt = chatMessage.Timestampt,
                 SenderUsername = (await _userManager.FindByIdAsync(chatMessage.SenderId))?.UserName,
                 ReceiverUsername = (await _userManager.FindByIdAsync(chatMessage.ReceiverId))?.UserName
             };
 
             await _hubContext.Clients.User(dto.ReceiverId).SendAsync("ReceiveMessage", responseDto);
-            await _hubContext.Clients.User(senderId).SendAsync("MessageSentConfirmation", responseDto);
+            await _hubContext.Clients.User(senderId).SendAsync("ReceiveMessage", responseDto);
 
 
             return StatusCode(201, responseDto); // 201 Created
@@ -118,7 +118,7 @@ namespace backend.Controllers
                 var lastMessage = await _context.ChatMessage
                     .Where(cm => (cm.SenderId == currentUserId && cm.ReceiverId == partnerId) ||
                                  (cm.SenderId == partnerId && cm.ReceiverId == currentUserId))
-                    .OrderByDescending(cm => cm.Timestamp)
+                    .OrderByDescending(cm => cm.Timestampt)
                     .FirstOrDefaultAsync();
 
                 if (lastMessage == null) continue;
@@ -136,11 +136,11 @@ namespace backend.Controllers
                     OtherUserId = partnerId,
                     OtherUsername = partnerUser?.UserName,
                     LastMessageSnippet = lastMessage.Message.Length > 50 ? lastMessage.Message.Substring(0, 50) + "..." : lastMessage.Message,
-                    LastMessageTimestamp = lastMessage.Timestamp,
+                    LastMessageTimestampt = lastMessage.Timestampt,
                     UnreadMessageCount = unreadCount
                 });
             }
-            conversations = conversations.OrderByDescending(c => c.LastMessageTimestamp).ToList();
+            conversations = conversations.OrderByDescending(c => c.LastMessageTimestampt).ToList();
             return Ok(conversations);
         }
         #endregion
@@ -165,7 +165,7 @@ namespace backend.Controllers
             var messagesQuery = _context.ChatMessage
                 .Where(cm => (cm.SenderId == currentUserId && cm.ReceiverId == otherUserId) ||
                              (cm.SenderId == otherUserId && cm.ReceiverId == currentUserId))
-                .OrderBy(cm => cm.Timestamp)
+                .OrderBy(cm => cm.Timestampt)
                 .Include(cm => cm.Sender)
                 .Include(cm => cm.Receiver);
 
@@ -194,7 +194,7 @@ namespace backend.Controllers
                 ReceiverId = cm.ReceiverId,
                 Message = cm.Message,
                 IsRead = cm.isRead,
-                Timestamp = cm.Timestamp,
+                Timestampt = cm.Timestampt,
                 SenderUsername = cm.Sender?.UserName ?? "[Deleted User]",
                 ReceiverUsername = cm.Receiver?.UserName ?? "[Deleted User]"
             }).ToList();
@@ -248,17 +248,13 @@ namespace backend.Controllers
                 ReceiverId = messageToEdit.ReceiverId,
                 Message = messageToEdit.Message,
                 IsRead = messageToEdit.isRead,
-                Timestamp = messageToEdit.Timestamp,
+                Timestampt = messageToEdit.Timestampt,
                 SenderUsername = messageToEdit.Sender?.UserName ?? "[Deleted User]",
                 ReceiverUsername = messageToEdit.Receiver?.UserName ?? "[Deleted User]"
             };
 
-            await _hubContext.Clients.User(messageToEdit.ReceiverId).SendAsync("Message Edited", responseDto);
-            await _hubContext.Clients.User(messageToEdit.SenderId).SendAsync("Message Edited", responseDto);
-            /*
             await _hubContext.Clients.User(messageToEdit.ReceiverId).SendAsync("MessageEdited", responseDto);
             await _hubContext.Clients.User(messageToEdit.SenderId).SendAsync("MessageEdited", responseDto);
-            */
 
             return Ok(responseDto);
         }
@@ -294,14 +290,14 @@ namespace backend.Controllers
             _context.ChatMessage.Remove(messageToDelete);
             await _context.SaveChangesAsync();
 
-            await _hubContext.Clients.User(messageToDelete.ReceiverId).SendAsync("Message Deleted", messageId);
-            await _hubContext.Clients.User(messageToDelete.SenderId).SendAsync("Message Deleted", messageId);
+            await _hubContext.Clients.User(messageToDelete.ReceiverId).SendAsync("MessageDeleted", messageId);
+            await _hubContext.Clients.User(messageToDelete.SenderId).SendAsync("MessageDeleted", messageId);
 
 
             return NoContent();
         }
         #endregion
 
-    #endregion
+        #endregion
     }
 }

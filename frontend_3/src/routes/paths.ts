@@ -32,4 +32,6 @@ export const PATH_DASHBOARD = {
   productReviewByProductId: "/dashboard/productReview/:productId",
   orderItem: "/dashboard/orderItem",
   chat: "/dashboard/chat",
+    chatWithUser: (userId?: string) => userId ? `/dashboard/chat/${userId}` : '/dashboard/chat',
+
 };

@@ -1,4 +1,5 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+//#region Imports
+import { Routes, Route, Navigate,createBrowserRouter, RouterProvider, createRoutesFromElements } from "react-router-dom";
 import { PATH_DASHBOARD, PATH_PUBLIC } from "./paths";
 import AuthGuard from "../auth/AuthGuard";
 import {
@@ -38,7 +39,8 @@ import Product from "../pages/product/Product";
 import ProductReview from "../pages/productReview/ProductReview";
 import ProductReviewList from "../pages/productReview/ProductReviewList";
 import OrderItem from "../pages/orderItem/OrderItem";
-import ChatComponent from "../components/Chat/ChatComponent";
+import ChatLayout from "../components/Chat/ChatLayout";
+//#endregion
 
 const GlobalRouter = () => {
   return (
@@ -57,7 +59,11 @@ const GlobalRouter = () => {
           />
           <Route path={PATH_DASHBOARD.inbox} element={<InboxPage />} />
           <Route path={PATH_DASHBOARD.myLogs} element={<MyLogsPage />} />
-          <Route path={PATH_DASHBOARD.user} element={<UserPage />} />
+
+          {/* Kjo linj shakton TypeError nese doni me shfaq nje list pa chat mundeni me zevendesu me nje komponent tjeter
+          ose me perdor kete qe eshte pasi qe chat-i ngarkohet ne chatlayout */}
+                    <Route path={PATH_DASHBOARD.user} element={<UserPage />} /> 
+
         </Route>
         <Route element={<AuthGuard roles={managerAccessRoles} />}>
           <Route path={PATH_DASHBOARD.manager} element={<ManagerPage />} />
@@ -239,25 +245,22 @@ const GlobalRouter = () => {
             />
           </Route>
         </Route>
-
-        <Route element={<AuthGuard roles={allAccessRoles} />}>
-          <Route path={PATH_DASHBOARD.chat}>
-            <Route
-              index
-              element={
-                <Suspense fallback={<div>Loading...</div>}>
-                  <ChatComponent
-                    receiverId={"b39579ea-324c-4d2b-af5b-816e467f078e"}
-                    receiverUsername={"fortesa"}
-                  />
-                </Suspense>
-              }
-            />
-          </Route>
-        </Route>
-      </Route>
+        <Route path={PATH_DASHBOARD.chat}>
+                    <Route index element={
+                        <Suspense fallback={<div>Loading Chat Page...</div>}>
+                            <ChatLayout />
+                        </Suspense>
+                    } />
+                    <Route path=":userId" element={ 
+                        <Suspense fallback={<div>Loading Specific Chat...</div>}>
+                            <ChatLayout /> {/* ChatLayout lexon userId nga parametrat e url-it */}
+                        </Suspense>
+                    } />
+                </Route>
+            </Route>
     </Routes>
   );
 };
 
 export default GlobalRouter;
+

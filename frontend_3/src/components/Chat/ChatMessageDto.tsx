@@ -1,9 +1,12 @@
 export interface ChatMessageDto {
-  Id: string;
-  SenderId: string;
-  ReceiverId: string;
-  Message: string;
-  Timestamp: string;
-  SenderUsername: string;
-  IsRead: boolean;
-}
+    id: number; 
+    senderId: string;
+    receiverId: string;
+    message: string;
+    isRead: boolean;
+    timestampt: string;
+    senderUsername: string;
+    receiverUsername: string;
+}      
+
+

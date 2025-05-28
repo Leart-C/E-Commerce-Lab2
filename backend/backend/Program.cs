@@ -13,6 +13,7 @@ using backend.data;
 using backend.Core.Mapper;
 using Microsoft.Extensions.FileProviders;
 using backend.Hubs;
+using Microsoft.AspNetCore.SignalR;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -86,18 +87,7 @@ builder.Services
         };
     });
 
-builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(policy =>
-    {
-        policy
-            .AllowAnyHeader()
-            .AllowAnyMethod()
-            .SetIsOriginAllowed(_ => true) 
-            .AllowCredentials(); 
-    });
-});
-
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
@@ -129,6 +119,21 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
+builder.Services.AddSingleton<IUserIdProvider, backend.Core.Providers.CustomUserIdProvider>();
+
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy =>
+                      {
+                          policy.WithOrigins("http://localhost:5173")
+                                .AllowAnyHeader()
+                                .AllowAnyMethod()
+                                .AllowCredentials();
+                      });
+});
+
 
 var app = builder.Build();
 
@@ -155,15 +160,18 @@ if (app.Environment.IsDevelopment())
 
 
 app.UseHttpsRedirection();
-//app.UseCors(options =>
-//{
-//    options
-//    .AllowAnyHeader()
-//    .AllowAnyMethod()
-//    .AllowAnyOrigin();
-//});
+/*
+app.UseCors(options =>
+{
+    options
+    .AllowAnyHeader()
+    .AllowAnyMethod()
+    .AllowAnyOrigin(); 
+});
+*/
+app.UseCors(MyAllowSpecificOrigins);
 
-app.UseCors();
+
 app.UseAuthentication();
 app.UseAuthorization();
 
