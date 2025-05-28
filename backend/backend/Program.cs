@@ -85,6 +85,22 @@ builder.Services
             ValidAudience = builder.Configuration["JWT:ValidAudience"],
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Secret"]))
         };
+        options.Events = new JwtBearerEvents
+        {
+            OnMessageReceived = context =>
+            {
+                var accessToken = context.Request.Query["access_token"];
+                var path = context.HttpContext.Request.Path;
+
+                // Vetëm për SignalR
+                if (!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/chathub"))
+                {
+                    context.Token = accessToken;
+                }
+
+                return Task.CompletedTask;
+            }
+        };
     });
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";

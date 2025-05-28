@@ -1,30 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\",
+  "WorkspaceRootPath": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\ubt\\cse\\projekte\\e-commerce lab2\\e-commerce-lab2\\e-commerce-lab2\\backend\\backend\\controllers\\chatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\controllers\\chatcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\ubt\\cse\\projekte\\e-commerce lab2\\e-commerce-lab2\\e-commerce-lab2\\backend\\backend\\core\\dtos\\chatmessage\\conversationsummarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\dtos\\chatmessage\\conversationsummarydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\ubt\\cse\\projekte\\e-commerce lab2\\e-commerce-lab2\\e-commerce-lab2\\backend\\backend\\core\\dtos\\chatmessage\\chatmessagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\dtos\\chatmessage\\chatmessagedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\ubt\\cse\\projekte\\e-commerce lab2\\e-commerce-lab2\\e-commerce-lab2\\backend\\backend\\core\\entities\\chatmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\entities\\chatmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\ubt\\cse\\projekte\\e-commerce lab2\\e-commerce-lab2\\e-commerce-lab2\\backend\\backend\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\ubt\\cse\\projekte\\e-commerce lab2\\e-commerce-lab2\\e-commerce-lab2\\backend\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\techcom\\desktop\\e-commerce-lab2\\backend\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\techcom\\desktop\\e-commerce-lab2\\backend\\backend\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\hubs\\chathub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,80 +30,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ConversationSummaryDto.cs",
-              "DocumentMoniker": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Core\\Dtos\\ChatMessage\\ConversationSummaryDto.cs",
-              "RelativeDocumentMoniker": "backend\\Core\\Dtos\\ChatMessage\\ConversationSummaryDto.cs",
-              "ToolTip": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Core\\Dtos\\ChatMessage\\ConversationSummaryDto.cs",
-              "RelativeToolTip": "backend\\Core\\Dtos\\ChatMessage\\ConversationSummaryDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T21:20:00.71Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Chathub.cs",
-              "DocumentMoniker": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Hubs\\Chathub.cs",
-              "RelativeDocumentMoniker": "backend\\Hubs\\Chathub.cs",
-              "ToolTip": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Hubs\\Chathub.cs",
-              "RelativeToolTip": "backend\\Hubs\\Chathub.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T21:06:42.494Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ChatController.cs",
-              "DocumentMoniker": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Controllers\\ChatController.cs",
-              "RelativeDocumentMoniker": "backend\\Controllers\\ChatController.cs",
-              "ToolTip": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Controllers\\ChatController.cs",
-              "RelativeToolTip": "backend\\Controllers\\ChatController.cs",
-              "ViewState": "AgIAAJcAAAAAAAAAAAAmwKgAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T12:50:38.649Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ChatMessage.cs",
-              "DocumentMoniker": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\ChatMessage.cs",
-              "RelativeDocumentMoniker": "backend\\Core\\Entities\\ChatMessage.cs",
-              "ToolTip": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Core\\Entities\\ChatMessage.cs",
-              "RelativeToolTip": "backend\\Core\\Entities\\ChatMessage.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T12:47:13.952Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ChatMessageDto.cs",
-              "DocumentMoniker": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Core\\Dtos\\ChatMessage\\ChatMessageDto.cs",
-              "RelativeDocumentMoniker": "backend\\Core\\Dtos\\ChatMessage\\ChatMessageDto.cs",
-              "ToolTip": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Core\\Dtos\\ChatMessage\\ChatMessageDto.cs",
-              "RelativeToolTip": "backend\\Core\\Dtos\\ChatMessage\\ChatMessageDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T12:46:46.506Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Program.cs",
               "RelativeDocumentMoniker": "backend\\Program.cs",
-              "ToolTip": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\Program.cs",
+              "ToolTip": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Program.cs",
               "RelativeToolTip": "backend\\Program.cs",
-              "ViewState": "AgIAAJgAAAAAAAAAAAAUwKgAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAiwGYAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T12:21:21.459Z",
+              "WhenOpened": "2025-05-28T22:35:34.767Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Chathub.cs",
+              "DocumentMoniker": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Hubs\\Chathub.cs",
+              "RelativeDocumentMoniker": "backend\\Hubs\\Chathub.cs",
+              "ToolTip": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Hubs\\Chathub.cs",
+              "RelativeToolTip": "backend\\Hubs\\Chathub.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T22:13:29.683Z",
               "EditorCaption": ""
             }
           ]
