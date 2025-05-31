@@ -972,3 +972,9 @@ C:\Users\TECHCOM\Desktop\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\Micros
 C:\Users\TECHCOM\Desktop\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\Microsoft.Extensions.ObjectPool.dll
 C:\Users\TECHCOM\Desktop\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\TECHCOM\Desktop\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\System.Net.WebSockets.WebSocketProtocol.dll
+C:\Users\Twin\Desktop\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\backend.staticwebassets.runtime.json
+C:\Users\Twin\Desktop\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\Users\Twin\Desktop\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\Users\Twin\Desktop\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\Microsoft.Extensions.ObjectPool.dll
+C:\Users\Twin\Desktop\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\Twin\Desktop\E-Commerce-Lab2\backend\backend\bin\Debug\net8.0\System.Net.WebSockets.WebSocketProtocol.dll

@@ -1,72 +1,107 @@
-import React, { useState, Suspense, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { UserDto } from '../../pages/dashboard/UserPage'; // Ensure UserDto is correctly imported
+import { UserDto } from '../../pages/dashboard/UserPage';
 import ChatComponent from './ChatComponent';
 import UserPage from '../../pages/dashboard/UserPage';
 import PageAccessTemplate from '../../components/dashboard/page-access/PageAccessTemplate';
 import { FaComments } from 'react-icons/fa';
-import { getAccessToken } from '../../auth/session'; // Import getAccessToken
-import useAuth from '../../hooks/useAuth.hook'; // Import useAuth if needed for token or current user id
+import { getAccessToken } from '../../auth/session';
+import useAuth from '../../hooks/useAuth.hook';
+import * as signalR from '@microsoft/signalr';
+import Swal from 'sweetalert2';
+import { ChatMessageDto } from '../Chat/ChatMessageDto'; // krijo ose sigurohu që kjo është e saktë
 
 const ChatLayout = () => {
     const [selectedReceiver, setSelectedReceiver] = useState<{ id: string; userName: string } | null>(null);
-    const { userId } = useParams<{ userId: string }>(); // Get userId from URL
+    const { userId } = useParams<{ userId: string }>();
     const navigate = useNavigate();
-    const { isAuthenticated, user } = useAuth(); // To get the access token
+    const { isAuthenticated, user } = useAuth();
 
-    // Effect to fetch user details when userId from URL changes
+    const userIdRef = useRef<string | null>(user?.id || null);
+    const receiverIdRef = useRef<string | null>(selectedReceiver?.id || userId || null);
+
+    const connectionRef = useRef<signalR.HubConnection | null>(null);
+
+    useEffect(() => {
+        if (!connectionRef.current) {
+            const connection = new signalR.HubConnectionBuilder()
+                .withUrl('https://localhost:7039/chathub', {
+                    accessTokenFactory: () => getAccessToken() || '',
+                })
+                .withAutomaticReconnect()
+                .build();
+
+            connection.on('ReceiveMessage', (message: ChatMessageDto) => {
+                const currentUserId = userIdRef.current;
+                const currentReceiverId = receiverIdRef.current;
+
+                const isRelevant = (
+                    (message.senderId === currentUserId && message.receiverId === currentReceiverId) ||
+                    (message.senderId === currentReceiverId && message.receiverId === currentUserId)
+                );
+
+                if (!isRelevant) {
+                    // Show SweetAlert2 notification
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'Mesazh i ri',
+                        text: `Ke një mesazh të ri nga ${message.senderUsername}`,
+                        showConfirmButton: false,
+                        timer: 3000
+                    });
+                }
+            });
+
+            connection
+                .start()
+                .then(() => console.log('SignalR connected to /chathub'))
+                .catch(err => console.error('SignalR connection error:', err));
+
+            connectionRef.current = connection;
+        }
+
+        return () => {
+            if (connectionRef.current) {
+                connectionRef.current.stop();
+                connectionRef.current = null;
+            }
+        };
+    }, []);
+
+    useEffect(() => {
+        userIdRef.current = user?.id || null;
+    }, [user?.id]);
+
+    useEffect(() => {
+        receiverIdRef.current = selectedReceiver?.id || userId || null;
+    }, [selectedReceiver, userId]);
+
     useEffect(() => {
         const fetchReceiverDetails = async () => {
-            if (userId && !selectedReceiver?.userName) { // Only fetch if userId exists and username is missing
-                if (!isAuthenticated) {
-                    console.warn("User not authenticated, cannot fetch receiver details.");
-                    return;
-                }
+            if (userId && !selectedReceiver?.userName) {
+                if (!isAuthenticated) return;
 
                 try {
                     const token = getAccessToken();
-                    if (!token) {
-                        throw new Error("No access token found for fetching user details.");
-                    }
-
-                    // Fetch all users to find the specific one by ID
-                    const response = await fetch('https://localhost:7039/api/Auth/users', {
-                        headers: {
-                            'Authorization': `Bearer ${token}`
-                        }
+                    const res = await fetch('https://localhost:7039/api/Auth/users', {
+                        headers: { 'Authorization': `Bearer ${token}` }
                     });
 
-                    if (!response.ok) {
-                        const errorData = await response.json();
-                        throw new Error(`Failed to fetch users for receiver details: ${errorData.message || response.statusText}`);
-                    }
+                    const users: UserDto[] = await res.json();
+                    const found = users.find(u => u.id === userId);
 
-                    const usersData: UserDto[] = await response.json();
-                    const foundUser = usersData.find(u => u.id === userId);
-
-                    if (foundUser) {
-                        setSelectedReceiver(foundUser);
-                    } else {
-                        console.warn(`User with ID ${userId} not found.`);
-                        // Optionally, navigate to a general chat page or display an error
-                        // navigate('/dashboard/chat'); 
-                    }
-
-                } catch (err: any) {
-                    console.error("Error fetching receiver details:", err);
-                    // Handle error, e.g., clear selectedReceiver, show message
+                    if (found) setSelectedReceiver(found);
+                } catch (err) {
+                    console.error('Error fetching receiver:', err);
                 }
             }
         };
 
-        // If the URL has a userId, and we haven't selected that user yet via the sidebar
-        // or if the username is still a placeholder ('Loading...'), fetch details.
         if (userId && (selectedReceiver?.id !== userId || !selectedReceiver?.userName)) {
             fetchReceiverDetails();
         }
-    }, [userId, selectedReceiver?.id, selectedReceiver?.userName, isAuthenticated]); // Re-run when userId or selectedReceiver's ID/username changes
+    }, [userId, selectedReceiver?.id, selectedReceiver?.userName, isAuthenticated]);
 
-    // handleSelectUserForChat remains the same as it correctly sets ID and username
     const handleSelectUserForChat = (id: string, userName: string) => {
         setSelectedReceiver({ id, userName });
         navigate(`/dashboard/chat/${id}`);
@@ -74,21 +109,17 @@ const ChatLayout = () => {
 
     return (
         <div style={{ display: 'flex', height: '90vh', border: '1px solid #ccc' }}>
-            {/* User List Sidebar */}
             <div style={{ width: '250px', borderRight: '1px solid #eee', padding: '10px', overflowY: 'auto' }}>
                 <PageAccessTemplate color='#FEC223' icon={FaComments} role='Chat' />
                 <h3 style={{ marginTop: '20px' }}>Your Contacts</h3>
-                {/* Render UserPage inside ChatLayout, passing the selection handler */}
                 <UserPage onSelectUserForChat={handleSelectUserForChat} />
             </div>
 
-            {/* Main Chat Area */}
             <div style={{ flexGrow: 1, padding: '20px', display: 'flex', flexDirection: 'column' }}>
                 <Suspense fallback={<div>Loading Chat...</div>}>
                     <ChatComponent
                         receiverId={selectedReceiver?.id || userId || null}
-                        // Now, selectedReceiver.userName should contain the fetched username
-                        receiverUsername={selectedReceiver?.userName || 'Loading chat partner...'}
+                        receiverUsername={selectedReceiver?.userName || 'Loading...'}
                     />
                 </Suspense>
             </div>
