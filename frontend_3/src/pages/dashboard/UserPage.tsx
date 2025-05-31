@@ -1,10 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import PageAccessTemplate from '../../components/dashboard/page-access/PageAccessTemplate';
-import { FaUser, FaCommentDots } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
-import { getAccessToken } from '../../auth/session';
-import useAuth from '../../hooks/useAuth.hook';
-import { PATH_DASHBOARD } from '../../routes/paths';
+import React, { useState, useEffect } from "react";
+import {
+  Card,
+  CardContent,
+  Typography,
+  Grid,
+  Button,
+  Badge,
+  CircularProgress,
+  Box,
+} from "@mui/material";
+import { FaUserCircle, FaCommentDots } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { getAccessToken } from "../../auth/session";
+import useAuth from "../../hooks/useAuth.hook";
+import { PATH_DASHBOARD } from "../../routes/paths";
 
 export interface UserDto {
   id: string;
@@ -27,11 +36,14 @@ const UserPage = ({ onSelectUserForChat }: UserPageProps) => {
   const fetchUnreadCounts = async () => {
     try {
       const token = getAccessToken();
-      const response = await fetch('https://localhost:7039/api/Chat/conversations', {
-        headers: { 'Authorization': `Bearer ${token}` },
-      });
+      const response = await fetch(
+        "https://localhost:7039/api/Chat/conversations",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
 
-      if (!response.ok) throw new Error('Failed to fetch conversations.');
+      if (!response.ok) throw new Error("Failed to fetch conversations.");
 
       const data: {
         otherUserId: string;
@@ -45,7 +57,7 @@ const UserPage = ({ onSelectUserForChat }: UserPageProps) => {
 
       setUnreadCounts(countsMap);
     } catch (err) {
-      console.error('Error fetching unread message counts:', err);
+      console.error("Error fetching unread message counts:", err);
     }
   };
 
@@ -54,7 +66,7 @@ const UserPage = ({ onSelectUserForChat }: UserPageProps) => {
       if (!isAuthenticated) {
         setUsers([]);
         setLoading(false);
-        setError('User not authenticated.');
+        setError("User not authenticated.");
         return;
       }
 
@@ -64,10 +76,10 @@ const UserPage = ({ onSelectUserForChat }: UserPageProps) => {
       try {
         const token = getAccessToken();
         if (!token) {
-          throw new Error('No access token found for fetching users.');
+          throw new Error("No access token found for fetching users.");
         }
 
-        const response = await fetch('https://localhost:7039/api/Auth/users', {
+        const response = await fetch("https://localhost:7039/api/Auth/users", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -75,15 +87,17 @@ const UserPage = ({ onSelectUserForChat }: UserPageProps) => {
 
         if (!response.ok) {
           const errorData = await response.json();
-          throw new Error(`Failed to fetch users: ${errorData.message || response.statusText}`);
+          throw new Error(
+            `Failed to fetch users: ${errorData.message || response.statusText}`
+          );
         }
 
         const data: UserDto[] = await response.json();
         const filteredUsers = data.filter((u) => u.id !== user?.id);
         setUsers(filteredUsers);
       } catch (err: any) {
-        console.error('Error fetching users:', err);
-        setError(err.message || 'An unexpected error occurred.');
+        console.error("Error fetching users:", err);
+        setError(err.message || "An unexpected error occurred.");
       } finally {
         setLoading(false);
       }
@@ -93,94 +107,75 @@ const UserPage = ({ onSelectUserForChat }: UserPageProps) => {
     fetchUnreadCounts();
   }, [isAuthenticated, user?.id]);
 
-  const handleChatClick = (userId: string) => {
+  const handleChatClick = (userId: string, userName: string) => {
     if (onSelectUserForChat) {
-      onSelectUserForChat(userId, 'Selected User');
+      onSelectUserForChat(userId, userName);
     } else {
       navigate(PATH_DASHBOARD.chatWithUser(userId));
     }
   };
 
   return (
-    <div className="pageTemplate2" style={{ display: 'flex', flexDirection: 'column', padding: '20px' }}>
-      <PageAccessTemplate color="#FEC223" icon={FaUser} role="User" />
+    <Box sx={{ padding: 4 }}>
+      <Typography variant="h4" gutterBottom color="primary">
+        👥 Përdoruesit në dispozicion për bisedë
+      </Typography>
 
-      <h2 style={{ marginTop: '20px', marginBottom: '15px' }}>Other Users</h2>
+      {loading && (
+        <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
+          <CircularProgress />
+        </Box>
+      )}
 
-      {loading && <p>Loading users...</p>}
-      {error && <p style={{ color: 'red' }}>Error: {error}</p>}
-      {!loading && users.length === 0 && !error && isAuthenticated && <p>No other users available to chat with.</p>}
-      {!isAuthenticated && !loading && <p>Please log in to see other users.</p>}
+      {error && (
+        <Typography color="error" sx={{ mt: 2 }}>
+          Error: {error}
+        </Typography>
+      )}
 
-      <div
-        style={{
-          border: '1px solid #eee',
-          borderRadius: '8px',
-          padding: '10px',
-          maxHeight: '400px',
-          overflowY: 'auto',
-        }}
-      >
-        {!loading && !error && isAuthenticated && users.length > 0 && (
-          <ul>
-            {users.map((u) => (
-              <li
-                key={u.id}
-                style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  padding: '10px',
-                  marginBottom: '5px',
-                  borderBottom: '1px solid #f0f0f0',
-                  listStyle: 'none',
-                }}
+      {!loading && !error && users.length === 0 && (
+        <Typography>No other users available to chat with.</Typography>
+      )}
+
+      <Grid container spacing={2} sx={{ mt: 2 }}>
+        {users.map((u) => (
+          <Grid item xs={12} sm={6} md={4} key={u.id}>
+            <Card
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                padding: 2,
+                boxShadow: 3,
+                borderRadius: 3,
+                "&:hover": {
+                  boxShadow: 6,
+                },
+              }}
+            >
+              <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                <FaUserCircle size={32} color="#1976d2" />
+                <Typography variant="h6">{u.userName}</Typography>
+              </Box>
+
+              <Badge
+                badgeContent={unreadCounts[u.id] || 0}
+                color="error"
+                overlap="circular"
               >
-                <span>
-                  <strong>{u.userName}</strong> (ID: {u.id})
-                </span>
-                <button
-                  onClick={() => handleChatClick(u.id)}
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    cursor: 'pointer',
-                    color: '#007bff',
-                    fontSize: '1.2em',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '5px',
-                    position: 'relative',
-                  }}
+                <Button
+                  variant="outlined"
+                  startIcon={<FaCommentDots />}
+                  onClick={() => handleChatClick(u.id, u.userName)}
                 >
-                  <FaCommentDots />
-                  {unreadCounts[u.id] > 0 && (
-                    <span
-                      style={{
-                        position: 'absolute',
-                        top: '-8px',
-                        right: '35px',
-                        background: 'red',
-                        color: 'white',
-                        borderRadius: '50%',
-                        padding: '2px 6px',
-                        fontSize: '0.7em',
-                        fontWeight: 'bold',
-                        minWidth: '18px',
-                        textAlign: 'center',
-                      }}
-                    >
-                      {unreadCounts[u.id]}
-                    </span>
-                  )}
                   Chat
-                </button>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-    </div>
+                </Button>
+              </Badge>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
   );
 };
 

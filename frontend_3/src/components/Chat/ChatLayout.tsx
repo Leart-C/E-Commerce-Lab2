@@ -109,9 +109,8 @@ const ChatLayout = () => {
 
     return (
         <div style={{ display: 'flex', height: '90vh', border: '1px solid #ccc' }}>
-            <div style={{ width: '250px', borderRight: '1px solid #eee', padding: '10px', overflowY: 'auto' }}>
-                <PageAccessTemplate color='#FEC223' icon={FaComments} role='Chat' />
-                <h3 style={{ marginTop: '20px' }}>Your Contacts</h3>
+            <div style={{ width: '350px', borderRight: '1px solid #eee', padding: '10px', overflowY: 'auto' }}>
+                
                 <UserPage onSelectUserForChat={handleSelectUserForChat} />
             </div>
 
