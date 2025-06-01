@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+
 import Swal from "sweetalert2";
 import {
   Dialog,
@@ -17,6 +17,7 @@ import {
   Paper,
   Stack,
 } from "@mui/material";
+import axiosInstance from "../../auth/axiosInstance";
 
 interface ShippingAddressDto {
   id: number;
@@ -42,7 +43,7 @@ const ShippingAddress: React.FC = () => {
 
   const fetchAddresses = async () => {
     try {
-      const response = await axios.get(apiUrl);
+      const response = await axiosInstance.get(apiUrl);
       setAddresses(response.data);
     } catch (error) {
       console.error("Gabim gjatë marrjes së adresave të transportit:", error);
@@ -61,10 +62,10 @@ const ShippingAddress: React.FC = () => {
     e.preventDefault();
     try {
       if (editingId !== null) {
-        await axios.put(`${apiUrl}/${editingId}`, formData);
+        await axiosInstance.put(`${apiUrl}/${editingId}`, formData);
         Swal.fire("Sukses", "Adresa u përditësua me sukses!", "success");
       } else {
-        await axios.post(apiUrl, formData);
+        await axiosInstance.post(apiUrl, formData);
         Swal.fire("Sukses", "Adresa u shtua me sukses!", "success");
       }
       setFormData({});
@@ -107,7 +108,7 @@ const ShippingAddress: React.FC = () => {
 
     if (confirm.isConfirmed) {
       try {
-        await axios.delete(`${apiUrl}/${id}`);
+        await axiosInstance.delete(`${apiUrl}/${id}`);
         Swal.fire("Fshirë!", "Adresa u fshi me sukses.", "success");
         fetchAddresses();
       } catch (error) {

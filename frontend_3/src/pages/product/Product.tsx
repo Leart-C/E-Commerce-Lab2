@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState, useEffect, useContext } from "react";
-import axios from "axios";
+
 import Swal from "sweetalert2";
 import {
   Dialog,
@@ -26,6 +27,7 @@ import { CategoryDto } from "../category/Category";
 import { AuthContext } from "../../auth/auth.context";
 import { getSession } from "../../auth/auth.utils";
 import { IAuthContext } from "../../types/auth.types";
+import axiosInstance from "../../auth/axiosInstance";
 
 interface ProductDto {
   id?: string;
@@ -69,7 +71,7 @@ const Product: React.FC = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get<ProductDto[]>(productApiUrl);
+      const response = await axiosInstance.get<ProductDto[]>(productApiUrl);
       setProducts(response.data);
     } catch (error) {
       Swal.fire("Gabim", "Nuk u morën produktet.", "error");
@@ -78,7 +80,7 @@ const Product: React.FC = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await axios.get<CategoryDto[]>(categoryApiUrl);
+      const response = await axiosInstance.get<CategoryDto[]>(categoryApiUrl);
       setCategories(response.data);
     } catch (error) {
       Swal.fire("Gabim", "Nuk u morën kategoritë.", "error");
@@ -105,7 +107,7 @@ const Product: React.FC = () => {
     formImage.append("file", file);
 
     try {
-      const response = await axios.post(uploadImageUrl, formImage, {
+      const response = await axiosInstance.post(uploadImageUrl, formImage, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
@@ -147,14 +149,14 @@ const Product: React.FC = () => {
           userInfo: originalProduct.userInfo!,
         };
 
-        await axios.put(productApiUrl, updatedProduct, { headers });
+        await axiosInstance.put(productApiUrl, updatedProduct, { headers });
         Swal.fire(
           "U përditësua!",
           "Produkti u përditësua me sukses.",
           "success"
         );
       } else {
-        await axios.post(productApiUrl, formData, { headers });
+        await axiosInstance.post(productApiUrl, formData, { headers });
         Swal.fire("U shtua!", "Produkti u shtua me sukses.", "success");
       }
 
@@ -197,7 +199,7 @@ const Product: React.FC = () => {
 
     if (result.isConfirmed) {
       try {
-        await axios.delete(`${productApiUrl}/${id}`);
+        await axiosInstance.delete(`${productApiUrl}/${id}`);
         Swal.fire("Fshirë!", "Produkti u fshi me sukses.", "success");
         fetchProducts();
       } catch (error) {

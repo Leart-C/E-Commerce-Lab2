@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+
 import {
   Dialog,
   DialogActions,
@@ -16,6 +16,7 @@ import {
   Paper,
   Stack,
 } from "@mui/material";
+import axiosInstance from "../../auth/axiosInstance";
 
 interface InvoiceDto {
   id: number;
@@ -39,7 +40,7 @@ const Invoice: React.FC = () => {
 
   const fetchInvoices = async () => {
     try {
-      const response = await axios.get(apiUrl);
+      const response = await axiosInstance.get(apiUrl);
       setInvoices(response.data);
     } catch (error) {
       console.error("Gabim gjatë marrjes së faturave:", error);
@@ -58,9 +59,9 @@ const Invoice: React.FC = () => {
     e.preventDefault();
     try {
       if (editingId !== null) {
-        await axios.put(`${apiUrl}/${editingId}`, formData);
+        await axiosInstance.put(`${apiUrl}/${editingId}`, formData);
       } else {
-        await axios.post(apiUrl, formData);
+        await axiosInstance.post(apiUrl, formData);
       }
       setFormData({});
       setEditingId(null);
@@ -89,7 +90,7 @@ const Invoice: React.FC = () => {
   const handleDelete = async (id: number) => {
     if (window.confirm("A jeni i sigurt që dëshironi ta fshini këtë faturë?")) {
       try {
-        await axios.delete(`${apiUrl}/${id}`);
+        await axiosInstance.delete(`${apiUrl}/${id}`);
         fetchInvoices();
       } catch (error) {
         console.error("Gabim gjatë fshirjes së faturës:", error);

@@ -1,15 +1,18 @@
-import axios from "axios";
 import { getRefreshToken, setSession, removeSession } from "./session";
+import axiosInstance from "./axiosInstance";
 
 export const refreshToken = async (): Promise<boolean> => {
   try {
     const token = getRefreshToken();
     if (!token) return false;
 
-    const response = await axios.post(
+    const response = await axiosInstance.post(
       "https://localhost:7039/api/Auth/refresh-token",
+      {},
       {
-        refreshToken: token,
+        headers: {
+          refreshtoken: token,
+        },
       }
     );
 

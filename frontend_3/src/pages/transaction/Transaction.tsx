@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+
 import Swal from "sweetalert2";
 import {
   Dialog,
@@ -17,6 +18,7 @@ import {
   Paper,
   Stack,
 } from "@mui/material";
+import axiosInstance from "../../auth/axiosInstance";
 
 interface TransactionDto {
   id: number;
@@ -39,7 +41,7 @@ const Transaction: React.FC = () => {
 
   const fetchTransactions = async () => {
     try {
-      const response = await axios.get(apiUrl);
+      const response = await axiosInstance.get(apiUrl);
       setTransactions(response.data);
     } catch (error) {
       Swal.fire("Gabim!", "Nuk u mundësua marrja e transaksioneve.", "error");
@@ -71,13 +73,13 @@ const Transaction: React.FC = () => {
       }
 
       if (editingId !== null) {
-        await axios.put(`${apiUrl}/${editingId}`, {
+        await axiosInstance.put(`${apiUrl}/${editingId}`, {
           ...formData,
           id: editingId,
         });
         Swal.fire("Sukses!", "Transaksioni u përditësua me sukses.", "success");
       } else {
-        await axios.post(apiUrl, formData);
+        await axiosInstance.post(apiUrl, formData);
         Swal.fire("Sukses!", "Transaksioni u shtua me sukses.", "success");
       }
 
@@ -114,7 +116,7 @@ const Transaction: React.FC = () => {
 
     if (result.isConfirmed) {
       try {
-        await axios.delete(`${apiUrl}/${id}`);
+        await axiosInstance.delete(`${apiUrl}/${id}`);
         Swal.fire("Fshirë!", "Transaksioni u fshi me sukses.", "success");
         fetchTransactions();
       } catch (error) {

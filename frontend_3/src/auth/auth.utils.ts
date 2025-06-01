@@ -1,5 +1,6 @@
 import { IAuthUser, RolesEnum } from "../types/auth.types";
 import axiosInstance from "../utils/axiosInstance";
+import { getRefreshToken, removeSession } from "./session";
 
 export function setSession(token: string | null, refreshToken: string | null) {
   if (token) {
@@ -14,8 +15,6 @@ export function setSession(token: string | null, refreshToken: string | null) {
     localStorage.removeItem("refreshToken");
   }
 }
-
-console.log("Stored token:", localStorage.getItem("accessToken"));
 
 export const getSession = () => {
   return localStorage.getItem("accessToken");
@@ -50,10 +49,13 @@ export const refreshToken = async (): Promise<boolean> => {
     const token = getRefreshToken();
     if (!token) return false;
 
-    const response = await axios.post(
+    const response = await axiosInstance.post(
       "https://localhost:7039/api/Auth/refresh-token",
+      {},
       {
-        refreshToken: token,
+        headers: {
+          refreshtoken: token,
+        },
       }
     );
 

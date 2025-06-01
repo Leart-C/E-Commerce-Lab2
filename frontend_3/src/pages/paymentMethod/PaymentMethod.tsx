@@ -1,10 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
 import {
-  Dialog, DialogActions, DialogContent, DialogTitle,
-  Button, TextField, Table, TableBody, TableCell,
-  TableContainer, TableHead, TableRow, Paper, Stack
-} from '@mui/material';
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Button,
+  TextField,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Stack,
+} from "@mui/material";
+import axiosInstance from "../../utils/axiosInstance";
+import { refreshToken } from "../../auth/auth.utils";
 
 interface PaymentMethodDto {
   id: number;
@@ -17,7 +29,7 @@ const PaymentMethod: React.FC = () => {
   const [editingId, setEditingId] = useState<number | null>(null);
   const [openModal, setOpenModal] = useState(false);
 
-  const apiUrl = 'https://localhost:7039/api/PaymentMethod';
+  const apiUrl = "https://localhost:7039/api/PaymentMethod";
 
   useEffect(() => {
     fetchPaymentMethods();
@@ -25,16 +37,17 @@ const PaymentMethod: React.FC = () => {
 
   const fetchPaymentMethods = async () => {
     try {
-      const response = await axios.get(apiUrl);
+      console.log("axiosInstance", axiosInstance);
+      const response = await axiosInstance.get(apiUrl);
       setPaymentMethods(response.data);
     } catch (error) {
-      console.error('Gabim gjatë marrjes së metodave të pagesës:', error);
+      console.error("Gabim gjatë marrjes së metodave të pagesës:", error);
     }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
@@ -44,16 +57,16 @@ const PaymentMethod: React.FC = () => {
     e.preventDefault();
     try {
       if (editingId !== null) {
-        await axios.put(`${apiUrl}/${editingId}`, formData);
+        await axiosInstance.put(`${apiUrl}/${editingId}`, formData);
       } else {
-        await axios.post(apiUrl, formData);
+        await axiosInstance.post(apiUrl, formData);
       }
       setFormData({});
       setEditingId(null);
       setOpenModal(false);
       fetchPaymentMethods();
     } catch (error) {
-      console.error('Gabim gjatë ruajtjes së metodës së pagesës:', error);
+      console.error("Gabim gjatë ruajtjes së metodës së pagesës:", error);
     }
   };
 
@@ -70,21 +83,43 @@ const PaymentMethod: React.FC = () => {
   };
 
   const handleDelete = async (id: number) => {
-    if (window.confirm('A jeni i sigurt që dëshironi të fshini këtë metodë pagese?')) {
+    if (
+      window.confirm(
+        "A jeni i sigurt që dëshironi të fshini këtë metodë pagese?"
+      )
+    ) {
       try {
-        await axios.delete(`${apiUrl}/${id}`);
+        await axiosInstance.delete(`${apiUrl}/${id}`);
         fetchPaymentMethods();
       } catch (error) {
-        console.error('Gabim gjatë fshirjes së metodës së pagesës:', error);
+        console.error("Gabim gjatë fshirjes së metodës së pagesës:", error);
       }
     }
   };
 
-  return (
-    <div style={{ padding: '30px' }}>
-      <h2 style={{ fontSize: '1.8rem', marginBottom: '20px' }}>Menaxhimi i Metodave të Pagesës</h2>
+  const refreshTokenTest = async () => {
+    try {
+      await refreshToken();
+      console.log("token refresh");
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
-      <Button variant="contained" color="primary" onClick={handleAdd} sx={{ mb: 2 }}>
+  return (
+    <div style={{ padding: "30px" }}>
+      <h2 style={{ fontSize: "1.8rem", marginBottom: "20px" }}>
+        Menaxhimi i Metodave të Pagesës
+      </h2>
+
+      <button onClick={refreshTokenTest}>refresh token</button>
+
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={handleAdd}
+        sx={{ mb: 2 }}
+      >
         Shto Metodë Pagesë
       </Button>
 
@@ -92,20 +127,38 @@ const PaymentMethod: React.FC = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell><strong>ID</strong></TableCell>
-              <TableCell><strong>Emri</strong></TableCell>
-              <TableCell><strong>Veprime</strong></TableCell>
+              <TableCell>
+                <strong>ID</strong>
+              </TableCell>
+              <TableCell>
+                <strong>Emri</strong>
+              </TableCell>
+              <TableCell>
+                <strong>Veprime</strong>
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {paymentMethods.map(pm => (
+            {paymentMethods.map((pm) => (
               <TableRow key={pm.id}>
                 <TableCell>{pm.id}</TableCell>
                 <TableCell>{pm.name}</TableCell>
                 <TableCell>
                   <Stack direction="row" spacing={1}>
-                    <Button onClick={() => handleEdit(pm)} variant="outlined" color="primary">Edito</Button>
-                    <Button onClick={() => handleDelete(pm.id)} variant="outlined" color="error">Fshi</Button>
+                    <Button
+                      onClick={() => handleEdit(pm)}
+                      variant="outlined"
+                      color="primary"
+                    >
+                      Edito
+                    </Button>
+                    <Button
+                      onClick={() => handleDelete(pm.id)}
+                      variant="outlined"
+                      color="error"
+                    >
+                      Fshi
+                    </Button>
                   </Stack>
                 </TableCell>
               </TableRow>
@@ -115,23 +168,32 @@ const PaymentMethod: React.FC = () => {
       </TableContainer>
 
       {/* Modal for Add/Edit */}
-      <Dialog open={openModal} onClose={() => setOpenModal(false)} maxWidth="xs" fullWidth>
-        <DialogTitle>{editingId ? 'Edito Metodën e Pagesës' : 'Shto Metodë Pagesë'}</DialogTitle>
+      <Dialog
+        open={openModal}
+        onClose={() => setOpenModal(false)}
+        maxWidth="xs"
+        fullWidth
+      >
+        <DialogTitle>
+          {editingId ? "Edito Metodën e Pagesës" : "Shto Metodë Pagesë"}
+        </DialogTitle>
         <DialogContent>
           <form onSubmit={handleSubmit}>
             <TextField
               label="Emri"
               name="name"
-              value={formData.name || ''}
+              value={formData.name || ""}
               onChange={handleChange}
               fullWidth
               required
               margin="normal"
             />
             <DialogActions sx={{ mt: 2 }}>
-              <Button onClick={() => setOpenModal(false)} color="secondary">Anulo</Button>
+              <Button onClick={() => setOpenModal(false)} color="secondary">
+                Anulo
+              </Button>
               <Button type="submit" variant="contained" color="primary">
-                {editingId ? 'Përditëso' : 'Shto'}
+                {editingId ? "Përditëso" : "Shto"}
               </Button>
             </DialogActions>
           </form>

@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+
 import Swal from "sweetalert2";
 import {
   Dialog,
@@ -17,6 +18,7 @@ import {
   Paper,
   Stack,
 } from "@mui/material";
+import axiosInstance from "../../auth/axiosInstance";
 
 export interface CategoryDto {
   id?: string;
@@ -38,7 +40,7 @@ const Category: React.FC = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await axios.get(apiUrl);
+      const response = await axiosInstance.get(apiUrl);
       setCategories(response.data);
     } catch (error) {
       Swal.fire("Gabim!", "Nuk u morën kategoritë.", "error");
@@ -59,14 +61,14 @@ const Category: React.FC = () => {
       }
 
       if (editingId) {
-        await axios.put(`${apiUrl}/${editingId}`, formData);
+        await axiosInstance.put(`${apiUrl}/${editingId}`, formData);
         Swal.fire(
           "U përditësua!",
           "Kategoria u përditësua me sukses.",
           "success"
         );
       } else {
-        await axios.post(apiUrl, formData);
+        await axiosInstance.post(apiUrl, formData);
         Swal.fire("U shtua!", "Kategoria u shtua me sukses.", "success");
       }
 
@@ -103,7 +105,7 @@ const Category: React.FC = () => {
 
     if (result.isConfirmed) {
       try {
-        await axios.delete(`${apiUrl}/${id}`);
+        await axiosInstance.delete(`${apiUrl}/${id}`);
         Swal.fire("Fshirë!", "Kategoria u fshi me sukses.", "success");
         fetchCategories();
       } catch (error) {

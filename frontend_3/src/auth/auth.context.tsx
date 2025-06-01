@@ -64,33 +64,34 @@ const AuthContextProvider = ({ children }: IProps) => {
   const navigate = useNavigate();
 
   const initializeAuthContext = useCallback(async () => {
-    const accessToken = getAccessToken();
+    let token = getAccessToken();
     const refreshToken = getRefreshToken();
 
-    if (!accessToken && refreshToken) {
-      const refreshed = await refreshTokenFunction(); // thirrja për refresh
+    if (!token && refreshToken) {
+      const refreshed = await refreshTokenFunction();
       if (!refreshed) {
-        setSession(null);
+        setSession(null, null);
         dispatch({ type: IAuthContextActionTypes.LOGOUT });
         return;
       }
+      token = getAccessToken(); // rifresko accessToken pas refresh-it
     }
 
-    const token = getAccessToken();
     if (token) {
       const userJson = localStorage.getItem("user");
       if (userJson) {
         const userInfo = JSON.parse(userJson);
-        setSession(token);
+        setSession(token, refreshToken);
         dispatch({
           type: IAuthContextActionTypes.LOGIN,
           payload: userInfo,
         });
+        return;
       }
-    } else {
-      setSession(null);
-      dispatch({ type: IAuthContextActionTypes.LOGOUT });
     }
+
+    setSession(null, null);
+    dispatch({ type: IAuthContextActionTypes.LOGOUT });
   }, []);
 
   useEffect(() => {
@@ -147,27 +148,13 @@ const AuthContextProvider = ({ children }: IProps) => {
 
   // Logout Method
   const logout = useCallback(() => {
-    setSession(null);
+    setSession(null, null);
     localStorage.removeItem("user");
     dispatch({
       type: IAuthContextActionTypes.LOGOUT,
     });
     navigate(PATH_AFTER_LOGOUT);
   }, []);
-
-  useEffect(() => {
-    if (state.isAuthenticated) {
-      const logoutTimer = setTimeout(
-        () => {
-          toast("Session expired. Logging out.");
-          logout();
-        },
-        60 * 60 * 1000
-      ); // 15 minuta
-
-      return () => clearTimeout(logoutTimer);
-    }
-  }, [state.isAuthenticated, logout]);
 
   const valuesObject = {
     isAuthenticated: state.isAuthenticated,

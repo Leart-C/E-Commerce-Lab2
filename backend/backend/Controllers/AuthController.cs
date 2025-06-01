@@ -145,7 +145,7 @@ namespace backend.Controllers
 
         // Route -> Refresh Token
         [HttpPost("refresh-token")]
-        public async Task<IActionResult> RefreshToken([FromHeader] string refreshToken)
+        public async Task<IActionResult> RefreshToken([FromHeader(Name = "refreshToken")] string refreshToken)
         {
             var newAccessToken = await _authService.RefreshAccessTokenAsync(refreshToken);
 

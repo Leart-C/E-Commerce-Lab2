@@ -1,10 +1,6 @@
 import axios from "axios";
-import {
-  getAccessToken,
-  getRefreshToken,
-  setSession,
-  removeSession,
-} from "../auth/auth.utils";
+import { setSession } from "../auth/auth.utils";
+import { getAccessToken, getRefreshToken, removeSession } from "./session";
 
 const axiosInstance = axios.create({
   baseURL: "https://localhost:7039/api",
@@ -13,7 +9,7 @@ const axiosInstance = axios.create({
   },
 });
 
-// Set Bearer token nqs ekziston
+// Vendos token fillestar në headers nëse ekziston
 const token = getAccessToken();
 if (token) {
   axiosInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -38,49 +34,44 @@ axiosInstance.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
 
+    // KONTROLL: Nëse kemi 401 dhe s’jemi refreshuar më parë
     if (
       error.response?.status === 401 &&
       !originalRequest._retry &&
       getRefreshToken()
     ) {
-      if (isRefreshing) {
-        return new Promise(function (resolve, reject) {
-          failedQueue.push({ resolve, reject });
-        })
-          .then((token: string) => {
-            originalRequest.headers.Authorization = "Bearer " + token;
-            return axiosInstance(originalRequest);
-          })
-          .catch((err) => {
-            return Promise.reject(err);
-          });
-      }
-
       originalRequest._retry = true;
-      isRefreshing = true;
 
       try {
+        // Bëj refresh token
         const refreshResponse = await axios.post(
           "https://localhost:7039/api/Auth/refresh-token",
+          {},
           {
-            refreshToken: getRefreshToken(),
+            headers: {
+              refreshtoken: getRefreshToken(),
+            },
           }
         );
 
-        const { accessToken, refreshToken: newRefreshToken } =
-          refreshResponse.data;
-        setSession(accessToken, newRefreshToken);
-        axiosInstance.defaults.headers.common.Authorization =
-          "Bearer " + accessToken;
+        const { accessToken, refreshToken } = refreshResponse.data;
 
-        processQueue(null, accessToken);
+        // Ruaj tokenat e rinj
+        localStorage.setItem("accessToken", accessToken);
+        localStorage.setItem("refreshToken", refreshToken);
+
+        // Përditëso Authorization header global dhe të kërkesës aktuale
+        axiosInstance.defaults.headers.common["Authorization"] =
+          `Bearer ${accessToken}`;
+        originalRequest.headers["Authorization"] = `Bearer ${accessToken}`;
+
+        // Riprovo kërkesën origjinale me token të ri
         return axiosInstance(originalRequest);
-      } catch (err) {
-        processQueue(err, null);
-        removeSession();
-        return Promise.reject(err);
-      } finally {
-        isRefreshing = false;
+      } catch (refreshError) {
+        console.error("Failed to refresh token:", refreshError);
+        removeSession(); // fshij token-at nëse refresh dështoi
+        window.location.href = "/unauthorized"; // ose thirr logout()
+        return Promise.reject(refreshError);
       }
     }
 

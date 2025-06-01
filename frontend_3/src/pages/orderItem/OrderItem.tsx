@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+
 import Swal from "sweetalert2";
 import {
   Dialog,
@@ -21,6 +22,7 @@ import {
   InputLabel,
   FormControl,
 } from "@mui/material";
+import axiosInstance from "../../auth/axiosInstance";
 
 interface Product {
   id: string;
@@ -52,7 +54,7 @@ const OrderItem: React.FC = () => {
 
   const fetchOrderItems = async () => {
     try {
-      const response = await axios.get(apiUrl);
+      const response = await axiosInstance.get(apiUrl);
       setOrderItems(response.data);
     } catch (error) {
       console.error("Gabim gjatë marrjes së artikujve:", error);
@@ -61,7 +63,7 @@ const OrderItem: React.FC = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get(productsUrl);
+      const response = await axiosInstance.get(productsUrl);
       console.log("Produktet:", response.data);
       setProducts(response.data);
     } catch (error) {
@@ -86,10 +88,10 @@ const OrderItem: React.FC = () => {
     e.preventDefault();
     try {
       if (editingId) {
-        await axios.put(`${apiUrl}`, { ...formData, id: editingId });
+        await axiosInstance.put(`${apiUrl}`, { ...formData, id: editingId });
         Swal.fire("Sukses!", "Artikulli u përditësua me sukses.", "success");
       } else {
-        await axios.post(apiUrl, formData);
+        await axiosInstance.post(apiUrl, formData);
         Swal.fire("Sukses!", "Artikulli u shtua me sukses.", "success");
       }
 
@@ -126,7 +128,7 @@ const OrderItem: React.FC = () => {
 
     if (result.isConfirmed) {
       try {
-        await axios.delete(`${apiUrl}/${id}`);
+        await axiosInstance.delete(`${apiUrl}/${id}`);
         Swal.fire("Fshirë!", "Artikulli u fshi me sukses.", "success");
         fetchOrderItems();
       } catch (error) {

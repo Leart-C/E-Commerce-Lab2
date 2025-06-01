@@ -17,31 +17,42 @@ interface Review {
 const ProductReviewList: React.FC = () => {
   const { productId } = useParams<{ productId: string }>();
   const [reviews, setReviews] = useState<Review[]>([]);
+  const [productName, setProductName] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!productId) return;
 
-    fetch(`https://localhost:7039/api/ProductReview/product/${productId}`)
+    // Fetch reviews
+    const fetchReviews = fetch(
+      `https://localhost:7039/api/ProductReview/product/${productId}`
+    )
       .then((res) => {
-        if (!res.ok) {
-          throw new Error(`Gabim: ${res.statusText}`);
-        }
+        if (!res.ok) throw new Error(`Gabim: ${res.statusText}`);
         return res.json();
       })
       .then((data) => {
-        if (Array.isArray(data)) {
-          setReviews(data);
-          setError(null);
-        } else {
-          setReviews([]);
-          setError("Nuk u gjetën review për këtë produkt.");
-        }
+        setReviews(Array.isArray(data) ? data : []);
+      });
+
+    // Fetch product name
+    const fetchProductName = fetch(
+      `https://localhost:7039/api/Product/${productId}`
+    )
+      .then((res) => {
+        if (!res.ok) throw new Error(`Gabim: ${res.statusText}`);
+        return res.json();
       })
+      .then((data) => {
+        setProductName(data.productName); // Use 'productName' as it is in your DTO
+      });
+
+    // Wait for both fetches to complete
+    Promise.all([fetchReviews, fetchProductName])
       .catch((err) => {
-        console.error("Gabim gjatë marrjes së review-ve:", err);
-        setError("Gabim gjatë marrjes së review-ve.");
+        console.error("Gabim gjatë marrjes së të dhënave:", err);
+        setError("Gabim gjatë marrjes së të dhënave.");
       })
       .finally(() => setLoading(false));
   }, [productId]);
@@ -54,7 +65,7 @@ const ProductReviewList: React.FC = () => {
   return (
     <Box>
       <Typography variant="h5" sx={{ mb: 2 }}>
-        Review për produktin {productId}
+        Review për produktin: {productName || "Emri i panjohur"}
       </Typography>
       {reviews.map((review) => (
         <Box

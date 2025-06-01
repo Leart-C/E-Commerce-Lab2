@@ -4,11 +4,15 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { FaBox, FaClipboard, FaComment, FaList } from "react-icons/fa6";
 import { FaListCheck } from "react-icons/fa6";
-import { FaTags, FaUserTie } from "react-icons/fa";
+import { FaExchangeAlt, FaTags, FaUndo, FaUserTie } from "react-icons/fa";
 import { FaUserGear } from "react-icons/fa6";
 import { FaUserShield } from "react-icons/fa6";
 import { FaUserLarge } from "react-icons/fa6";
-import { MdOutlinePayment } from "react-icons/md";
+import {
+  MdLocalShipping,
+  MdOutlinePayment,
+  MdRateReview,
+} from "react-icons/md";
 import { MdOutlinePayments } from "react-icons/md";
 import { FaFileInvoiceDollar } from "react-icons/fa";
 import { GrUserManager } from "react-icons/gr";
@@ -40,9 +44,9 @@ export function AppSidebarList() {
     ) {
       return [
         {
-          label: "User Management",
+          label: "Owner Page",
           href: PATH_DASHBOARD.usersManagement,
-          icon: <GrUserManager />,
+          icon: <FaUserTie />,
         },
         {
           label: "All Logs",
@@ -54,23 +58,15 @@ export function AppSidebarList() {
           href: PATH_DASHBOARD.myLogs,
           icon: <FaListCheck />,
         },
-        {
-          label: "Owner Page",
-          href: PATH_DASHBOARD.owner,
-          icon: <FaUserTie />,
-        },
+
         {
           label: "Admin Page",
           href: PATH_DASHBOARD.admin,
           icon: <FaUserShield />,
         },
+
         {
-          label: "Manager Page",
-          href: PATH_DASHBOARD.manager,
-          icon: <FaUserGear />,
-        },
-        {
-        label: "User Page",
+          label: "User Page",
           href: PATH_DASHBOARD.user,
           icon: <FaUserLarge />,
         },
@@ -102,32 +98,24 @@ export function AppSidebarList() {
         {
           label: "Refund",
           href: PATH_DASHBOARD.refund,
-          icon: <FaUserLarge />,
+          icon: <FaUndo />,
         },
         {
           label: "Transaction",
           href: PATH_DASHBOARD.transaction,
-          icon: <FaUserLarge />,
+          icon: <FaExchangeAlt />,
         },
         {
           label: "ShippingAddress",
           href: PATH_DASHBOARD.shippingAddress,
-          icon: <FaUserLarge />,
+          icon: <MdLocalShipping />,
         },
-        {
-          label: "Order",
-          href: PATH_DASHBOARD.order,
-          icon: <FaClipboard />,
-        },
-        {
-          label: "Product",
-          href: PATH_DASHBOARD.product,
-          icon: <FaBox />,
-        },
+        { label: "Order", href: PATH_DASHBOARD.order, icon: <FaClipboard /> },
+        { label: "Product", href: PATH_DASHBOARD.product, icon: <FaBox /> },
         {
           label: "Product Review",
           href: PATH_DASHBOARD.productReview,
-          icon: <FaBox />,
+          icon: <MdRateReview />,
         },
         {
           label: "Order Item",
@@ -173,37 +161,30 @@ export function AppSidebarList() {
         {
           label: "Refund",
           href: PATH_DASHBOARD.refund,
-          icon: <FaUserLarge />,
+          icon: <FaUndo />,
         },
         {
           label: "Transaction",
           href: PATH_DASHBOARD.transaction,
-          icon: <FaUserLarge />,
+          icon: <FaExchangeAlt />,
         },
         {
           label: "ShippingAddress",
           href: PATH_DASHBOARD.shippingAddress,
-          icon: <FaUserLarge />,
+          icon: <MdLocalShipping />,
         },
-        {
-          label: "Order",
-          href: PATH_DASHBOARD.order,
-          icon: <FaClipboard />,
-        },
-        {
-          label: "Product",
-          href: PATH_DASHBOARD.product,
-          icon: <FaBox />,
-        },
+
         {
           label: "Category",
           href: PATH_DASHBOARD.category,
           icon: <FaTags />,
         },
+        { label: "Order", href: PATH_DASHBOARD.order, icon: <FaClipboard /> },
+        { label: "Product", href: PATH_DASHBOARD.product, icon: <FaBox /> },
         {
           label: "Product Review",
           href: PATH_DASHBOARD.productReview,
-          icon: <FaBox />,
+          icon: <MdRateReview />,
         },
         {
           label: "Order Item",

@@ -1,5 +1,5 @@
-import { Toaster } from 'react-hot-toast';
-import GlobalRouter from './routes';
+import { Toaster } from "react-hot-toast";
+import GlobalRouter from "./routes";
 
 const App = () => {
   return (

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+
 import {
   Card,
   CardContent,
@@ -15,6 +15,7 @@ import {
   Rating,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import axiosInstance from "../../auth/axiosInstance";
 
 interface Product {
   id: string;
@@ -37,7 +38,9 @@ const ProductReview: React.FC = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get("https://localhost:7039/api/Product");
+        const res = await axiosInstance.get(
+          "https://localhost:7039/api/Product"
+        );
         if (Array.isArray(res.data)) {
           setProducts(res.data);
         } else {
@@ -83,11 +86,15 @@ const ProductReview: React.FC = () => {
     console.log("Payload që po dërgohet:", payload); // 👈 Vendose këtu
 
     try {
-      await axios.post("https://localhost:7039/api/ProductReview", payload, {
-        headers: {
-          Authorization: `Bearer ${token}`, // token nga login
-        },
-      });
+      await axiosInstance.post(
+        "https://localhost:7039/api/ProductReview",
+        payload,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // token nga login
+          },
+        }
+      );
       handleCloseModal();
       navigate(`/dashboard/productReview/${selectedProductId}`);
     } catch (err) {

@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+
 import Swal from "sweetalert2";
 import {
   Dialog,
@@ -18,6 +19,7 @@ import {
   Stack,
   Alert,
 } from "@mui/material";
+import axiosInstance from "../../auth/axiosInstance";
 
 interface OrderListDto {
   id: number;
@@ -49,7 +51,7 @@ const Order: React.FC = () => {
 
   const fetchOrders = async () => {
     try {
-      const response = await axios.get(apiUrl);
+      const response = await axiosInstance.get(apiUrl);
       setOrders(response.data);
     } catch (error: any) {
       if (error.response?.status === 401) {
@@ -90,14 +92,14 @@ const Order: React.FC = () => {
       };
 
       if (editingId !== null) {
-        await axios.put(
+        await axiosInstance.put(
           `${apiUrl}/${editingId}`,
           { id: editingId, ...requestData },
           { headers: { Authorization: `Bearer ${token}` } }
         );
         Swal.fire("Sukses", "Porosia u përditësua me sukses.", "success");
       } else {
-        await axios.post(apiUrl, requestData, {
+        await axiosInstance.post(apiUrl, requestData, {
           headers: { Authorization: `Bearer ${token}` },
         });
         Swal.fire("Sukses", "Porosia u shtua me sukses.", "success");
@@ -156,7 +158,7 @@ const Order: React.FC = () => {
 
     if (confirm.isConfirmed) {
       try {
-        await axios.delete(`${apiUrl}/${id}`, {
+        await axiosInstance.delete(`${apiUrl}/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         Swal.fire("Fshirë!", "Porosia u fshi me sukses.", "success");

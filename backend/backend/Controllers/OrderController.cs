@@ -22,6 +22,7 @@ public class OrderController : ControllerBase
     }
 
     [HttpGet]
+
     public async Task<ActionResult<IEnumerable<OrderListDto>>> GetOrders()
     {
         var orders = await _context.Orders
