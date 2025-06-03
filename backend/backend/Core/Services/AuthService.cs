@@ -372,7 +372,7 @@ namespace backend.Core.Services
                 issuer: _configuration["JWT:ValidIssuer"],
                 audience: _configuration["JWT:ValidAudience"],
                 notBefore:DateTime.Now,
-                expires:DateTime.Now.AddSeconds(15),
+                expires:DateTime.Now.AddHours(1),
                 claims:authClaims,
                 signingCredentials:signingCredentials
                 
