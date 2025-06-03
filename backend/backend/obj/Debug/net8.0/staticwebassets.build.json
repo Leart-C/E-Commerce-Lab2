@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "6RjjnDdtJa4f0mhG//QbXmknrc2eHILiiVTfIUmaJ4w=",
+  "Hash": "d2YQSwr+dHDAHjAa+jLydhVq3pGF/0XIt58hJln92RE=",
   "Source": "backend",
   "BasePath": "_content/backend",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "backend\\wwwroot",
       "Source": "backend",
-      "ContentRoot": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\0fe88fcd-2b0a-4421-a5be-8b7f58101e8f.png",
+      "Identity": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\0fe88fcd-2b0a-4421-a5be-8b7f58101e8f.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/0fe88fcd-2b0a-4421-a5be-8b7f58101e8f#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -38,10 +38,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\0fe88fcd-2b0a-4421-a5be-8b7f58101e8f.png"
     },
     {
-      "Identity": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\11a6f573-9e3f-4592-9dbb-46383b7ab222.PNG",
+      "Identity": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\11a6f573-9e3f-4592-9dbb-46383b7ab222.PNG",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/11a6f573-9e3f-4592-9dbb-46383b7ab222#[.{fingerprint}]?.PNG",
       "AssetKind": "All",
@@ -59,10 +59,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\11a6f573-9e3f-4592-9dbb-46383b7ab222.PNG"
     },
     {
-      "Identity": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\21101d7e-ffdb-42bb-b5b6-4fa4132701d1.PNG",
+      "Identity": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\21101d7e-ffdb-42bb-b5b6-4fa4132701d1.PNG",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/21101d7e-ffdb-42bb-b5b6-4fa4132701d1#[.{fingerprint}]?.PNG",
       "AssetKind": "All",
@@ -80,10 +80,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\21101d7e-ffdb-42bb-b5b6-4fa4132701d1.PNG"
     },
     {
-      "Identity": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\28741520-5849-4ed5-b5af-6df830ddfd7a.png",
+      "Identity": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\28741520-5849-4ed5-b5af-6df830ddfd7a.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/28741520-5849-4ed5-b5af-6df830ddfd7a#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -101,10 +101,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\28741520-5849-4ed5-b5af-6df830ddfd7a.png"
     },
     {
-      "Identity": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\3be66b13-38e3-42e8-a932-4fde38a89e81.PNG",
+      "Identity": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\3be66b13-38e3-42e8-a932-4fde38a89e81.PNG",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/3be66b13-38e3-42e8-a932-4fde38a89e81#[.{fingerprint}]?.PNG",
       "AssetKind": "All",
@@ -122,10 +122,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\3be66b13-38e3-42e8-a932-4fde38a89e81.PNG"
     },
     {
-      "Identity": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\6057706f-1855-4f78-8bca-d6711a46748c.png",
+      "Identity": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\6057706f-1855-4f78-8bca-d6711a46748c.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/6057706f-1855-4f78-8bca-d6711a46748c#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -143,10 +143,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\6057706f-1855-4f78-8bca-d6711a46748c.png"
     },
     {
-      "Identity": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\83fc432b-bf84-4ff4-b282-e80dd94ce601.jpg",
+      "Identity": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\83fc432b-bf84-4ff4-b282-e80dd94ce601.jpg",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/83fc432b-bf84-4ff4-b282-e80dd94ce601#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -164,10 +164,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\83fc432b-bf84-4ff4-b282-e80dd94ce601.jpg"
     },
     {
-      "Identity": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\f3c53842-327e-4a28-a06b-7e8207b0c0d1.png",
+      "Identity": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\f3c53842-327e-4a28-a06b-7e8207b0c0d1.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/f3c53842-327e-4a28-a06b-7e8207b0c0d1#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -185,10 +185,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\f3c53842-327e-4a28-a06b-7e8207b0c0d1.png"
     },
     {
-      "Identity": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\f6a4c48e-be18-435c-af43-4acea118654c.png",
+      "Identity": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\f6a4c48e-be18-435c-af43-4acea118654c.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/f6a4c48e-be18-435c-af43-4acea118654c#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -209,7 +209,7 @@
   "Endpoints": [
     {
       "Route": "uploads/0fe88fcd-2b0a-4421-a5be-8b7f58101e8f.adt6hlr6vm.png",
-      "AssetFile": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\0fe88fcd-2b0a-4421-a5be-8b7f58101e8f.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\0fe88fcd-2b0a-4421-a5be-8b7f58101e8f.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -230,7 +230,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 25 May 2025 21:54:58 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -254,7 +254,7 @@
     },
     {
       "Route": "uploads/0fe88fcd-2b0a-4421-a5be-8b7f58101e8f.png",
-      "AssetFile": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\0fe88fcd-2b0a-4421-a5be-8b7f58101e8f.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\0fe88fcd-2b0a-4421-a5be-8b7f58101e8f.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -275,7 +275,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 25 May 2025 21:54:58 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -291,7 +291,7 @@
     },
     {
       "Route": "uploads/11a6f573-9e3f-4592-9dbb-46383b7ab222.ga94k1rghl.PNG",
-      "AssetFile": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\11a6f573-9e3f-4592-9dbb-46383b7ab222.PNG",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\11a6f573-9e3f-4592-9dbb-46383b7ab222.PNG",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -312,7 +312,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 25 May 2025 21:29:01 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -336,7 +336,7 @@
     },
     {
       "Route": "uploads/11a6f573-9e3f-4592-9dbb-46383b7ab222.PNG",
-      "AssetFile": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\11a6f573-9e3f-4592-9dbb-46383b7ab222.PNG",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\11a6f573-9e3f-4592-9dbb-46383b7ab222.PNG",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -357,7 +357,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 25 May 2025 21:29:01 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -373,7 +373,7 @@
     },
     {
       "Route": "uploads/21101d7e-ffdb-42bb-b5b6-4fa4132701d1.ga94k1rghl.PNG",
-      "AssetFile": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\21101d7e-ffdb-42bb-b5b6-4fa4132701d1.PNG",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\21101d7e-ffdb-42bb-b5b6-4fa4132701d1.PNG",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -394,7 +394,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 25 May 2025 21:49:16 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -418,7 +418,7 @@
     },
     {
       "Route": "uploads/21101d7e-ffdb-42bb-b5b6-4fa4132701d1.PNG",
-      "AssetFile": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\21101d7e-ffdb-42bb-b5b6-4fa4132701d1.PNG",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\21101d7e-ffdb-42bb-b5b6-4fa4132701d1.PNG",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -439,7 +439,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 25 May 2025 21:49:16 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -455,7 +455,7 @@
     },
     {
       "Route": "uploads/28741520-5849-4ed5-b5af-6df830ddfd7a.bkfoglz3cc.png",
-      "AssetFile": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\28741520-5849-4ed5-b5af-6df830ddfd7a.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\28741520-5849-4ed5-b5af-6df830ddfd7a.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -476,7 +476,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 25 May 2025 22:00:13 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -500,7 +500,7 @@
     },
     {
       "Route": "uploads/28741520-5849-4ed5-b5af-6df830ddfd7a.png",
-      "AssetFile": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\28741520-5849-4ed5-b5af-6df830ddfd7a.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\28741520-5849-4ed5-b5af-6df830ddfd7a.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -521,7 +521,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 25 May 2025 22:00:13 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -537,7 +537,7 @@
     },
     {
       "Route": "uploads/3be66b13-38e3-42e8-a932-4fde38a89e81.ga94k1rghl.PNG",
-      "AssetFile": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\3be66b13-38e3-42e8-a932-4fde38a89e81.PNG",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\3be66b13-38e3-42e8-a932-4fde38a89e81.PNG",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -558,7 +558,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 01 Jun 2025 22:28:19 GMT"
+          "Value": "Mon, 02 Jun 2025 09:28:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -582,7 +582,7 @@
     },
     {
       "Route": "uploads/3be66b13-38e3-42e8-a932-4fde38a89e81.PNG",
-      "AssetFile": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\3be66b13-38e3-42e8-a932-4fde38a89e81.PNG",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\3be66b13-38e3-42e8-a932-4fde38a89e81.PNG",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -603,7 +603,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 01 Jun 2025 22:28:19 GMT"
+          "Value": "Mon, 02 Jun 2025 09:28:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -619,7 +619,7 @@
     },
     {
       "Route": "uploads/6057706f-1855-4f78-8bca-d6711a46748c.adt6hlr6vm.png",
-      "AssetFile": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\6057706f-1855-4f78-8bca-d6711a46748c.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\6057706f-1855-4f78-8bca-d6711a46748c.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -640,7 +640,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 25 May 2025 21:50:30 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -664,7 +664,7 @@
     },
     {
       "Route": "uploads/6057706f-1855-4f78-8bca-d6711a46748c.png",
-      "AssetFile": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\6057706f-1855-4f78-8bca-d6711a46748c.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\6057706f-1855-4f78-8bca-d6711a46748c.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -685,7 +685,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 25 May 2025 21:50:30 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -701,7 +701,7 @@
     },
     {
       "Route": "uploads/83fc432b-bf84-4ff4-b282-e80dd94ce601.g8xzqzatnr.jpg",
-      "AssetFile": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\83fc432b-bf84-4ff4-b282-e80dd94ce601.jpg",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\83fc432b-bf84-4ff4-b282-e80dd94ce601.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -722,7 +722,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 25 May 2025 21:48:48 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -746,7 +746,7 @@
     },
     {
       "Route": "uploads/83fc432b-bf84-4ff4-b282-e80dd94ce601.jpg",
-      "AssetFile": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\83fc432b-bf84-4ff4-b282-e80dd94ce601.jpg",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\83fc432b-bf84-4ff4-b282-e80dd94ce601.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -767,7 +767,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 25 May 2025 21:48:48 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -783,7 +783,7 @@
     },
     {
       "Route": "uploads/f3c53842-327e-4a28-a06b-7e8207b0c0d1.adt6hlr6vm.png",
-      "AssetFile": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\f3c53842-327e-4a28-a06b-7e8207b0c0d1.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\f3c53842-327e-4a28-a06b-7e8207b0c0d1.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -804,7 +804,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 25 May 2025 22:01:10 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -828,7 +828,7 @@
     },
     {
       "Route": "uploads/f3c53842-327e-4a28-a06b-7e8207b0c0d1.png",
-      "AssetFile": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\f3c53842-327e-4a28-a06b-7e8207b0c0d1.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\f3c53842-327e-4a28-a06b-7e8207b0c0d1.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -849,7 +849,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 25 May 2025 22:01:10 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -865,7 +865,7 @@
     },
     {
       "Route": "uploads/f6a4c48e-be18-435c-af43-4acea118654c.7qlqi0c0f5.png",
-      "AssetFile": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\f6a4c48e-be18-435c-af43-4acea118654c.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\f6a4c48e-be18-435c-af43-4acea118654c.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -886,7 +886,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 25 May 2025 21:56:14 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -910,7 +910,7 @@
     },
     {
       "Route": "uploads/f6a4c48e-be18-435c-af43-4acea118654c.png",
-      "AssetFile": "C:\\Users\\TECHCOM\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\f6a4c48e-be18-435c-af43-4acea118654c.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\f6a4c48e-be18-435c-af43-4acea118654c.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -931,7 +931,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 25 May 2025 21:56:14 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",

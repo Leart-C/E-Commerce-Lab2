@@ -11,6 +11,16 @@ namespace backend.Hubs
             await Clients.All.SendAsync("ReceiveMessage", messageDto);
         }
 
+        //// ✅ Metoda për "Typing..."
+        //public async Task Typing(string receiverId)
+        //{
+        //    var senderId = Context.UserIdentifier;
+        //    if (!string.IsNullOrEmpty(senderId))
+        //    {
+        //        await Clients.User(receiverId).SendAsync("UserTyping", senderId);
+        //    }
+        //}
+
         public override async Task OnConnectedAsync()
         {
             await base.OnConnectedAsync();
@@ -18,7 +28,6 @@ namespace backend.Hubs
 
         public override async Task OnDisconnectedAsync(Exception exception)
         {
-
             await base.OnDisconnectedAsync(exception);
         }
     }
