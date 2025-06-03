@@ -257,6 +257,11 @@ const GlobalRouter = () => {
                         </Suspense>
                     } />
                 </Route>
+
+
+                <Route element={<AuthGuard roles={allAccessRoles} />}>
+          
+        </Route>
             </Route>
     </Routes>
   );

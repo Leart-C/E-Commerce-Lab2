@@ -14,9 +14,12 @@ using backend.Core.Mapper;
 using Microsoft.Extensions.FileProviders;
 using backend.Hubs;
 using Microsoft.AspNetCore.SignalR;
+using MongoDB.Driver;
 
 
 var builder = WebApplication.CreateBuilder(args);
+
+
 
 builder.Services
     .AddControllers()
@@ -42,6 +45,17 @@ builder.Services.AddScoped<ILogService, LogService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddSingleton<MongoDbService>();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
+
+builder.Services.AddSingleton<IMongoClient>(sp =>
+{
+    var configuration = builder.Configuration;
+    var connectionString = configuration["MongoDb:DbConnection"];
+
+    if (string.IsNullOrEmpty(connectionString))
+        throw new InvalidOperationException("MongoDB connection string is missing.");
+
+    return new MongoClient(connectionString);
+});
 
 
 ////Add identity
