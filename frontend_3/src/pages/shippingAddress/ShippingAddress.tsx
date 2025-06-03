@@ -16,6 +16,10 @@ import {
   TableRow,
   Paper,
   Stack,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
 } from "@mui/material";
 import axiosInstance from "../../auth/axiosInstance";
 
@@ -27,30 +31,66 @@ interface ShippingAddressDto {
   postalCode: string;
   country: string;
   userId: string;
+  username?: string; // Shtojmë username si optional field
+}
+
+interface UserDto {
+  id: string;
+  userName: string;
+  firstName: string;
+  lastName: string;
 }
 
 const ShippingAddress: React.FC = () => {
   const [addresses, setAddresses] = useState<ShippingAddressDto[]>([]);
+  const [users, setUsers] = useState<UserDto[]>([]);
   const [formData, setFormData] = useState<Partial<ShippingAddressDto>>({});
   const [editingId, setEditingId] = useState<number | null>(null);
   const [openModal, setOpenModal] = useState(false);
 
   const apiUrl = "https://localhost:7039/api/ShippingAddress";
+  const usersApiUrl = "https://localhost:7039/api/Auth/users";
 
   useEffect(() => {
     fetchAddresses();
+    fetchUsers();
   }, []);
+
+  const fetchUsers = async () => {
+    try {
+      const response = await axiosInstance.get(usersApiUrl);
+      console.log("Users response:", response.data); // Debug log
+      setUsers(response.data);
+    } catch (error) {
+      console.error("Gabim gjatë marrjes së përdoruesve:", error);
+    }
+  };
 
   const fetchAddresses = async () => {
     try {
       const response = await axiosInstance.get(apiUrl);
+      console.log("Addresses response:", response.data); // Debug log
       setAddresses(response.data);
     } catch (error) {
       console.error("Gabim gjatë marrjes së adresave të transportit:", error);
     }
   };
 
+  const getUsernameById = (userId: string): string => {
+    console.log("Looking for userId:", userId, "in users:", users); // Debug log
+    const user = users.find(u => u.id === userId);
+    return user ? user.userName : `User ID: ${userId}`;
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSelectChange = (e: any) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -156,7 +196,7 @@ const ShippingAddress: React.FC = () => {
                 <strong>Shteti</strong>
               </TableCell>
               <TableCell>
-                <strong>User ID</strong>
+                <strong>Username</strong>
               </TableCell>
               <TableCell>
                 <strong>Veprime</strong>
@@ -172,7 +212,7 @@ const ShippingAddress: React.FC = () => {
                 <TableCell>{addr.state}</TableCell>
                 <TableCell>{addr.postalCode}</TableCell>
                 <TableCell>{addr.country}</TableCell>
-                <TableCell>{addr.userId}</TableCell>
+                <TableCell>{getUsernameById(addr.userId)}</TableCell>
                 <TableCell>
                   <Stack direction="row" spacing={1}>
                     <Button
@@ -232,7 +272,6 @@ const ShippingAddress: React.FC = () => {
               onChange={handleChange}
               fullWidth
               required
-              margin="normal"
             />
             <TextField
               label="Postal Code"
@@ -252,15 +291,22 @@ const ShippingAddress: React.FC = () => {
               required
               margin="normal"
             />
-            <TextField
-              label="User ID"
-              name="userId"
-              value={formData.userId || ""}
-              onChange={handleChange}
-              fullWidth
-              required
-              margin="normal"
-            />
+            
+            <FormControl fullWidth margin="normal" required>
+              <InputLabel>User</InputLabel>
+              <Select
+                name="userId"
+                value={formData.userId || ""}
+                onChange={handleSelectChange}
+                label="User"
+              >
+                {users.map((user) => (
+                  <MenuItem key={user.id} value={user.id}>
+                    {user.userName} ({user.firstName} {user.lastName})
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
 
             <DialogActions sx={{ mt: 2 }}>
               <Button onClick={() => setOpenModal(false)} color="secondary">

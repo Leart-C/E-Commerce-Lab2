@@ -13,6 +13,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\twin\\desktop\\e-commerce-lab2\\backend\\backend\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\twin\\desktop\\e-commerce-lab2\\backend\\backend\\core\\dtos\\shippingaddress\\shippingaddressdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\core\\dtos\\shippingaddress\\shippingaddressdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|c:\\users\\twin\\desktop\\e-commerce-lab2\\backend\\backend\\controllers\\shippingaddresscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F3C7E4E-3B05-4196-9128-E5F8270FAAB9}|backend\\backend.csproj|solutionrelative:backend\\controllers\\shippingaddresscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,6 +42,32 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ShippingAddressController.cs",
+              "DocumentMoniker": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Controllers\\ShippingAddressController.cs",
+              "RelativeDocumentMoniker": "backend\\Controllers\\ShippingAddressController.cs",
+              "ToolTip": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Controllers\\ShippingAddressController.cs",
+              "RelativeToolTip": "backend\\Controllers\\ShippingAddressController.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAswFgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T18:24:09.377Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ShippingAddressDto.cs",
+              "DocumentMoniker": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Dtos\\ShippingAddress\\ShippingAddressDto.cs",
+              "RelativeDocumentMoniker": "backend\\Core\\Dtos\\ShippingAddress\\ShippingAddressDto.cs",
+              "ToolTip": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Core\\Dtos\\ShippingAddress\\ShippingAddressDto.cs",
+              "RelativeToolTip": "backend\\Core\\Dtos\\ShippingAddress\\ShippingAddressDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T18:18:35.973Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Controllers\\ProductController.cs",
@@ -42,7 +76,8 @@
               "RelativeToolTip": "backend\\Controllers\\ProductController.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T14:05:27.103Z"
+              "WhenOpened": "2025-06-03T14:05:27.103Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -54,7 +89,8 @@
               "RelativeToolTip": "backend\\Program.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAYwCwAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T22:34:16.89Z"
+              "WhenOpened": "2025-06-01T22:34:16.89Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -64,7 +100,7 @@
               "RelativeDocumentMoniker": "backend\\Controllers\\AuthController.cs",
               "ToolTip": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\Controllers\\AuthController.cs",
               "RelativeToolTip": "backend\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAIUAAAAAAAAAAAAAwKMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAJIAAAAAAAAAAAAwwKMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-01T21:25:06.56Z",
               "EditorCaption": ""
