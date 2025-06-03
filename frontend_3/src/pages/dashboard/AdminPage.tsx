@@ -13,66 +13,78 @@ import {
   Typography,
 } from "@mui/material";
 import jsPDF from "jspdf";
-import "jspdf-autotable";
+import autoTable from "jspdf-autotable";
 import * as XLSX from "xlsx";
+import axiosInstance from "../../utils/axiosInstance";
 
-// Lloji i të dhënave që presim nga logs
-type Log = {
-  username: string;
-  action: string;
-  date: string;
-};
+export interface IUserInfoResult {
+  id: string;
+  firstName: string;
+  lastName: string;
+  userName: string;
+  email: string;
+  role?: string; // nëse ekziston
+}
 
 const AdminPage: React.FC = () => {
-  const [logs, setLogs] = useState<Log[]>([]);
+  const [users, setUsers] = useState<IUserInfoResult[]>([]);
   const [search, setSearch] = useState("");
 
-  // Ngarko të dhëna demo (ose zëvendëso me fetch nga API)
-  useEffect(() => {
-    const demoLogs: Log[] = [
-      { username: "admin1", action: "Login", date: "2025-06-03" },
-      { username: "user1", action: "Created Product", date: "2025-06-02" },
-      { username: "admin1", action: "Deleted Order", date: "2025-06-01" },
-    ];
-    setLogs(demoLogs);
-  }, []);
-
-  // Filtrim për kërkim
-  const filteredLogs = logs.filter(
-    (log) =>
-      log.username.toLowerCase().includes(search.toLowerCase()) ||
-      log.action.toLowerCase().includes(search.toLowerCase()) ||
-      log.date.includes(search)
-  );
-
-  // Eksporto si PDF
-  const exportPDF = () => {
-    const doc = new jsPDF();
-    doc.text("Admin Logs", 14, 10);
-    doc.autoTable({
-      head: [["Username", "Action", "Date"]],
-      body: filteredLogs.map((log) => [log.username, log.action, log.date]),
-    });
-    doc.save("admin_logs.pdf");
+  const fetchUsers = async () => {
+    try {
+      const response =
+        await axiosInstance.get<IUserInfoResult[]>("/api/auth/users");
+      setUsers(response.data);
+    } catch (error) {
+      console.error("Failed to fetch users", error);
+    }
   };
 
-  // Eksporto si Excel
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+  const filteredUsers = users.filter((user) =>
+    (user.userName || "").toLowerCase().includes(search.toLowerCase())
+  );
+
+  // Eksport në PDF
+  const exportPDF = () => {
+    const doc = new jsPDF();
+    doc.text("Lista e Përdoruesve", 14, 10);
+    autoTable(doc, {
+      head: [["Username", "Email", "Roli"]],
+      body: filteredUsers.map((u) => [
+        u.userName,
+        u.email,
+        u.role || "-", // nëse nuk ka role
+      ]),
+    });
+    doc.save("users_list.pdf");
+  };
+
+  // Eksport në Excel
   const exportExcel = () => {
-    const worksheet = XLSX.utils.json_to_sheet(filteredLogs);
+    const data = filteredUsers.map((u) => ({
+      Username: u.userName,
+      Email: u.email,
+      Roli: u.role || "-",
+    }));
+    const worksheet = XLSX.utils.json_to_sheet(data);
     const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, "Logs");
-    XLSX.writeFile(workbook, "admin_logs.xlsx");
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Përdoruesit");
+    XLSX.writeFile(workbook, "users_list.xlsx");
   };
 
   return (
     <Box p={3}>
       <Typography variant="h5" mb={2}>
-        Logjet e Administratorit
+        Lista e Përdoruesve
       </Typography>
 
       <Box display="flex" gap={2} mb={2}>
         <TextField
-          label="Kërko në logje"
+          label="Kërko me username"
           variant="outlined"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
@@ -81,7 +93,7 @@ const AdminPage: React.FC = () => {
         <Button variant="contained" color="primary" onClick={exportPDF}>
           Eksporto PDF
         </Button>
-        <Button variant="contained" color="success" onClick={exportExcel}>
+        <Button variant="outlined" color="success" onClick={exportExcel}>
           Eksporto Excel
         </Button>
       </Box>
@@ -90,23 +102,29 @@ const AdminPage: React.FC = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell><b>Username</b></TableCell>
-              <TableCell><b>Action</b></TableCell>
-              <TableCell><b>Date</b></TableCell>
+              <TableCell>
+                <b>Username</b>
+              </TableCell>
+              <TableCell>
+                <b>Email</b>
+              </TableCell>
+              <TableCell>
+                <b>Roli</b>
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {filteredLogs.map((log, index) => (
+            {filteredUsers.map((user, index) => (
               <TableRow key={index}>
-                <TableCell>{log.username}</TableCell>
-                <TableCell>{log.action}</TableCell>
-                <TableCell>{log.date}</TableCell>
+                <TableCell>{user.userName}</TableCell>
+                <TableCell>{user.email}</TableCell>
+                <TableCell>{user.role || "-"}</TableCell>
               </TableRow>
             ))}
-            {filteredLogs.length === 0 && (
+            {filteredUsers.length === 0 && (
               <TableRow>
                 <TableCell colSpan={3} align="center">
-                  Asnjë rezultat.
+                  Asnjë përdorues i gjetur.
                 </TableCell>
               </TableRow>
             )}
