@@ -26,7 +26,7 @@ import axiosInstance from "../../auth/axiosInstance";
 
 interface Product {
   id: string;
-  name: string;
+  productName: string; // EMRI I PRODUKTIT
 }
 
 interface OrderItem {
@@ -42,14 +42,14 @@ const OrderItem: React.FC = () => {
   const [formData, setFormData] = useState<Partial<OrderItem>>({});
   const [editingId, setEditingId] = useState<string | null>(null);
   const [openModal, setOpenModal] = useState(false);
-  const [products, setProducts] = useState<Product[]>([]); // NEW
+  const [products, setProducts] = useState<Product[]>([]);
 
   const apiUrl = "https://localhost:7039/api/OrderItem";
-  const productsUrl = "https://localhost:7039/api/Product"; // YOUR Product API
+  const productsUrl = "https://localhost:7039/api/Product";
 
   useEffect(() => {
     fetchOrderItems();
-    fetchProducts(); // NEW
+    fetchProducts();
   }, []);
 
   const fetchOrderItems = async () => {
@@ -64,7 +64,6 @@ const OrderItem: React.FC = () => {
   const fetchProducts = async () => {
     try {
       const response = await axiosInstance.get(productsUrl);
-      console.log("Produktet:", response.data);
       setProducts(response.data);
     } catch (error) {
       console.error("Gabim gjatë marrjes së produkteve:", error);
@@ -137,6 +136,12 @@ const OrderItem: React.FC = () => {
     }
   };
 
+  // Funksion për gjetjen e emrit të produktit bazuar në productId
+  const getProductName = (productId: string) => {
+    const product = products.find((p) => p.id === productId);
+    return product ? product.productName : "Produkt i panjohur";
+  };
+
   return (
     <div style={{ padding: "30px" }}>
       <h2 style={{ fontSize: "1.8rem", marginBottom: "20px" }}>
@@ -156,24 +161,12 @@ const OrderItem: React.FC = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>
-                <strong>ID</strong>
-              </TableCell>
-              <TableCell>
-                <strong>Order ID</strong>
-              </TableCell>
-              <TableCell>
-                <strong>Product ID</strong>
-              </TableCell>
-              <TableCell>
-                <strong>Sasia</strong>
-              </TableCell>
-              <TableCell>
-                <strong>Çmimi</strong>
-              </TableCell>
-              <TableCell>
-                <strong>Veprime</strong>
-              </TableCell>
+              <TableCell><strong>ID</strong></TableCell>
+              <TableCell><strong>Order ID</strong></TableCell>
+              <TableCell><strong>Produkt</strong></TableCell> {/* Emri i produktit */}
+              <TableCell><strong>Sasia</strong></TableCell>
+              <TableCell><strong>Çmimi</strong></TableCell>
+              <TableCell><strong>Veprime</strong></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -181,7 +174,7 @@ const OrderItem: React.FC = () => {
               <TableRow key={item.id}>
                 <TableCell>{item.id}</TableCell>
                 <TableCell>{item.orderId}</TableCell>
-                <TableCell>{item.productId}</TableCell>
+                <TableCell>{getProductName(item.productId)}</TableCell> {/* EMRI */}
                 <TableCell>{item.quantity}</TableCell>
                 <TableCell>{item.price.toFixed(2)} €</TableCell>
                 <TableCell>
