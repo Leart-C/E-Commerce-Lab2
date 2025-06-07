@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OG2wcS3blmjpWvcFSIyTuTX51DuzNA7T1CMaqpTTveg=",
+  "Hash": "vKlb0NzHmFyWmzcYXTbRlBwn032E/7zBbtUm9/zZB98=",
   "Source": "backend",
   "BasePath": "_content/backend",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "backend\\wwwroot",
       "Source": "backend",
-      "ContentRoot": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\037f87f0-4e48-4ec9-ae8a-f31a01101cd7.PNG",
+      "Identity": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\037f87f0-4e48-4ec9-ae8a-f31a01101cd7.PNG",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/037f87f0-4e48-4ec9-ae8a-f31a01101cd7#[.{fingerprint}]?.PNG",
       "AssetKind": "All",
@@ -38,10 +38,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\037f87f0-4e48-4ec9-ae8a-f31a01101cd7.PNG"
     },
     {
-      "Identity": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\0fe88fcd-2b0a-4421-a5be-8b7f58101e8f.png",
+      "Identity": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\0fe88fcd-2b0a-4421-a5be-8b7f58101e8f.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/0fe88fcd-2b0a-4421-a5be-8b7f58101e8f#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -59,10 +59,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\0fe88fcd-2b0a-4421-a5be-8b7f58101e8f.png"
     },
     {
-      "Identity": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\11a6f573-9e3f-4592-9dbb-46383b7ab222.PNG",
+      "Identity": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\11a6f573-9e3f-4592-9dbb-46383b7ab222.PNG",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/11a6f573-9e3f-4592-9dbb-46383b7ab222#[.{fingerprint}]?.PNG",
       "AssetKind": "All",
@@ -80,10 +80,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\11a6f573-9e3f-4592-9dbb-46383b7ab222.PNG"
     },
     {
-      "Identity": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\21101d7e-ffdb-42bb-b5b6-4fa4132701d1.PNG",
+      "Identity": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\21101d7e-ffdb-42bb-b5b6-4fa4132701d1.PNG",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/21101d7e-ffdb-42bb-b5b6-4fa4132701d1#[.{fingerprint}]?.PNG",
       "AssetKind": "All",
@@ -101,10 +101,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\21101d7e-ffdb-42bb-b5b6-4fa4132701d1.PNG"
     },
     {
-      "Identity": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\28741520-5849-4ed5-b5af-6df830ddfd7a.png",
+      "Identity": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\28741520-5849-4ed5-b5af-6df830ddfd7a.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/28741520-5849-4ed5-b5af-6df830ddfd7a#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -122,10 +122,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\28741520-5849-4ed5-b5af-6df830ddfd7a.png"
     },
     {
-      "Identity": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\3be66b13-38e3-42e8-a932-4fde38a89e81.PNG",
+      "Identity": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\3be66b13-38e3-42e8-a932-4fde38a89e81.PNG",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/3be66b13-38e3-42e8-a932-4fde38a89e81#[.{fingerprint}]?.PNG",
       "AssetKind": "All",
@@ -143,10 +143,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\3be66b13-38e3-42e8-a932-4fde38a89e81.PNG"
     },
     {
-      "Identity": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\6057706f-1855-4f78-8bca-d6711a46748c.png",
+      "Identity": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\6057706f-1855-4f78-8bca-d6711a46748c.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/6057706f-1855-4f78-8bca-d6711a46748c#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -164,10 +164,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\6057706f-1855-4f78-8bca-d6711a46748c.png"
     },
     {
-      "Identity": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\68064515-5507-4c85-b302-8e2a5ae3a53e.png",
+      "Identity": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\68064515-5507-4c85-b302-8e2a5ae3a53e.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/68064515-5507-4c85-b302-8e2a5ae3a53e#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -185,10 +185,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\68064515-5507-4c85-b302-8e2a5ae3a53e.png"
     },
     {
-      "Identity": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\77eb644a-ad73-43ba-ad8e-29045ce44ade.png",
+      "Identity": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\77eb644a-ad73-43ba-ad8e-29045ce44ade.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/77eb644a-ad73-43ba-ad8e-29045ce44ade#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -206,10 +206,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\77eb644a-ad73-43ba-ad8e-29045ce44ade.png"
     },
     {
-      "Identity": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\83ced020-827d-4d72-9428-5ce73a67d454.png",
+      "Identity": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\83ced020-827d-4d72-9428-5ce73a67d454.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/83ced020-827d-4d72-9428-5ce73a67d454#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -227,10 +227,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\83ced020-827d-4d72-9428-5ce73a67d454.png"
     },
     {
-      "Identity": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\83fc432b-bf84-4ff4-b282-e80dd94ce601.jpg",
+      "Identity": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\83fc432b-bf84-4ff4-b282-e80dd94ce601.jpg",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/83fc432b-bf84-4ff4-b282-e80dd94ce601#[.{fingerprint}]?.jpg",
       "AssetKind": "All",
@@ -248,10 +248,31 @@
       "OriginalItemSpec": "wwwroot\\uploads\\83fc432b-bf84-4ff4-b282-e80dd94ce601.jpg"
     },
     {
-      "Identity": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\c00e6b15-fdd5-47c0-b1a8-2be2746d6213.png",
+      "Identity": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\ab9b78e9-0b29-4ac7-b634-730c42098cfc.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "uploads/ab9b78e9-0b29-4ac7-b634-730c42098cfc#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "1hhp7anddt",
+      "Integrity": "taOE0Q7BRLFDmoRtGJVIji6/Dv3CaZwybtAxj9XlCSM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\ab9b78e9-0b29-4ac7-b634-730c42098cfc.png"
+    },
+    {
+      "Identity": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\c00e6b15-fdd5-47c0-b1a8-2be2746d6213.png",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/c00e6b15-fdd5-47c0-b1a8-2be2746d6213#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -269,10 +290,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\c00e6b15-fdd5-47c0-b1a8-2be2746d6213.png"
     },
     {
-      "Identity": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\f3c53842-327e-4a28-a06b-7e8207b0c0d1.png",
+      "Identity": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\f3c53842-327e-4a28-a06b-7e8207b0c0d1.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/f3c53842-327e-4a28-a06b-7e8207b0c0d1#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -290,10 +311,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\f3c53842-327e-4a28-a06b-7e8207b0c0d1.png"
     },
     {
-      "Identity": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\f6a4c48e-be18-435c-af43-4acea118654c.png",
+      "Identity": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\f6a4c48e-be18-435c-af43-4acea118654c.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/f6a4c48e-be18-435c-af43-4acea118654c#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -311,10 +332,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\f6a4c48e-be18-435c-af43-4acea118654c.png"
     },
     {
-      "Identity": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\fef623da-9a32-4f1b-b423-cb9dd72a580f.png",
+      "Identity": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\fef623da-9a32-4f1b-b423-cb9dd72a580f.png",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "uploads/fef623da-9a32-4f1b-b423-cb9dd72a580f#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -335,7 +356,7 @@
   "Endpoints": [
     {
       "Route": "uploads/037f87f0-4e48-4ec9-ae8a-f31a01101cd7.o01j0p9b0w.PNG",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\037f87f0-4e48-4ec9-ae8a-f31a01101cd7.PNG",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\037f87f0-4e48-4ec9-ae8a-f31a01101cd7.PNG",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -356,7 +377,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 04 Jun 2025 19:01:06 GMT"
+          "Value": "Tue, 03 Jun 2025 10:22:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -380,7 +401,7 @@
     },
     {
       "Route": "uploads/037f87f0-4e48-4ec9-ae8a-f31a01101cd7.PNG",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\037f87f0-4e48-4ec9-ae8a-f31a01101cd7.PNG",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\037f87f0-4e48-4ec9-ae8a-f31a01101cd7.PNG",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -401,7 +422,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 04 Jun 2025 19:01:06 GMT"
+          "Value": "Tue, 03 Jun 2025 10:22:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -417,7 +438,7 @@
     },
     {
       "Route": "uploads/0fe88fcd-2b0a-4421-a5be-8b7f58101e8f.adt6hlr6vm.png",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\0fe88fcd-2b0a-4421-a5be-8b7f58101e8f.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\0fe88fcd-2b0a-4421-a5be-8b7f58101e8f.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -438,7 +459,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 27 May 2025 11:59:50 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -462,7 +483,7 @@
     },
     {
       "Route": "uploads/0fe88fcd-2b0a-4421-a5be-8b7f58101e8f.png",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\0fe88fcd-2b0a-4421-a5be-8b7f58101e8f.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\0fe88fcd-2b0a-4421-a5be-8b7f58101e8f.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -483,7 +504,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 27 May 2025 11:59:50 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -499,7 +520,7 @@
     },
     {
       "Route": "uploads/11a6f573-9e3f-4592-9dbb-46383b7ab222.ga94k1rghl.PNG",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\11a6f573-9e3f-4592-9dbb-46383b7ab222.PNG",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\11a6f573-9e3f-4592-9dbb-46383b7ab222.PNG",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -520,7 +541,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 27 May 2025 11:59:50 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -544,7 +565,7 @@
     },
     {
       "Route": "uploads/11a6f573-9e3f-4592-9dbb-46383b7ab222.PNG",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\11a6f573-9e3f-4592-9dbb-46383b7ab222.PNG",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\11a6f573-9e3f-4592-9dbb-46383b7ab222.PNG",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -565,7 +586,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 27 May 2025 11:59:50 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -581,7 +602,7 @@
     },
     {
       "Route": "uploads/21101d7e-ffdb-42bb-b5b6-4fa4132701d1.ga94k1rghl.PNG",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\21101d7e-ffdb-42bb-b5b6-4fa4132701d1.PNG",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\21101d7e-ffdb-42bb-b5b6-4fa4132701d1.PNG",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -602,7 +623,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 27 May 2025 11:59:50 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -626,7 +647,7 @@
     },
     {
       "Route": "uploads/21101d7e-ffdb-42bb-b5b6-4fa4132701d1.PNG",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\21101d7e-ffdb-42bb-b5b6-4fa4132701d1.PNG",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\21101d7e-ffdb-42bb-b5b6-4fa4132701d1.PNG",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -647,7 +668,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 27 May 2025 11:59:50 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -663,7 +684,7 @@
     },
     {
       "Route": "uploads/28741520-5849-4ed5-b5af-6df830ddfd7a.bkfoglz3cc.png",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\28741520-5849-4ed5-b5af-6df830ddfd7a.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\28741520-5849-4ed5-b5af-6df830ddfd7a.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -684,7 +705,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 27 May 2025 11:59:50 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -708,7 +729,7 @@
     },
     {
       "Route": "uploads/28741520-5849-4ed5-b5af-6df830ddfd7a.png",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\28741520-5849-4ed5-b5af-6df830ddfd7a.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\28741520-5849-4ed5-b5af-6df830ddfd7a.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -729,7 +750,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 27 May 2025 11:59:50 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -745,7 +766,7 @@
     },
     {
       "Route": "uploads/3be66b13-38e3-42e8-a932-4fde38a89e81.ga94k1rghl.PNG",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\3be66b13-38e3-42e8-a932-4fde38a89e81.PNG",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\3be66b13-38e3-42e8-a932-4fde38a89e81.PNG",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -766,7 +787,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 04 Jun 2025 19:01:06 GMT"
+          "Value": "Mon, 02 Jun 2025 09:28:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -790,7 +811,7 @@
     },
     {
       "Route": "uploads/3be66b13-38e3-42e8-a932-4fde38a89e81.PNG",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\3be66b13-38e3-42e8-a932-4fde38a89e81.PNG",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\3be66b13-38e3-42e8-a932-4fde38a89e81.PNG",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -811,7 +832,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 04 Jun 2025 19:01:06 GMT"
+          "Value": "Mon, 02 Jun 2025 09:28:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -827,7 +848,7 @@
     },
     {
       "Route": "uploads/6057706f-1855-4f78-8bca-d6711a46748c.adt6hlr6vm.png",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\6057706f-1855-4f78-8bca-d6711a46748c.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\6057706f-1855-4f78-8bca-d6711a46748c.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -848,7 +869,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 27 May 2025 11:59:50 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -872,7 +893,7 @@
     },
     {
       "Route": "uploads/6057706f-1855-4f78-8bca-d6711a46748c.png",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\6057706f-1855-4f78-8bca-d6711a46748c.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\6057706f-1855-4f78-8bca-d6711a46748c.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -893,7 +914,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 27 May 2025 11:59:50 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -909,7 +930,7 @@
     },
     {
       "Route": "uploads/68064515-5507-4c85-b302-8e2a5ae3a53e.lt6ql99jy2.png",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\68064515-5507-4c85-b302-8e2a5ae3a53e.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\68064515-5507-4c85-b302-8e2a5ae3a53e.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -930,7 +951,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 04 Jun 2025 19:01:06 GMT"
+          "Value": "Tue, 03 Jun 2025 10:22:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -954,7 +975,7 @@
     },
     {
       "Route": "uploads/68064515-5507-4c85-b302-8e2a5ae3a53e.png",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\68064515-5507-4c85-b302-8e2a5ae3a53e.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\68064515-5507-4c85-b302-8e2a5ae3a53e.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -975,7 +996,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 04 Jun 2025 19:01:06 GMT"
+          "Value": "Tue, 03 Jun 2025 10:22:07 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -991,7 +1012,7 @@
     },
     {
       "Route": "uploads/77eb644a-ad73-43ba-ad8e-29045ce44ade.lt6ql99jy2.png",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\77eb644a-ad73-43ba-ad8e-29045ce44ade.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\77eb644a-ad73-43ba-ad8e-29045ce44ade.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1012,7 +1033,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 04 Jun 2025 19:01:06 GMT"
+          "Value": "Tue, 03 Jun 2025 10:39:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1036,7 +1057,7 @@
     },
     {
       "Route": "uploads/77eb644a-ad73-43ba-ad8e-29045ce44ade.png",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\77eb644a-ad73-43ba-ad8e-29045ce44ade.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\77eb644a-ad73-43ba-ad8e-29045ce44ade.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1057,7 +1078,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 04 Jun 2025 19:01:06 GMT"
+          "Value": "Tue, 03 Jun 2025 10:39:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1073,7 +1094,7 @@
     },
     {
       "Route": "uploads/83ced020-827d-4d72-9428-5ce73a67d454.lt6ql99jy2.png",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\83ced020-827d-4d72-9428-5ce73a67d454.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\83ced020-827d-4d72-9428-5ce73a67d454.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1094,7 +1115,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 04 Jun 2025 19:01:06 GMT"
+          "Value": "Tue, 03 Jun 2025 10:37:37 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1118,7 +1139,7 @@
     },
     {
       "Route": "uploads/83ced020-827d-4d72-9428-5ce73a67d454.png",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\83ced020-827d-4d72-9428-5ce73a67d454.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\83ced020-827d-4d72-9428-5ce73a67d454.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1139,7 +1160,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 04 Jun 2025 19:01:06 GMT"
+          "Value": "Tue, 03 Jun 2025 10:37:37 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1155,7 +1176,7 @@
     },
     {
       "Route": "uploads/83fc432b-bf84-4ff4-b282-e80dd94ce601.g8xzqzatnr.jpg",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\83fc432b-bf84-4ff4-b282-e80dd94ce601.jpg",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\83fc432b-bf84-4ff4-b282-e80dd94ce601.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1176,7 +1197,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 27 May 2025 11:59:50 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1200,7 +1221,7 @@
     },
     {
       "Route": "uploads/83fc432b-bf84-4ff4-b282-e80dd94ce601.jpg",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\83fc432b-bf84-4ff4-b282-e80dd94ce601.jpg",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\83fc432b-bf84-4ff4-b282-e80dd94ce601.jpg",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1221,7 +1242,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 27 May 2025 11:59:50 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1236,8 +1257,90 @@
       ]
     },
     {
+      "Route": "uploads/ab9b78e9-0b29-4ac7-b634-730c42098cfc.1hhp7anddt.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\ab9b78e9-0b29-4ac7-b634-730c42098cfc.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "271864"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"taOE0Q7BRLFDmoRtGJVIji6/Dv3CaZwybtAxj9XlCSM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 05 Jun 2025 08:57:22 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "1hhp7anddt"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/ab9b78e9-0b29-4ac7-b634-730c42098cfc.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-taOE0Q7BRLFDmoRtGJVIji6/Dv3CaZwybtAxj9XlCSM="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/ab9b78e9-0b29-4ac7-b634-730c42098cfc.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\ab9b78e9-0b29-4ac7-b634-730c42098cfc.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "271864"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"taOE0Q7BRLFDmoRtGJVIji6/Dv3CaZwybtAxj9XlCSM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 05 Jun 2025 08:57:22 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-taOE0Q7BRLFDmoRtGJVIji6/Dv3CaZwybtAxj9XlCSM="
+        }
+      ]
+    },
+    {
       "Route": "uploads/c00e6b15-fdd5-47c0-b1a8-2be2746d6213.lt6ql99jy2.png",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\c00e6b15-fdd5-47c0-b1a8-2be2746d6213.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\c00e6b15-fdd5-47c0-b1a8-2be2746d6213.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1258,7 +1361,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 04 Jun 2025 19:01:06 GMT"
+          "Value": "Tue, 03 Jun 2025 10:44:43 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1282,7 +1385,7 @@
     },
     {
       "Route": "uploads/c00e6b15-fdd5-47c0-b1a8-2be2746d6213.png",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\c00e6b15-fdd5-47c0-b1a8-2be2746d6213.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\c00e6b15-fdd5-47c0-b1a8-2be2746d6213.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1303,7 +1406,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 04 Jun 2025 19:01:06 GMT"
+          "Value": "Tue, 03 Jun 2025 10:44:43 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1319,7 +1422,7 @@
     },
     {
       "Route": "uploads/f3c53842-327e-4a28-a06b-7e8207b0c0d1.adt6hlr6vm.png",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\f3c53842-327e-4a28-a06b-7e8207b0c0d1.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\f3c53842-327e-4a28-a06b-7e8207b0c0d1.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1340,7 +1443,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 27 May 2025 11:59:50 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1364,7 +1467,7 @@
     },
     {
       "Route": "uploads/f3c53842-327e-4a28-a06b-7e8207b0c0d1.png",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\f3c53842-327e-4a28-a06b-7e8207b0c0d1.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\f3c53842-327e-4a28-a06b-7e8207b0c0d1.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1385,7 +1488,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 27 May 2025 11:59:50 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1401,7 +1504,7 @@
     },
     {
       "Route": "uploads/f6a4c48e-be18-435c-af43-4acea118654c.7qlqi0c0f5.png",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\f6a4c48e-be18-435c-af43-4acea118654c.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\f6a4c48e-be18-435c-af43-4acea118654c.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1422,7 +1525,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 27 May 2025 11:59:50 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1446,7 +1549,7 @@
     },
     {
       "Route": "uploads/f6a4c48e-be18-435c-af43-4acea118654c.png",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\f6a4c48e-be18-435c-af43-4acea118654c.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\f6a4c48e-be18-435c-af43-4acea118654c.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1467,7 +1570,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 27 May 2025 11:59:50 GMT"
+          "Value": "Wed, 28 May 2025 19:44:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1483,7 +1586,7 @@
     },
     {
       "Route": "uploads/fef623da-9a32-4f1b-b423-cb9dd72a580f.lt6ql99jy2.png",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\fef623da-9a32-4f1b-b423-cb9dd72a580f.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\fef623da-9a32-4f1b-b423-cb9dd72a580f.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1504,7 +1607,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 04 Jun 2025 19:01:06 GMT"
+          "Value": "Tue, 03 Jun 2025 15:05:14 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1528,7 +1631,7 @@
     },
     {
       "Route": "uploads/fef623da-9a32-4f1b-b423-cb9dd72a580f.png",
-      "AssetFile": "C:\\UBT\\CSE\\Projekte\\E-commerce lab2\\E-Commerce-Lab2\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\fef623da-9a32-4f1b-b423-cb9dd72a580f.png",
+      "AssetFile": "C:\\Users\\Twin\\Desktop\\E-Commerce-Lab2\\backend\\backend\\wwwroot\\uploads\\fef623da-9a32-4f1b-b423-cb9dd72a580f.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1549,7 +1652,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 04 Jun 2025 19:01:06 GMT"
+          "Value": "Tue, 03 Jun 2025 15:05:14 GMT"
         },
         {
           "Name": "Cache-Control",
