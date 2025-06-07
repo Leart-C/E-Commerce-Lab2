@@ -130,7 +130,7 @@ export default function AppSidebar() {
               sx={{ cursor: "pointer", display: "inline" }}
               onClick={() => navigate("/")}
             >
-              Project Name
+              E-Commerce
             </Typography>
           </Box>
 
