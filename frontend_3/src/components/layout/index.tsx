@@ -164,7 +164,7 @@ export default function AppSidebar() {
                   open={Boolean(anchorEl)}
                   onClose={handleClose}
                 >
-                  <MenuItem onClick={handleClose}>Profile</MenuItem>
+                  {/* <MenuItem onClick={handleClose}>Profile</MenuItem> */}
                   <MenuItem
                     onClick={() => {
                       navigate(PATH_DASHBOARD.dashboard);
