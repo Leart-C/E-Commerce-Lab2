@@ -158,7 +158,7 @@ const ProductReview: React.FC = () => {
       <Dialog open={openModal} onClose={handleCloseModal} fullWidth maxWidth="sm">
         <DialogTitle fontWeight={600}>Shto Review</DialogTitle>
         <DialogContent>
-          <TextField
+{/*           <TextField
             label="Emri"
             fullWidth
             margin="dense"
@@ -171,9 +171,9 @@ const ProductReview: React.FC = () => {
             margin="dense"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-          />
+          /> */}
           <TextField
-            label="Vlerësimi (1-10)"
+            label="Vlerësimi (1-5)"
             type="number"
             fullWidth
             margin="dense"
