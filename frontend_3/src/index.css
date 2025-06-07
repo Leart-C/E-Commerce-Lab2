@@ -1,9 +1,10 @@
 @tailwind base;
 @layer base {
   body {
-    @apply min-h-screen bg-gray-100;
+    @apply min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 m-0 p-0;
   }
 }
+
 @tailwind components;
 @layer components {
   input {
