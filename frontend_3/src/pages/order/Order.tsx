@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from "react";
-
 import Swal from "sweetalert2";
 import {
   Dialog,
@@ -18,6 +16,10 @@ import {
   Paper,
   Stack,
   Alert,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
 } from "@mui/material";
 import axiosInstance from "../../auth/axiosInstance";
 
@@ -36,17 +38,30 @@ interface OrderDto {
   totalPrice: number;
 }
 
+interface ShippingAddressDto {
+  id: number;
+  street: string;
+  city: string;
+  state: string;
+  postalCode: string;
+  country: string;
+  userId: string;
+}
+
 const Order: React.FC = () => {
   const [orders, setOrders] = useState<OrderListDto[]>([]);
+  const [shippingAddresses, setShippingAddresses] = useState<ShippingAddressDto[]>([]);
   const [formData, setFormData] = useState<Partial<OrderDto>>({});
   const [editingId, setEditingId] = useState<number | null>(null);
   const [openModal, setOpenModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const apiUrl = "https://localhost:7039/api/Order";
+  const shippingApiUrl = "https://localhost:7039/api/ShippingAddress";
 
   useEffect(() => {
     fetchOrders();
+    fetchShippingAddresses();
   }, []);
 
   const fetchOrders = async () => {
@@ -62,11 +77,27 @@ const Order: React.FC = () => {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const fetchShippingAddresses = async () => {
+    try {
+      const response = await axiosInstance.get(shippingApiUrl);
+      setShippingAddresses(response.data);
+    } catch (error) {
+      console.error("Gabim gjatë marrjes së adresave të transportit:", error);
+    }
+  };
+
+  // Për të marrë rrugën nga ID-ja
+  const getStreetById = (id: number): string => {
+    const addr = shippingAddresses.find((a) => a.id === id);
+    if (!addr) return `ID: ${id}`;
+    return `${addr.street}, ${addr.city}`;
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | { name?: string; value: unknown }>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]:
+      [name!]:
         name === "totalPrice" || name === "shippingAddressId"
           ? Number(value)
           : value,
@@ -206,7 +237,7 @@ const Order: React.FC = () => {
                 <strong>Username</strong>
               </TableCell>
               <TableCell>
-                <strong>Shipping Address ID</strong>
+                <strong>Shipping Address</strong>
               </TableCell>
               <TableCell>
                 <strong>Status</strong>
@@ -224,7 +255,7 @@ const Order: React.FC = () => {
               <TableRow key={order.id}>
                 <TableCell>{order.id}</TableCell>
                 <TableCell>{order.username || "Anonim"}</TableCell>
-                <TableCell>{order.shippingAddressId}</TableCell>
+                <TableCell>{getStreetById(order.shippingAddressId)}</TableCell>
                 <TableCell>{order.status}</TableCell>
                 <TableCell>{order.totalPrice}</TableCell>
                 <TableCell>
@@ -259,50 +290,60 @@ const Order: React.FC = () => {
         fullWidth
       >
         <DialogTitle>
-          {editingId ? "Edito Porosinë" : "Shto Porosi"}
+          {editingId ? "Ndrysho Porosin" : "Shto Porosi"}
         </DialogTitle>
         <DialogContent>
-          <form onSubmit={handleSubmit}>
+          <form id="order-form" onSubmit={handleSubmit}>
+            <FormControl fullWidth margin="normal">
+              <InputLabel id="shipping-label">Adresa e Transportit</InputLabel>
+              <Select
+                labelId="shipping-label"
+                id="shippingAddressId"
+                name="shippingAddressId"
+                value={formData.shippingAddressId ?? ""}
+                label="Adresa e Transportit"
+                onChange={handleChange}
+                required
+              >
+                {shippingAddresses.map((addr) => (
+                  <MenuItem key={addr.id} value={addr.id}>
+                    {addr.street}, {addr.city}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+
             <TextField
-              label="Shipping Address ID"
-              name="shippingAddressId"
-              type="number"
-              value={formData.shippingAddressId || ""}
-              onChange={handleChange}
-              fullWidth
-              required
               margin="normal"
-            />
-            <TextField
-              label="Status"
+              label="Statusi"
               name="status"
-              value={formData.status || ""}
+              value={formData.status ?? ""}
               onChange={handleChange}
               fullWidth
               required
-              margin="normal"
             />
+
             <TextField
-              label="Total Price"
+              margin="normal"
+              label="Totali"
               name="totalPrice"
               type="number"
-              value={formData.totalPrice || ""}
+              inputProps={{ step: "0.01" }}
+              value={formData.totalPrice ?? ""}
               onChange={handleChange}
               fullWidth
               required
-              margin="normal"
-              inputProps={{ step: "0.01" }}
             />
-            <DialogActions sx={{ mt: 2 }}>
-              <Button onClick={() => setOpenModal(false)} color="secondary">
-                Anulo
-              </Button>
-              <Button type="submit" variant="contained" color="primary">
-                {editingId ? "Përditëso" : "Shto"}
-              </Button>
-            </DialogActions>
           </form>
         </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setOpenModal(false)} color="secondary">
+            Anulo
+          </Button>
+          <Button type="submit" form="order-form" variant="contained" color="primary">
+            {editingId ? "Ruaj Ndryshimet" : "Shto"}
+          </Button>
+        </DialogActions>
       </Dialog>
     </div>
   );
