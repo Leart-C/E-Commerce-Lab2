@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import {
   Card,
   CardContent,
@@ -12,7 +11,6 @@ import {
   DialogContent,
   DialogActions,
   TextField,
-  Rating,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../../auth/axiosInstance";
@@ -83,15 +81,13 @@ const ProductReview: React.FC = () => {
       email: email.trim(),
     };
 
-    console.log("Payload që po dërgohet:", payload); // 👈 Vendose këtu
-
     try {
       await axiosInstance.post(
         "https://localhost:7039/api/ProductReview",
         payload,
         {
           headers: {
-            Authorization: `Bearer ${token}`, // token nga login
+            Authorization: `Bearer ${token}`,
           },
         }
       );
@@ -106,25 +102,49 @@ const ProductReview: React.FC = () => {
   };
 
   return (
-    <Box p={3}>
-      <Typography variant="h4" gutterBottom>
+    <Box p={4} sx={{ backgroundColor: "#f5f5f5", minHeight: "100vh" }}>
+      <Typography
+        variant="h4"
+        gutterBottom
+        textAlign="center"
+        fontWeight={600}
+        color="primary.main"
+      >
         Produktet për Review
       </Typography>
 
-      <Grid container spacing={2}>
+      <Grid container spacing={3} justifyContent="center">
         {products.map((product) => (
-          <Grid item xs={12} md={6} key={product.id}>
-            <Card>
+          <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
+            <Card
+              sx={{
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                borderRadius: 3,
+                boxShadow: 3,
+                transition: "0.3s",
+                '&:hover': {
+                  transform: "translateY(-5px)",
+                  boxShadow: 6,
+                },
+              }}
+            >
               <CardContent>
-                <Typography variant="h6">{product.name}</Typography>
-                <Typography variant="body2" color="textSecondary">
+                <Typography variant="h6" fontWeight={500} gutterBottom>
+                  {product.name}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
                   {product.description}
                 </Typography>
                 <Box mt={2}>
                   <Button
                     variant="contained"
                     color="primary"
+                    fullWidth
                     onClick={() => handleOpenModal(product.id)}
+                    sx={{ borderRadius: 2, textTransform: "none" }}
                   >
                     Shto Review
                   </Button>
@@ -135,10 +155,10 @@ const ProductReview: React.FC = () => {
         ))}
       </Grid>
 
-      <Dialog open={openModal} onClose={handleCloseModal} fullWidth>
-        <DialogTitle>Shto Review</DialogTitle>
+      <Dialog open={openModal} onClose={handleCloseModal} fullWidth maxWidth="sm">
+        <DialogTitle fontWeight={600}>Shto Review</DialogTitle>
         <DialogContent>
-          {/* <TextField
+          <TextField
             label="Emri"
             fullWidth
             margin="dense"
@@ -151,7 +171,7 @@ const ProductReview: React.FC = () => {
             margin="dense"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-          /> */}
+          />
           <TextField
             label="Vlerësimi (1-10)"
             type="number"
@@ -168,12 +188,12 @@ const ProductReview: React.FC = () => {
             }}
             inputProps={{ min: 1, max: 10 }}
           />
-
           <TextField
             label="Shkruaj mendimin tuaj"
             multiline
             rows={4}
             fullWidth
+            margin="dense"
             value={reviewText}
             onChange={(e) => setReviewText(e.target.value)}
           />
