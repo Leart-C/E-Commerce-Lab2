@@ -65,20 +65,20 @@ const AuthContextProvider = ({ children }: IProps) => {
   const navigate = useNavigate();
 
   const initializeAuthContext = useCallback(async () => {
-    let token = getAccessToken();
+    const token = getAccessToken();
     const refreshToken = getRefreshToken();
 
     // Nëse nuk ka token por ka refreshToken, provo të rifresko
-    if (!token && refreshToken) {
-      const refreshed = await refreshTokenFunction();
-      if (!refreshed) {
-        setSession(null, null);
-        localStorage.removeItem("user");
-        dispatch({ type: IAuthContextActionTypes.LOGOUT });
-        return;
-      }
-      token = getAccessToken();
-    }
+    // if (!token && refreshToken) {
+    //   const refreshed = await refreshTokenFunction();
+    //   if (!refreshed) {
+    //     setSession(null, null);
+    //     localStorage.removeItem("user");
+    //     dispatch({ type: IAuthContextActionTypes.LOGOUT });
+    //     return;
+    //   }
+    //   token = getAccessToken();
+    // }
 
     // Nëse ka token, VALIDOJE para se ta vendosh si të loguar
     if (token) {
@@ -101,45 +101,44 @@ const AuthContextProvider = ({ children }: IProps) => {
         // Token i skaduar ose i pavlefshëm
 
         // Provo të rifresko token-in
-        if (refreshToken) {
-          const refreshed = await refreshTokenFunction();
-          if (refreshed) {
-            // Riprovo validimin pas refresh-it
-            try {
-              const newToken = getAccessToken();
-              const response = await axiosInstance.get(ME_URL);
-              const userJson = localStorage.getItem("user");
+        // if (refreshToken) {
+        //   const refreshed = await refreshTokenFunction();
+        //   if (refreshed) {
+        //     // Riprovo validimin pas refresh-it
+        //     try {
+        //       const newToken = getAccessToken();
+        //       const response = await axiosInstance.get(ME_URL);
+        //       const userJson = localStorage.getItem("user");
 
-              if (userJson && response.data) {
-                const userInfo = JSON.parse(userJson);
-                setSession(newToken, refreshToken);
-                dispatch({
-                  type: IAuthContextActionTypes.LOGIN,
-                  payload: userInfo,
-                });
-                return;
-              }
-            } catch (refreshError) {
-              console.log(
-                "Token validation failed after refresh:",
-                refreshError
-              );
-            }
-          }
-        }
+        //       if (userJson && response.data) {
+        //         const userInfo = JSON.parse(userJson);
+        //         setSession(newToken, refreshToken);
+        //         dispatch({
+        //           type: IAuthContextActionTypes.LOGIN,
+        //           payload: userInfo,
+        //         });
+        //         return;
+        //       }
+        //     } catch (refreshError) {
+        //       console.log(
+        //         "Token validation failed after refresh:",
+        //         refreshError
+        //       );
+        //     }
+        //   }
+        // }
 
         // Nëse refresh dështon ose validation dështon përsëri
         setSession(null, null);
         localStorage.removeItem("user");
         dispatch({ type: IAuthContextActionTypes.LOGOUT });
-        return;
       }
+    } else {
+      // Nëse nuk ka token fare
+      setSession(null, null);
+      localStorage.removeItem("user"); // SHTUAR: Sigurohu që user info është hequr
+      dispatch({ type: IAuthContextActionTypes.LOGOUT });
     }
-
-    // Nëse nuk ka token fare
-    setSession(null, null);
-    localStorage.removeItem("user"); // SHTUAR: Sigurohu që user info është hequr
-    dispatch({ type: IAuthContextActionTypes.LOGOUT });
   }, []);
 
   useEffect(() => {

@@ -2708,6 +2708,10 @@
           "token": {
             "type": "string",
             "nullable": true
+          },
+          "userId": {
+            "type": "string",
+            "format": "uuid"
           }
         },
         "additionalProperties": false

@@ -112,8 +112,6 @@ const PaymentMethod: React.FC = () => {
         Menaxhimi i Metodave të Pagesës
       </h2>
 
-      <button onClick={refreshTokenTest}>refresh token</button>
-
       <Button
         variant="contained"
         color="primary"

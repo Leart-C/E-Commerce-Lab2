@@ -28,7 +28,11 @@ axiosInstance.interceptors.response.use(
       const success = await refreshToken();
       if (success) {
         const newAccessToken = getAccessToken();
-        originalRequest.headers.Authorization = `Bearer ${newAccessToken}`;
+        axiosInstance.defaults.headers.common["Authorization"] =
+          `Bearer ${newAccessToken}`;
+        originalRequest.headers["Authorization"] = `Bearer ${newAccessToken}`;
+        axiosInstance.defaults.headers.common["Authorization"] =
+          `Bearer ${newAccessToken}`;
         return axiosInstance(originalRequest);
       } else {
         removeSession();

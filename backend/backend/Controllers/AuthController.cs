@@ -164,7 +164,7 @@ namespace backend.Controllers
                 RefreshToken = tokenResult.RefreshToken
             });
         }
-
+        [Authorize]
         [HttpGet("me")]
         public async Task<ActionResult<LoginServiceResponseDto>> Me()
         {
