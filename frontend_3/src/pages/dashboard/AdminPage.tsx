@@ -89,6 +89,7 @@ const [orderPriceRange, setOrderPriceRange] = useState<{ min: number; max: numbe
 
   // Categories
   const [categories, setCategories] = useState<ICategoryDto[]>([]);
+  const [searchCategory, setSearchCategory] = useState("");
 
   // Fetch data
   const fetchUsers = async () => {
@@ -135,26 +136,21 @@ const [orderPriceRange, setOrderPriceRange] = useState<{ min: number; max: numbe
   }, []);
 
   // Filtrimi dhe renditja për përdorues
-  const filteredUsers = users
-    .filter((user) => user.userName.toLowerCase().includes(searchUser.toLowerCase()))
-    .filter(
-      (user) => filterUserRole === "all" || (user.roles || "").includes(filterUserRole)
-    )
-    .sort((a, b) => {
-      if (!userSortField) return 0;
-      const fieldA = a[userSortField] || "";
-      const fieldB = b[userSortField] || "";
-      if (typeof fieldA === "string" && typeof fieldB === "string") {
-        return userSortDirection === "asc"
-          ? fieldA.localeCompare(fieldB)
-          : fieldB.localeCompare(fieldA);
-      }
-      if (typeof fieldA === "number" && typeof fieldB === "number") {
-        return userSortDirection === "asc" ? fieldA - fieldB : fieldB - fieldA;
-      }
-      return 0;
-    });
+const filteredUsers = users
+  .filter((user) =>
+    user.userName.toLowerCase().includes(searchUser.toLowerCase())
+  )
+  .filter((user) => {
+    if (filterUserRole === "all") return true;
+    const rolesArray = user.roles || [];
+    return rolesArray.some(
+      (role) => role.toLowerCase() === filterUserRole.toLowerCase()
+    );
+  })
+
     
+
+
 
   // Filtrimi dhe renditja për produktet
   const filteredProducts = products
@@ -267,6 +263,10 @@ const [orderPriceRange, setOrderPriceRange] = useState<{ min: number; max: numbe
   };
 
   // Funksione eksportimi për kategoritë
+   const filteredCategories = categories
+    .filter((category) =>
+    category.categoryName?.toLowerCase().includes(searchCategory.toLowerCase())
+    )
   const exportCategoriesToPDF = () => {
     const doc = new jsPDF();
     doc.text("Lista e Kategorive", 14, 15);
@@ -522,36 +522,46 @@ const [orderPriceRange, setOrderPriceRange] = useState<{ min: number; max: numbe
       </Table>
     </TableContainer>
 
+
     {/* CATEGORIES */}
-    <Typography variant="h5" my={2}>
-      Lista e Kategorive
-    </Typography>
-    <Box display="flex" justifyContent="flex-end" gap={2} mb={2}>
-      <Button variant="outlined" onClick={exportCategoriesToPDF}>
-        Eksporto PDF
-      </Button>
-      <Button variant="outlined" onClick={exportCategoriesToExcel}>
-        Eksporto Excel
-      </Button>
-    </Box>
-    <TableContainer component={Paper} sx={{ maxHeight: 300, mb: 5 }}>
-      <Table stickyHeader size="small">
-        <TableHead>
-          <TableRow>
-            <TableCell>Emri i kategorisë</TableCell>
-            <TableCell>Përshkrimi</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {categories.map((category) => (
-            <TableRow key={category.id}>
-              <TableCell>{category.categoryName || "-"}</TableCell>
-              <TableCell>{category.description || "-"}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    {/* CATEGORIES */}
+<Typography variant="h5" my={2}>
+  Lista e Kategorive
+</Typography>
+<Box display="flex" justifyContent="flex-end" gap={2} mb={2}>
+  <Button variant="outlined" onClick={exportCategoriesToPDF}>
+    Eksporto PDF
+  </Button>
+  <Button variant="outlined" onClick={exportCategoriesToExcel}>
+    Eksporto Excel
+  </Button>
+</Box>
+<TextField
+  label="Kërko kategori"
+  value={searchCategory}
+  onChange={(e) => setSearchCategory(e.target.value)}
+  sx={{ mb: 2, width: 300 }}
+/>
+<TableContainer component={Paper} sx={{ maxHeight: 300, mb: 5 }}>
+  <Table stickyHeader size="small">
+    <TableHead>
+      <TableRow>
+        <TableCell>Emri i kategorisë</TableCell>
+        <TableCell>Përshkrimi</TableCell>
+      </TableRow>
+    </TableHead>
+    <TableBody>
+      {filteredCategories.map((category) => (
+        <TableRow key={category.id}>
+          <TableCell>{category.categoryName || "-"}</TableCell>
+          <TableCell>{category.description || "-"}</TableCell>
+        </TableRow>
+      ))}
+    </TableBody>
+  </Table>
+</TableContainer>
+
+
   </Box>
 );
 
