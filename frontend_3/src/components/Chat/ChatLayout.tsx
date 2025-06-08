@@ -9,13 +9,16 @@ import { getAccessToken } from "../../auth/session";
 import useAuth from "../../hooks/useAuth.hook";
 import * as signalR from "@microsoft/signalr";
 import Swal from "sweetalert2";
-import { ChatMessageDto } from "../Chat/ChatMessageDto"; // krijo ose sigurohu që kjo është e saktë
+import { ChatMessageDto } from "../Chat/ChatMessageDto";
 
 const ChatLayout = () => {
   const [selectedReceiver, setSelectedReceiver] = useState<{
     id: string;
     userName: string;
   } | null>(null);
+  const [userList, setUserList] = useState<UserDto[]>([]);
+  const [showDropdown, setShowDropdown] = useState(false);
+
   const { userId } = useParams<{ userId: string }>();
   const navigate = useNavigate();
   const { isAuthenticated, user } = useAuth();
@@ -47,7 +50,6 @@ const ChatLayout = () => {
             message.receiverId === currentUserId);
 
         if (!isRelevant) {
-          // Show SweetAlert2 notification
           Swal.fire({
             icon: "info",
             title: "Mesazh i ri",
@@ -84,49 +86,66 @@ const ChatLayout = () => {
 
   useEffect(() => {
     const fetchReceiverDetails = async () => {
-      if (userId && !selectedReceiver?.userName) {
-        if (!isAuthenticated) return;
+      if (!isAuthenticated) return;
 
-        try {
-          const token = getAccessToken();
-          const res = await fetch("https://localhost:7039/api/Auth/users", {
-            headers: { Authorization: `Bearer ${token}` },
-          });
+      try {
+        const token = getAccessToken();
+        const res = await fetch("https://localhost:7039/api/Auth/users", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
 
-          const users: UserDto[] = await res.json();
+        const users: UserDto[] = await res.json();
+        setUserList(users.filter((u) => u.id !== user?.id));
+
+        if (userId && !selectedReceiver?.userName) {
           const found = users.find((u) => u.id === userId);
-
           if (found) setSelectedReceiver(found);
-        } catch (err) {
-          console.error("Error fetching receiver:", err);
         }
+      } catch (err) {
+        console.error("Error fetching users:", err);
       }
     };
 
-    if (
-      userId &&
-      (selectedReceiver?.id !== userId || !selectedReceiver?.userName)
-    ) {
-      fetchReceiverDetails();
-    }
-  }, [
-    userId,
-    selectedReceiver?.id,
-    selectedReceiver?.userName,
-    isAuthenticated,
-  ]);
+    fetchReceiverDetails();
+  }, [userId, selectedReceiver?.userName, isAuthenticated, user?.id]);
 
-  //   const handleSelectUserForChat = (id: string, userName: string) => {
-  //     setSelectedReceiver({ id, userName });
-  //     navigate(`/dashboard/chat/${id}`);
-  //   };
+  const handleSelectUserForChat = (id: string, userName: string) => {
+    setSelectedReceiver({ id, userName });
+    setShowDropdown(false);
+    navigate(`/dashboard/chat/${id}`);
+  };
 
   return (
     <div style={{ display: "flex", height: "90vh", border: "1px solid #ccc" }}>
-      {/* <div style={{ width: '350px', borderRight: '1px solid #eee', padding: '10px', overflowY: 'auto' }}>
-                
-                <UserPage onSelectUserForChat={handleSelectUserForChat} />
-            </div> */}
+      <div
+        style={{
+          width: "300px",
+          borderRight: "1px solid #eee",
+          padding: "20px",
+          position: "relative",
+        }}
+      >
+        <button
+          onClick={() => setShowDropdown((prev) => !prev)}
+          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full"
+        >
+          Chat with: {selectedReceiver?.userName || "Select user"}
+        </button>
+
+        {showDropdown && (
+          <div className="mt-2 bg-white border rounded shadow-md z-10 absolute w-full max-h-60 overflow-y-auto">
+            {userList.map((user) => (
+              <div
+                key={user.id}
+                className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                onClick={() => handleSelectUserForChat(user.id, user.userName)}
+              >
+                {user.userName}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
 
       <div
         style={{

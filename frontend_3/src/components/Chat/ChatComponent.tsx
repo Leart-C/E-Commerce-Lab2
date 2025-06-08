@@ -178,30 +178,18 @@ function ChatComponent({ receiverId, receiverUsername }: ChatComponentProps) {
   };
 
   return (
-    <div
-      style={{
-        height: "calc(100vh - 100px)", // ose 'calc(100vh - 250px)' për dinamike
-        overflowY: "auto",
-        border: "1px solid #eee",
-        padding: 10,
-        marginBottom: 10,
-        backgroundColor: "#fff",
-      }}
-    >
-      <h2>Chat with: {receiverUsername || "No one selected"}</h2>
-      <div
-        style={{
-          flexGrow: 1,
-          overflowY: "auto",
-          border: "1px solid #eee",
-          padding: 10,
-          marginBottom: 10,
-        }}
-      >
+    <div className="flex flex-col h-[calc(100vh-100px)] p-4 bg-white border rounded shadow-md">
+      <h2 className="text-xl font-semibold mb-4">
+        Chat with:{" "}
+        <span className="text-blue-600">
+          {receiverUsername || "No one selected"}
+        </span>
+      </h2>
+      <div className="flex-1 overflow-y-auto border p-4 mb-4 space-y-2">
         {receiverId === null ? (
-          <p>Select a user to start chatting.</p>
+          <p className="text-gray-500">Select a user to start chatting.</p>
         ) : messages.length === 0 ? (
-          <p>No messages yet.</p>
+          <p className="text-gray-500">No messages yet.</p>
         ) : (
           messages
             .filter(
@@ -212,26 +200,31 @@ function ChatComponent({ receiverId, receiverUsername }: ChatComponentProps) {
             .map((m) => (
               <div
                 key={m.id}
-                style={{
-                  background: m.senderId === user?.id ? "#d0f0c0" : "#f0f0f0",
-                  padding: 10,
-                  marginBottom: 5,
-                  borderRadius: 5,
-                }}
+                className={`p-3 rounded-md ${
+                  m.senderId === user?.id ? "bg-green-100" : "bg-gray-100"
+                }`}
               >
-                <strong>{m.senderUsername || m.senderId}</strong>: {m.message}
-                <div style={{ fontSize: "0.8em", color: "#666" }}>
-                  {new Date(m.timestampt).toLocaleTimeString()}
-                  {m.isRead ? " ✓" : ""}
+                <div className="font-medium">
+                  {m.senderUsername || m.senderId}
+                </div>
+                <div>{m.message}</div>
+                <div className="text-sm text-gray-500 flex items-center justify-between mt-1">
+                  <span>
+                    {new Date(m.timestampt).toLocaleTimeString()}{" "}
+                    {m.isRead ? "✓" : ""}
+                  </span>
                   {m.senderId === user?.id && (
-                    <span style={{ marginLeft: 10 }}>
+                    <span className="space-x-2">
                       <button
                         onClick={() => handleEditMessage(m.id, m.message)}
-                        style={{ marginRight: 5 }}
+                        className="text-blue-600 hover:underline"
                       >
                         Edit
                       </button>
-                      <button onClick={() => handleDeleteMessage(m.id)}>
+                      <button
+                        onClick={() => handleDeleteMessage(m.id)}
+                        className="text-red-600 hover:underline"
+                      >
                         Delete
                       </button>
                     </span>
@@ -241,20 +234,20 @@ function ChatComponent({ receiverId, receiverUsername }: ChatComponentProps) {
             ))
         )}
       </div>
-      <div style={{ display: "flex" }}>
+      <div className="flex items-center">
         <input
           type="text"
           value={messageInput}
           onChange={(e) => setMessageInput(e.target.value)}
           placeholder="Type your message..."
-          style={{ flex: 1, padding: 10 }}
+          className="flex-1 p-2 border rounded shadow-sm"
           disabled={!receiverId}
           onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
         />
         <button
           onClick={handleSendMessage}
           disabled={!connection || !user || !receiverId}
-          style={{ padding: "0 20px", marginLeft: 5 }}
+          className="ml-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
         >
           Send
         </button>

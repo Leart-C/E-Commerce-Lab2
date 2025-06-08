@@ -116,14 +116,29 @@ const UserPage = ({ onSelectUserForChat }: UserPageProps) => {
   };
 
   return (
-    <Box sx={{ padding: 4 }}>
-      <Typography variant="h4" gutterBottom color="primary">
+    <Box
+      sx={{
+        padding: 4,
+        background: "linear-gradient(to right, #e3f2fd, #bbdefb)",
+        minHeight: "100vh",
+        borderRadius: 2,
+      }}
+    >
+      <Typography
+        variant="h3"
+        gutterBottom
+        sx={{
+          fontWeight: "bold",
+          color: "#1565c0",
+          textShadow: "1px 1px 2px rgba(0,0,0,0.1)",
+        }}
+      >
         👥 Përdoruesit në dispozicion për bisedë
       </Typography>
 
       {loading && (
         <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
-          <CircularProgress />
+          <CircularProgress color="primary" />
         </Box>
       )}
 
@@ -134,38 +149,55 @@ const UserPage = ({ onSelectUserForChat }: UserPageProps) => {
       )}
 
       {!loading && !error && users.length === 0 && (
-        <Typography>No other users available to chat with.</Typography>
+        <Typography color="text.secondary">
+          Nuk ka përdorues të tjerë për bisedë për momentin.
+        </Typography>
       )}
 
-      <Grid container spacing={2} sx={{ mt: 2 }}>
+      <Grid container spacing={3} sx={{ mt: 3 }}>
         {users.map((u) => (
           <Grid item xs={12} sm={6} md={4} key={u.id}>
             <Card
               sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                padding: 2,
+                padding: 3,
+                borderRadius: 4,
+                backgroundColor: "#ffffff",
+                transition: "all 0.3s ease",
                 boxShadow: 3,
-                borderRadius: 3,
                 "&:hover": {
                   boxShadow: 6,
+                  transform: "translateY(-5px)",
                 },
               }}
             >
-              <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                <FaUserCircle size={32} color="#1976d2" />
-                <Typography variant="h6">{u.userName}</Typography>
+              <Box
+                sx={{ display: "flex", alignItems: "center", gap: 2, mb: 2 }}
+              >
+                <FaUserCircle size={36} color="#1e88e5" />
+                <Typography variant="h6" sx={{ fontWeight: 600 }}>
+                  {u.userName}
+                </Typography>
               </Box>
 
               <Badge
                 badgeContent={unreadCounts[u.id] || 0}
                 color="error"
-                overlap="circular"
+                sx={{ mr: 1 }}
               >
                 <Button
-                  variant="outlined"
+                  variant="contained"
+                  fullWidth
                   startIcon={<FaCommentDots />}
+                  sx={{
+                    background: "linear-gradient(to right, #42a5f5, #1e88e5)",
+                    color: "#fff",
+                    fontWeight: "bold",
+                    borderRadius: 3,
+                    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+                    "&:hover": {
+                      background: "linear-gradient(to right, #1e88e5, #1565c0)",
+                    },
+                  }}
                   onClick={() => handleChatClick(u.id, u.userName)}
                 >
                   Chat
