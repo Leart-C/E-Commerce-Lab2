@@ -4,6 +4,7 @@ import {
   useReducer,
   useCallback,
   useEffect,
+  useRef,
 } from "react";
 import {
   IAuthContext,
@@ -142,10 +143,11 @@ const AuthContextProvider = ({ children }: IProps) => {
   }, []);
 
   useEffect(() => {
-    console.log("AuthContext Initialization start");
-    initializeAuthContext()
-      .then(() => console.log("initializeAuthContext was successfull"))
-      .catch((error) => console.log(error));
+    if (!isLoggingIn.current) {
+      initializeAuthContext()
+        .then(() => console.log("initializeAuthContext was successful"))
+        .catch((error) => console.log(error));
+    }
   }, []);
 
   const register = useCallback(
@@ -171,8 +173,9 @@ const AuthContextProvider = ({ children }: IProps) => {
     },
     []
   );
-
+  const isLoggingIn = useRef(false);
   const login = useCallback(async (userName: string, password: string) => {
+    isLoggingIn.current = true;
     const response = await axiosInstance.post<ILoginResponseDto>(LOGIN_URL, {
       userName,
       password,
@@ -191,6 +194,7 @@ const AuthContextProvider = ({ children }: IProps) => {
       payload: userInfo,
     });
     navigate(PATH_AFTER_LOGIN);
+    isLoggingIn.current = false;
   }, []);
 
   // Logout Method

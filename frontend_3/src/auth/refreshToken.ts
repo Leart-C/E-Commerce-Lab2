@@ -1,5 +1,5 @@
 import { getRefreshToken, setSession, removeSession } from "./session";
-import axiosInstance from "./axiosInstance";
+import axiosInstance from "../utils/axiosInstance";
 
 export const refreshToken = async (): Promise<boolean> => {
   try {

@@ -20,6 +20,7 @@ namespace backend.Core.DbContext
         public DbSet<Refund> Refunds { get; set; }
         public DbSet<Invoice> Invoices { get; set; } 
         public DbSet<ChatMessage> ChatMessage { get; set; } // This line
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder builder)

@@ -22,7 +22,7 @@ import {
   InputLabel,
   FormControl,
 } from "@mui/material";
-import axiosInstance from "../../auth/axiosInstance";
+import axiosInstance from "../../utils/axiosInstance";
 
 interface Product {
   id: string;
@@ -161,12 +161,25 @@ const OrderItem: React.FC = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell><strong>ID</strong></TableCell>
-              <TableCell><strong>Order ID</strong></TableCell>
-              <TableCell><strong>Produkt</strong></TableCell> {/* Emri i produktit */}
-              <TableCell><strong>Sasia</strong></TableCell>
-              <TableCell><strong>Çmimi</strong></TableCell>
-              <TableCell><strong>Veprime</strong></TableCell>
+              <TableCell>
+                <strong>ID</strong>
+              </TableCell>
+              <TableCell>
+                <strong>Order ID</strong>
+              </TableCell>
+              <TableCell>
+                <strong>Produkt</strong>
+              </TableCell>{" "}
+              {/* Emri i produktit */}
+              <TableCell>
+                <strong>Sasia</strong>
+              </TableCell>
+              <TableCell>
+                <strong>Çmimi</strong>
+              </TableCell>
+              <TableCell>
+                <strong>Veprime</strong>
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -174,7 +187,8 @@ const OrderItem: React.FC = () => {
               <TableRow key={item.id}>
                 <TableCell>{item.id}</TableCell>
                 <TableCell>{item.orderId}</TableCell>
-                <TableCell>{getProductName(item.productId)}</TableCell> {/* EMRI */}
+                <TableCell>{getProductName(item.productId)}</TableCell>{" "}
+                {/* EMRI */}
                 <TableCell>{item.quantity}</TableCell>
                 <TableCell>{item.price.toFixed(2)} €</TableCell>
                 <TableCell>

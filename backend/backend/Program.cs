@@ -45,6 +45,7 @@ builder.Services.AddScoped<ILogService, LogService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddSingleton<MongoDbService>();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
+builder.Services.AddScoped<ITokenService, TokenService>();
 
 builder.Services.AddSingleton<IMongoClient>(sp =>
 {

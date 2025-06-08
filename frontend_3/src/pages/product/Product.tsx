@@ -27,13 +27,13 @@ import { CategoryDto } from "../category/Category";
 import { AuthContext } from "../../auth/auth.context";
 import { getSession } from "../../auth/auth.utils";
 import { IAuthContext } from "../../types/auth.types";
-import axiosInstance from "../../auth/axiosInstance";
+import axiosInstance from "../../utils/axiosInstance";
 
 // --- NEW IMPORTS FOR WISHLIST & TABS ---
-import TabsComponent, { TabConfig } from "../../components/Tabs/TabLayout";// Your generic tab component
+import TabsComponent, { TabConfig } from "../../components/Tabs/TabLayout"; // Your generic tab component
 import { useWishlist } from "../../components/Context/WishlistContext"; // Wishlist context hook
 import WishlistTab from "../../components/Tabs/WishlistTabs"; // The component that displays wishlisted items
-import { FaStar, FaRegStar } from 'react-icons/fa'; // Star icons from react-icons (install with: npm install react-icons)
+import { FaStar, FaRegStar } from "react-icons/fa"; // Star icons from react-icons (install with: npm install react-icons)
 // --- END NEW IMPORTS ---
 
 interface ProductDto {
@@ -221,11 +221,13 @@ const Product: React.FC = () => {
   // --- NEW: Define tabs for the Product page ---
   const productPageTabs: TabConfig[] = [
     {
-      id: 'overview',
-      label: 'Overview',
+      id: "overview",
+      label: "Overview",
       // The content of the 'Overview' tab is your existing product management table
       component: (
-        <div style={{ padding: "0px" }}> {/* Minimal padding as the outer div has padding */}
+        <div style={{ padding: "0px" }}>
+          {" "}
+          {/* Minimal padding as the outer div has padding */}
           <Button
             variant="contained"
             color="primary"
@@ -234,19 +236,35 @@ const Product: React.FC = () => {
           >
             Shto Produkt
           </Button>
-
           <TableContainer component={Paper}>
             <Table>
               <TableHead>
                 <TableRow>
-                  <TableCell><strong>ID</strong></TableCell>
-                  <TableCell><strong>Emri</strong></TableCell>
-                  <TableCell><strong>Përshkrimi</strong></TableCell>
-                  <TableCell><strong>Çmimi</strong></TableCell>
-                  <TableCell><strong>Kategoria</strong></TableCell>
-                  <TableCell><strong>Foto</strong></TableCell>
-                  <TableCell><strong>Wishlist</strong></TableCell> {/* <-- NEW: Column for Wishlist */}
-                  <TableCell><strong>Veprime</strong></TableCell>
+                  <TableCell>
+                    <strong>ID</strong>
+                  </TableCell>
+                  <TableCell>
+                    <strong>Emri</strong>
+                  </TableCell>
+                  <TableCell>
+                    <strong>Përshkrimi</strong>
+                  </TableCell>
+                  <TableCell>
+                    <strong>Çmimi</strong>
+                  </TableCell>
+                  <TableCell>
+                    <strong>Kategoria</strong>
+                  </TableCell>
+                  <TableCell>
+                    <strong>Foto</strong>
+                  </TableCell>
+                  <TableCell>
+                    <strong>Wishlist</strong>
+                  </TableCell>{" "}
+                  {/* <-- NEW: Column for Wishlist */}
+                  <TableCell>
+                    <strong>Veprime</strong>
+                  </TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -272,10 +290,24 @@ const Product: React.FC = () => {
                       {product.id && ( // Only show if product has an ID
                         <button
                           onClick={() => toggleWishlist(product.id!)} // Use ! for non-null assertion
-                          style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '20px', color: '#FFD700' }}
-                          aria-label={isWishlisted(product.id!) ? "Remove from wishlist" : "Add to wishlist"}
+                          style={{
+                            background: "none",
+                            border: "none",
+                            cursor: "pointer",
+                            fontSize: "20px",
+                            color: "#FFD700",
+                          }}
+                          aria-label={
+                            isWishlisted(product.id!)
+                              ? "Remove from wishlist"
+                              : "Add to wishlist"
+                          }
                         >
-                          {isWishlisted(product.id!) ? <FaStar /> : <FaRegStar />}
+                          {isWishlisted(product.id!) ? (
+                            <FaStar />
+                          ) : (
+                            <FaRegStar />
+                          )}
                         </button>
                       )}
                     </TableCell>
@@ -307,8 +339,8 @@ const Product: React.FC = () => {
       ),
     },
     {
-      id: 'wishlist',
-      label: 'Wishlist',
+      id: "wishlist",
+      label: "Wishlist",
       // Pass the *entire* list of products to WishlistTab, it will filter them
       component: <WishlistTab allProducts={products} />,
     },
@@ -337,12 +369,45 @@ const Product: React.FC = () => {
         </DialogTitle>
         <DialogContent>
           <form onSubmit={handleSubmit}>
-            <TextField label="Emri i Produktit" name="productName" value={formData.productName || ""} onChange={handleChange} fullWidth required margin="normal" />
-            <TextField label="Përshkrimi" name="description" value={formData.description || ""} onChange={handleChange} fullWidth required margin="normal" multiline rows={3} />
-            <TextField label="Çmimi" name="price" type="number" value={formData.price || ""} onChange={handleChange} fullWidth required margin="normal" />
+            <TextField
+              label="Emri i Produktit"
+              name="productName"
+              value={formData.productName || ""}
+              onChange={handleChange}
+              fullWidth
+              required
+              margin="normal"
+            />
+            <TextField
+              label="Përshkrimi"
+              name="description"
+              value={formData.description || ""}
+              onChange={handleChange}
+              fullWidth
+              required
+              margin="normal"
+              multiline
+              rows={3}
+            />
+            <TextField
+              label="Çmimi"
+              name="price"
+              type="number"
+              value={formData.price || ""}
+              onChange={handleChange}
+              fullWidth
+              required
+              margin="normal"
+            />
             <FormControl fullWidth margin="normal" required>
               <InputLabel id="category-label">Kategoria</InputLabel>
-              <Select labelId="category-label" name="categoryId" value={formData.categoryId || ""} label="Kategoria" onChange={handleCategoryChange}>
+              <Select
+                labelId="category-label"
+                name="categoryId"
+                value={formData.categoryId || ""}
+                label="Kategoria"
+                onChange={handleCategoryChange}
+              >
                 {categories.map((category) => (
                   <MenuItem key={category.id} value={category.id}>
                     {category.categoryName}
@@ -350,17 +415,43 @@ const Product: React.FC = () => {
                 ))}
               </Select>
             </FormControl>
-            <Button variant="outlined" component="label" sx={{ mt: 2 }}> Ngarko Foto
-              <input type="file" hidden accept="image/*" onChange={handleFileChange} />
+            <Button variant="outlined" component="label" sx={{ mt: 2 }}>
+              {" "}
+              Ngarko Foto
+              <input
+                type="file"
+                hidden
+                accept="image/*"
+                onChange={handleFileChange}
+              />
             </Button>
             {formData.imageUrl && (
-              <Paper variant="outlined" sx={{ mt: 2, p: 1, borderRadius: 2, display: "flex", justifyContent: "center", }}>
-                <img src={formData.imageUrl} alt="Preview" style={{ maxWidth: "100%", maxHeight: 200, borderRadius: 8 }} />
+              <Paper
+                variant="outlined"
+                sx={{
+                  mt: 2,
+                  p: 1,
+                  borderRadius: 2,
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <img
+                  src={formData.imageUrl}
+                  alt="Preview"
+                  style={{ maxWidth: "100%", maxHeight: 200, borderRadius: 8 }}
+                />
               </Paper>
             )}
             <DialogActions sx={{ mt: 2 }}>
-              <Button onClick={() => setOpenModal(false)} color="secondary"> Anulo </Button>
-              <Button type="submit" variant="contained" color="primary"> Ruaj </Button>
+              <Button onClick={() => setOpenModal(false)} color="secondary">
+                {" "}
+                Anulo{" "}
+              </Button>
+              <Button type="submit" variant="contained" color="primary">
+                {" "}
+                Ruaj{" "}
+              </Button>
             </DialogActions>
           </form>
         </DialogContent>

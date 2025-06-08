@@ -54,7 +54,7 @@ export const refreshToken = async (): Promise<boolean> => {
       {},
       {
         headers: {
-          refreshtoken: token,
+          refreshToken: token,
         },
       }
     );
@@ -64,9 +64,17 @@ export const refreshToken = async (): Promise<boolean> => {
     setSession(accessToken, newRefreshToken);
 
     return true;
-  } catch (error) {
+  } catch (error: any) {
     console.error("Failed to refresh token:", error);
-    removeSession();
+
+    const status = error?.response?.status;
+
+    if (status === 401 || status === 403) {
+      removeSession();
+    } else {
+      console.warn("Non-auth error during refresh, skipping logout.");
+    }
+
     return false;
   }
 };

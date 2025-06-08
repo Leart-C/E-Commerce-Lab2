@@ -4,6 +4,7 @@ using backend.Core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace backend.Controllers
 {
@@ -147,15 +148,48 @@ namespace backend.Controllers
         [HttpPost("refresh-token")]
         public async Task<IActionResult> RefreshToken([FromHeader(Name = "refreshToken")] string refreshToken)
         {
-            var newAccessToken = await _authService.RefreshAccessTokenAsync(refreshToken);
+            if (string.IsNullOrEmpty(refreshToken))
+                return BadRequest("Refresh token is missing.");
 
-            if (newAccessToken == null)
+            var tokenResult = await _authService.RefreshAccessTokenAsync(refreshToken);
+
+            if (tokenResult == null)
             {
                 return Unauthorized("Invalid or expired refresh token.");
             }
 
-            return Ok(new { AccessToken = newAccessToken });
+            return Ok(new
+            {
+                AccessToken = tokenResult.AccessToken,
+                RefreshToken = tokenResult.RefreshToken
+            });
         }
+
+        [HttpGet("me")]
+        public async Task<ActionResult<LoginServiceResponseDto>> Me()
+        {
+            try
+            {
+                var authHeader = Request.Headers["Authorization"].ToString();
+                if (string.IsNullOrEmpty(authHeader) || !authHeader.StartsWith("Bearer "))
+                    return Unauthorized("NoToken");
+
+                var token = authHeader.Replace("Bearer ", "");
+                var me = await _authService.MeAsync(new MeDto { Token = token });
+
+                if (me is not null)
+                    return Ok(me);
+
+                return Unauthorized("InvalidToken");
+            }
+            catch
+            {
+                return Unauthorized("InvalidToken");
+            }
+        }
+
+
+
 
 
 

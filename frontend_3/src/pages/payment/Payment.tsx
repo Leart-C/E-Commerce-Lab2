@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axiosInstance from "../../auth/axiosInstance";
+import axiosInstance from "../../utils/axiosInstance";
 import {
   Dialog,
   DialogActions,

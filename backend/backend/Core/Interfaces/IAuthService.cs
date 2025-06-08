@@ -1,4 +1,5 @@
-﻿using backend.Core.Dtos.Auth;
+﻿using backend.Core.Dtos;
+using backend.Core.Dtos.Auth;
 using backend.Core.Dtos.Generals;
 using System.Security.Claims;
 
@@ -15,7 +16,7 @@ namespace backend.Core.Interfaces
         Task<IEnumerable<UserInfoResult>>GetUsersListAsync();
         Task<UserInfoResult> GetUserDetailsByUserNameAsync(string userName);
         Task<IEnumerable<string>> GetUsernamesListAsync();
-        Task<string?> RefreshAccessTokenAsync(string refreshToken);
+        Task<TokenResponseDto?> RefreshAccessTokenAsync(string refreshToken);
 
     }
 }

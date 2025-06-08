@@ -1,4 +1,6 @@
 ﻿using backend.Core.Constants;
+using backend.Core.DbContext;
+using backend.Core.Dtos;
 using backend.Core.Dtos.Auth;
 using backend.Core.Dtos.Generals;
 using backend.Core.Entities;
@@ -7,6 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
 using Microsoft.IdentityModel.Tokens;
+using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -21,12 +24,17 @@ namespace backend.Core.Services
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly ILogService _logService;
         private readonly IConfiguration _configuration;
-        public AuthService(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, ILogService logService, IConfiguration configuration)
+        private readonly ApplicationDbContext _dbContext;
+        private readonly ITokenService _tokenService;
+        public AuthService(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, ILogService logService, IConfiguration configuration, ApplicationDbContext dbContext, ITokenService tokenService)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _logService = logService;
             _configuration = configuration;
+            _dbContext = dbContext;
+            _tokenService = tokenService;
+
         }
 
         public async Task<UserInfoResult?> GetUserDetailsByUserNameAsync(string userName)
@@ -95,6 +103,7 @@ namespace backend.Core.Services
             {
                 NewToken = newToken,
                 UserInfo = userInfo
+
             };
         }
 
@@ -199,7 +208,7 @@ namespace backend.Core.Services
             {
                 UserId = user.Id,
                 Token = refreshToken,
-                ExpiryDate = DateTime.UtcNow.AddDays(7),
+                ExpiresAt = DateTime.UtcNow.AddDays(7),
                 IsRevoked = false
             });
 
@@ -372,7 +381,7 @@ namespace backend.Core.Services
                 issuer: _configuration["JWT:ValidIssuer"],
                 audience: _configuration["JWT:ValidAudience"],
                 notBefore:DateTime.Now,
-                expires:DateTime.Now.AddHours(1),
+                expires:DateTime.Now.AddMinutes(15),
                 claims:authClaims,
                 signingCredentials:signingCredentials
                 
@@ -398,48 +407,50 @@ namespace backend.Core.Services
             };
         }
 
-        public async Task<string?> RefreshAccessTokenAsync(string refreshToken)
+        public async Task<TokenResponseDto?> RefreshAccessTokenAsync(string oldRefreshToken)
         {
-            // Gjejmë përdoruesin që ka këtë token
-            var user = await _userManager.Users
-                .Include(u => u.RefreshTokens)
-                .FirstOrDefaultAsync(u => u.RefreshTokens.Any(t => t.Token == refreshToken));
+            // Gjej tokenin në DB
+            var refreshTokenInDb = await _dbContext.RefreshTokens
+                .FirstOrDefaultAsync(r => r.Token == oldRefreshToken && !r.IsRevoked && r.ExpiresAt > DateTime.UtcNow);
 
+            if (refreshTokenInDb == null)
+                return null;
+
+            // Gjej përdoruesin
+            var user = await _dbContext.Users.FindAsync(refreshTokenInDb.UserId);
             if (user == null)
                 return null;
 
-            var tokenEntity = user.RefreshTokens.FirstOrDefault(t => t.Token == refreshToken);
+            // Gjen gjeneron accessToken dhe refreshToken të ri
+            var newAccessToken = _tokenService.GenerateAccessToken(user);
+            var newRefreshToken = _tokenService.GenerateRefreshToken();
 
-            // Validime për tokenin
-            if (tokenEntity == null || tokenEntity.IsRevoked || tokenEntity.ExpiryDate < DateTime.UtcNow)
-                return null;
+            // Shëno tokenin e vjetër si të përdorur
+            refreshTokenInDb.IsRevoked = true;
 
-            // Gjenerojmë JWT të ri
-            var newJwt = await GenerateJWTTokenAsync(user);
-
-            // Opsionale: Mund të gjenerosh edhe një RefreshToken të ri
-            var newRefreshToken = GenerateRefreshToken();
-            tokenEntity.IsRevoked = true;
-
-            user.RefreshTokens.Add(new RefreshToken
+            // Ruaj tokenin e ri në DB
+            await _dbContext.RefreshTokens.AddAsync(new RefreshToken
             {
                 Token = newRefreshToken,
                 UserId = user.Id,
-                ExpiryDate = DateTime.UtcNow.AddDays(7),
-                IsRevoked = false
+                CreatedAt = DateTime.UtcNow,
+                ExpiresAt = DateTime.UtcNow.AddDays(7)
             });
 
-            await _userManager.UpdateAsync(user);
-            await _logService.SaveNewLog(user.UserName, "Access token refreshed");
+            await _dbContext.SaveChangesAsync();
 
-            return newJwt;
+            return new TokenResponseDto
+            {
+                AccessToken = newAccessToken,
+                RefreshToken = newRefreshToken
+            };
         }
 
 
 
         private string GenerateRefreshToken()
         {
-            return Convert.ToBase64String(RandomNumberGenerator.GetBytes(64));
+            return Convert.ToBase64String(Guid.NewGuid().ToByteArray());
         }
 
     }

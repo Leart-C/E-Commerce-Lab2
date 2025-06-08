@@ -13,7 +13,7 @@ import {
   TextField,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import axiosInstance from "../../auth/axiosInstance";
+import axiosInstance from "../../utils/axiosInstance";
 
 interface Product {
   id: string;
@@ -125,7 +125,7 @@ const ProductReview: React.FC = () => {
                 borderRadius: 3,
                 boxShadow: 3,
                 transition: "0.3s",
-                '&:hover': {
+                "&:hover": {
                   transform: "translateY(-5px)",
                   boxShadow: 6,
                 },
@@ -155,10 +155,15 @@ const ProductReview: React.FC = () => {
         ))}
       </Grid>
 
-      <Dialog open={openModal} onClose={handleCloseModal} fullWidth maxWidth="sm">
+      <Dialog
+        open={openModal}
+        onClose={handleCloseModal}
+        fullWidth
+        maxWidth="sm"
+      >
         <DialogTitle fontWeight={600}>Shto Review</DialogTitle>
         <DialogContent>
-{/*           <TextField
+          {/*           <TextField
             label="Emri"
             fullWidth
             margin="dense"

@@ -21,7 +21,7 @@ import {
   FormControl,
   InputLabel,
 } from "@mui/material";
-import axiosInstance from "../../auth/axiosInstance";
+import axiosInstance from "../../utils/axiosInstance";
 
 interface OrderListDto {
   id: number;
@@ -50,7 +50,9 @@ interface ShippingAddressDto {
 
 const Order: React.FC = () => {
   const [orders, setOrders] = useState<OrderListDto[]>([]);
-  const [shippingAddresses, setShippingAddresses] = useState<ShippingAddressDto[]>([]);
+  const [shippingAddresses, setShippingAddresses] = useState<
+    ShippingAddressDto[]
+  >([]);
   const [formData, setFormData] = useState<Partial<OrderDto>>({});
   const [editingId, setEditingId] = useState<number | null>(null);
   const [openModal, setOpenModal] = useState(false);
@@ -93,7 +95,9 @@ const Order: React.FC = () => {
     return `${addr.street}, ${addr.city}`;
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | { name?: string; value: unknown }>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | { name?: string; value: unknown }>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -340,7 +344,12 @@ const Order: React.FC = () => {
           <Button onClick={() => setOpenModal(false)} color="secondary">
             Anulo
           </Button>
-          <Button type="submit" form="order-form" variant="contained" color="primary">
+          <Button
+            type="submit"
+            form="order-form"
+            variant="contained"
+            color="primary"
+          >
             {editingId ? "Ruaj Ndryshimet" : "Shto"}
           </Button>
         </DialogActions>

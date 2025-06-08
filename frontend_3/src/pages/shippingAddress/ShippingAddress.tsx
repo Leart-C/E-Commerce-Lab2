@@ -21,7 +21,7 @@ import {
   FormControl,
   InputLabel,
 } from "@mui/material";
-import axiosInstance from "../../auth/axiosInstance";
+import axiosInstance from "../../utils/axiosInstance";
 
 interface ShippingAddressDto {
   id: number;
@@ -78,7 +78,7 @@ const ShippingAddress: React.FC = () => {
 
   const getUsernameById = (userId: string): string => {
     console.log("Looking for userId:", userId, "in users:", users); // Debug log
-    const user = users.find(u => u.id === userId);
+    const user = users.find((u) => u.id === userId);
     return user ? user.userName : `User ID: ${userId}`;
   };
 
@@ -291,7 +291,7 @@ const ShippingAddress: React.FC = () => {
               required
               margin="normal"
             />
-            
+
             <FormControl fullWidth margin="normal" required>
               <InputLabel>User</InputLabel>
               <Select

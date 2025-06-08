@@ -3,7 +3,7 @@ import { PATH_DASHBOARD, PATH_PUBLIC } from "../routes/paths";
 export const HOST_API_KEY = "https://localhost:7039/api";
 export const REGISTER_URL = "/api/Auth/register";
 export const LOGIN_URL = "/api/Auth/login";
-export const ME_URL = "/Auth/me";
+export const ME_URL = "/api/Auth/me";
 export const USERS_LIST_URL = "/api/Auth/users";
 export const UPDATE_ROLE_URL = "/api/Auth/update-role";
 export const USERNAMES_LIST_URL = "/Auth/usernames";

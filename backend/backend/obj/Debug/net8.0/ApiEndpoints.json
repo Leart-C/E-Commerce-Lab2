@@ -69,6 +69,26 @@
   },
   {
     "ContainingType": "backend.Controllers.AuthController",
+    "Method": "Me",
+    "RelativePath": "api/Auth/me",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "backend.Core.Dtos.Auth.LoginServiceResponseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "backend.Controllers.AuthController",
     "Method": "RefreshToken",
     "RelativePath": "api/Auth/refresh-token",
     "HttpMethod": "POST",

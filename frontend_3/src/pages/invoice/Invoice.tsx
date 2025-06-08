@@ -16,7 +16,7 @@ import {
   Paper,
   Stack,
 } from "@mui/material";
-import axiosInstance from "../../auth/axiosInstance";
+import axiosInstance from "../../utils/axiosInstance";
 
 interface InvoiceDto {
   id: number;
