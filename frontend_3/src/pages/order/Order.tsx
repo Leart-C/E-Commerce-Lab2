@@ -36,6 +36,7 @@ interface OrderDto {
   shippingAddressId: number;
   status: string;
   totalPrice: number;
+  userName?: string;
 }
 
 interface ShippingAddressDto {
@@ -48,23 +49,44 @@ interface ShippingAddressDto {
   userId: string;
 }
 
+interface UserDto {
+  id: string;
+  userName: string;
+}
+
+enum OrderStatus {
+  Active = "active",
+  Declined = "declined",
+  Pending = "pending",
+}
+
 const Order: React.FC = () => {
   const [orders, setOrders] = useState<OrderListDto[]>([]);
-  const [shippingAddresses, setShippingAddresses] = useState<
-    ShippingAddressDto[]
-  >([]);
+  const [shippingAddresses, setShippingAddresses] = useState<ShippingAddressDto[]>([]);
   const [formData, setFormData] = useState<Partial<OrderDto>>({});
   const [editingId, setEditingId] = useState<number | null>(null);
   const [openModal, setOpenModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [users, setUsers] = useState<UserDto[]>([]);
 
-  const apiUrl = "https://localhost:7039/api/Order";
-  const shippingApiUrl = "https://localhost:7039/api/ShippingAddress";
+  const apiUrl = "/api/Order";
+  const shippingApiUrl = "/api/ShippingAddress";
+  const usersApiUrl = "/api/Auth/users";
 
   useEffect(() => {
     fetchOrders();
     fetchShippingAddresses();
+    fetchUsers();
   }, []);
+
+  const fetchUsers = async () => {
+    try {
+      const response = await axiosInstance.get(usersApiUrl);
+      setUsers(response.data);
+    } catch (error) {
+      console.error("Gabim gjatë marrjes së përdoruesve:", error);
+    }
+  };
 
   const fetchOrders = async () => {
     try {
@@ -88,10 +110,9 @@ const Order: React.FC = () => {
     }
   };
 
-  // Për të marrë rrugën nga ID-ja
   const getStreetById = (id: number): string => {
     const addr = shippingAddresses.find((a) => a.id === id);
-    if (!addr) return `ID: ${id}`;
+    if (!addr) return `${id}`;
     return `${addr.street}, ${addr.city}`;
   };
 
@@ -101,43 +122,43 @@ const Order: React.FC = () => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name!]:
-        name === "totalPrice" || name === "shippingAddressId"
-          ? Number(value)
-          : value,
+      [name!]: name === "totalPrice" || name === "shippingAddressId" ? Number(value) : value,
     }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const token = localStorage.getItem("accessToken");
 
-    if (!token) {
-      setErrorMessage(
-        "Ju duhet të jeni i loguar për të krijuar/ndryshuar porosi."
-      );
+    if (!formData.shippingAddressId || !formData.status || !formData.totalPrice) {
+      setErrorMessage("Ju lutem plotësoni të gjitha fushat e kërkuara.");
       return;
     }
 
     try {
       const requestData = {
-        shippingAddressId: formData.shippingAddressId!,
-        status: formData.status!,
-        totalPrice: formData.totalPrice!,
+        shippingAddressId: formData.shippingAddressId,
+        status: formData.status,
+        totalPrice: formData.totalPrice,
       };
 
       if (editingId !== null) {
+        // EDITIM
         await axiosInstance.put(
           `${apiUrl}/${editingId}`,
-          { id: editingId, ...requestData },
-          { headers: { Authorization: `Bearer ${token}` } }
+          { id: editingId, ...requestData }
         );
-        Swal.fire("Sukses", "Porosia u përditësua me sukses.", "success");
       } else {
-        await axiosInstance.post(apiUrl, requestData, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        Swal.fire("Sukses", "Porosia u shtua me sukses.", "success");
+        // SHTIM
+        if (!formData.userName) {
+          setErrorMessage("Ju lutem zgjidhni një përdorues për porosinë.");
+          return;
+        }
+        await axiosInstance.post(apiUrl,
+          {
+            ...requestData,
+            userName: formData.userName, // me N të madhe, siç e kërkon backend-i
+          }
+        );
       }
 
       setFormData({});
@@ -147,11 +168,7 @@ const Order: React.FC = () => {
       fetchOrders();
     } catch (error: any) {
       console.error("Gabim gjatë ruajtjes së porosisë:", error);
-      Swal.fire(
-        "Gabim",
-        "Ndodhi një gabim gjatë ruajtjes së porosisë.",
-        "error"
-      );
+      Swal.fire("Gabim", "Ndodhi një gabim gjatë ruajtjes së porosisë.", "error");
     }
   };
 
@@ -161,6 +178,7 @@ const Order: React.FC = () => {
       shippingAddressId: order.shippingAddressId,
       status: order.status,
       totalPrice: order.totalPrice,
+      userName: order.username, // për editim mos e ndryshoj username
     });
     setEditingId(order.id);
     setOpenModal(true);
@@ -173,13 +191,6 @@ const Order: React.FC = () => {
   };
 
   const handleDelete = async (id: number) => {
-    const token = localStorage.getItem("accessToken");
-
-    if (!token) {
-      setErrorMessage("Ju duhet të jeni i loguar për të fshirë porosi.");
-      return;
-    }
-
     const confirm = await Swal.fire({
       title: "A jeni i sigurt?",
       text: "Kjo porosi do të fshihet përgjithmonë!",
@@ -193,18 +204,12 @@ const Order: React.FC = () => {
 
     if (confirm.isConfirmed) {
       try {
-        await axiosInstance.delete(`${apiUrl}/${id}`, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        await axiosInstance.delete(`${apiUrl}/${id}`);
         Swal.fire("Fshirë!", "Porosia u fshi me sukses.", "success");
         fetchOrders();
       } catch (error: any) {
         console.error("Gabim gjatë fshirjes së porosisë:", error);
-        Swal.fire(
-          "Gabim",
-          "Ndodhi një gabim gjatë fshirjes së porosisë.",
-          "error"
-        );
+        Swal.fire("Gabim", "Ndodhi një gabim gjatë fshirjes së porosisë.", "error");
       }
     }
   };
@@ -215,69 +220,36 @@ const Order: React.FC = () => {
         Menaxhimi i Porosive
       </h2>
 
-      {errorMessage && (
-        <Alert severity="error" sx={{ mb: 2 }}>
-          {errorMessage}
-        </Alert>
-      )}
+      {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
 
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={handleAdd}
-        sx={{ mb: 2 }}
-      >
+      <Button variant="contained" color="primary" onClick={handleAdd} style={{ marginBottom: "20px" }}>
         Shto Porosi
       </Button>
 
-      <TableContainer component={Paper} sx={{ marginTop: 3 }}>
+      <TableContainer component={Paper}>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>
-                <strong>ID</strong>
-              </TableCell>
-              <TableCell>
-                <strong>Username</strong>
-              </TableCell>
-              <TableCell>
-                <strong>Shipping Address</strong>
-              </TableCell>
-              <TableCell>
-                <strong>Status</strong>
-              </TableCell>
-              <TableCell>
-                <strong>Totali</strong>
-              </TableCell>
-              <TableCell>
-                <strong>Veprime</strong>
-              </TableCell>
+              <TableCell>ID</TableCell>
+              <TableCell>Username</TableCell>
+              <TableCell>Adresa e Transportit</TableCell>
+              <TableCell>Statusi</TableCell>
+              <TableCell>Totali</TableCell>
+              <TableCell>Veprime</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {orders.map((order) => (
               <TableRow key={order.id}>
                 <TableCell>{order.id}</TableCell>
-                <TableCell>{order.username || "Anonim"}</TableCell>
+                <TableCell>{order.username}</TableCell>
                 <TableCell>{getStreetById(order.shippingAddressId)}</TableCell>
                 <TableCell>{order.status}</TableCell>
                 <TableCell>{order.totalPrice}</TableCell>
                 <TableCell>
                   <Stack direction="row" spacing={1}>
-                    <Button
-                      onClick={() => handleEdit(order)}
-                      variant="outlined"
-                      color="primary"
-                    >
-                      Edito
-                    </Button>
-                    <Button
-                      onClick={() => handleDelete(order.id)}
-                      variant="outlined"
-                      color="error"
-                    >
-                      Fshi
-                    </Button>
+                    <Button variant="outlined" onClick={() => handleEdit(order)}>Edito</Button>
+                    <Button variant="outlined" color="error" onClick={() => handleDelete(order.id)}>Fshij</Button>
                   </Stack>
                 </TableCell>
               </TableRow>
@@ -286,26 +258,35 @@ const Order: React.FC = () => {
         </Table>
       </TableContainer>
 
-      {/* Modal */}
-      <Dialog
-        open={openModal}
-        onClose={() => setOpenModal(false)}
-        maxWidth="sm"
-        fullWidth
-      >
-        <DialogTitle>
-          {editingId ? "Ndrysho Porosin" : "Shto Porosi"}
-        </DialogTitle>
-        <DialogContent>
-          <form id="order-form" onSubmit={handleSubmit}>
+      <Dialog open={openModal} onClose={() => setOpenModal(false)}>
+        <DialogTitle>{editingId !== null ? "Edito Porosinë" : "Shto Porosi"}</DialogTitle>
+        <form onSubmit={handleSubmit}>
+          <DialogContent>
+            {editingId === null && (
+              <FormControl fullWidth margin="normal">
+                <InputLabel id="username-label">Përdoruesi</InputLabel>
+                <Select
+                  labelId="username-label"
+                  name="userName"
+                  value={formData.userName || ""}
+                  onChange={handleChange}
+                  required
+                >
+                  {users.map((user) => (
+                    <MenuItem key={user.id} value={user.userName}>
+                      {user.userName}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            )}
+
             <FormControl fullWidth margin="normal">
-              <InputLabel id="shipping-label">Adresa e Transportit</InputLabel>
+              <InputLabel id="address-label">Adresa e Transportit</InputLabel>
               <Select
-                labelId="shipping-label"
-                id="shippingAddressId"
+                labelId="address-label"
                 name="shippingAddressId"
-                value={formData.shippingAddressId ?? ""}
-                label="Adresa e Transportit"
+                value={formData.shippingAddressId || ""}
                 onChange={handleChange}
                 required
               >
@@ -317,42 +298,41 @@ const Order: React.FC = () => {
               </Select>
             </FormControl>
 
-            <TextField
-              margin="normal"
-              label="Statusi"
-              name="status"
-              value={formData.status ?? ""}
-              onChange={handleChange}
-              fullWidth
-              required
-            />
+            <FormControl fullWidth margin="normal">
+              <InputLabel id="status-label">Statusi</InputLabel>
+              <Select
+                labelId="status-label"
+                name="status"
+                value={formData.status || ""}
+                onChange={handleChange}
+                required
+              >
+                {Object.values(OrderStatus).map((status) => (
+                  <MenuItem key={status} value={status}>
+                    {status}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
 
             <TextField
-              margin="normal"
-              label="Totali"
               name="totalPrice"
+              label="Totali"
               type="number"
-              inputProps={{ step: "0.01" }}
-              value={formData.totalPrice ?? ""}
-              onChange={handleChange}
               fullWidth
+              margin="normal"
+              value={formData.totalPrice || ""}
+              onChange={handleChange}
               required
             />
-          </form>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setOpenModal(false)} color="secondary">
-            Anulo
-          </Button>
-          <Button
-            type="submit"
-            form="order-form"
-            variant="contained"
-            color="primary"
-          >
-            {editingId ? "Ruaj Ndryshimet" : "Shto"}
-          </Button>
-        </DialogActions>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={() => setOpenModal(false)}>Anulo</Button>
+            <Button type="submit" variant="contained" color="primary">
+              Ruaj
+            </Button>
+          </DialogActions>
+        </form>
       </Dialog>
     </div>
   );

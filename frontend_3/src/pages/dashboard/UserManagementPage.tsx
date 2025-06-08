@@ -20,7 +20,6 @@ const UserManagementPage = () => {
       const { data } = response;
       setUsers(data);
       setLoading(false);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       toast.error('An Error happened. Please Contact admins');
       setLoading(false);
@@ -33,21 +32,32 @@ const UserManagementPage = () => {
 
   if (loading) {
     return (
-      <div className='w-full'>
+      <div className="w-full min-h-[300px] flex justify-center items-center">
         <Spinner />
       </div>
     );
   }
 
   return (
-    <div className='pageTemplate2'>
-      <h1 className='text-2xl font-bold'>Users Management</h1>
+    <div className="max-w-7xl mx-auto p-6 bg-white rounded-lg shadow-md mt-12">
+      <h1 className="text-4xl font-extrabold text-blue-800 mb-8 border-b-4 border-blue-400 pb-2">
+        Users Management
+      </h1>
+
       <UserCountSection usersList={users} />
-      <div className='grid grid-cols-1 lg:grid-cols-4 gap-x-4'>
-        <UserChartSection usersList={users} />
-        <LatestUsersSection usersList={users} />
+
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 my-8">
+        <div className="lg:col-span-2 bg-blue-50 p-6 rounded-lg shadow-sm border border-blue-200">
+          <UserChartSection usersList={users} />
+        </div>
+        <div className="lg:col-span-2 bg-blue-50 p-6 rounded-lg shadow-sm border border-blue-200">
+          <LatestUsersSection usersList={users} />
+        </div>
       </div>
-      <UsersTableSection usersList={users} />
+
+      <div className="bg-blue-50 p-4 rounded-lg shadow-sm border border-blue-200">
+        <UsersTableSection usersList={users} />
+      </div>
     </div>
   );
 };
